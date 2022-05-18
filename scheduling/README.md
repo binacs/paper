@@ -14,6 +14,10 @@ Paper link: **[PDF]** [Mesos: A platform for fine-grained resource sharing in th
 
 Paper link: [Apache hadoop yarn: Yet another resource negotiator](https://dl.acm.org/doi/abs/10.1145/2523616.2523633)
 
+## Microsoft Apollo
+
+Paper link: [Apollo: Scalable and Coordinated Scheduling for Cloud-Scale Computing](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-boutin_0.pdf)
+
 ## Sth
 
 **[HTML]** [Borg, omega, and kubernetes](https://dl.acm.org/doi/fullHtml/10.1145/2890784)
