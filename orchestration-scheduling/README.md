@@ -26,6 +26,16 @@ Paper link: [Apollo: Scalable and Coordinated Scheduling for Cloud-Scale Computi
 
 Paper link: [Titus: Introducing Containers to the Netflix Cloud](https://dl.acm.org/doi/pdf/10.1145/3155112.3158370)
 
+## UC Berkeley RAD Lab Sparrow
+
+Paper link: [Sparrow: Distributed, Low Latency Scheduling](https://people.eecs.berkeley.edu/~matei/papers/2013/sosp_sparrow.pdf)
+
+GitHub: [sparrow](https://github.com/radlab/sparrow)
+
+## Meta [Twine](https://research.facebook.com/publications/twine-a-unified-cluster-management-system-for-shared-infrastructure/)
+
+Paper link: [Twine: A Unified Cluster Management System for Shared Infrastructure](https://scontent-hkg4-1.xx.fbcdn.net/v/t39.8562-6/240836403_389005185950985_6091829722024266146_n.pdf?_nc_cat%253D107%2526ccb%253D1-7%2526_nc_sid%253Dad8a9d%2526_nc_ohc%253DpuRMXT9tlHwAX91nhFG%2526_nc_ht%253Dscontent-hkg4-1.xx%2526oh%253D00_AfBV1K6uvnyJul0WdWH6jV7skewS7kamLPYKPF64MK3Y-Q%2526oe%253D65204DC6)
+
 ## Misc
 
 **[HTML]** [Borg, omega, and kubernetes](https://dl.acm.org/doi/fullHtml/10.1145/2890784) or [Borg, omega, and kubernetes](https://queue.acm.org/detail.cfm?id=2898444)
