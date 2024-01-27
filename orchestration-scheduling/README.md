@@ -75,3 +75,5 @@ Paper link: [Twine: A Unified Cluster Management System for Shared Infrastructur
 ## Misc
 
 [Building Scalable and Flexible Cluster Managers Using Declarative Programming](https://www.usenix.org/system/files/osdi20-suresh.pdf)
+
+[SelfTune: Tuning Cluster Managers](https://www.usenix.org/system/files/nsdi23-karthikeyan.pdf)
