@@ -1,5 +1,9 @@
 # Scheduling System
 
+## * ByteDance Gödel
+
+Paper link: [Gödel: Unified Large-Scale Resource Management and Scheduling at ByteDance](https://dl.acm.org/doi/abs/10.1145/3620678.3624663)
+
 ## Google Borg
 
 Paper link: [Large-scale cluster management at Google with Borg](https://dl.acm.org/doi/abs/10.1145/2741948.2741964)
@@ -21,6 +25,10 @@ Paper link: [Apache hadoop yarn: Yet another resource negotiator](https://dl.acm
 ## Microsoft Apollo
 
 Paper link: [Apollo: Scalable and Coordinated Scheduling for Cloud-Scale Computing](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-boutin_0.pdf)
+
+## Microsoft Protean
+
+Paper link: [Protean: VM Allocation Service at Scale](https://www.usenix.org/system/files/osdi20-hadary.pdf)
 
 ## Netflix Titus
 

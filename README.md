@@ -1,2 +1,2 @@
 # paper
-Papers resource
+Paper resources
