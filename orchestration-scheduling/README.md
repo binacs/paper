@@ -91,3 +91,9 @@ Paper link: [MAST: Global Scheduling of ML Training across Geo-Distributed Datac
 [Building Scalable and Flexible Cluster Managers Using Declarative Programming](https://www.usenix.org/system/files/osdi20-suresh.pdf)
 
 [SelfTune: Tuning Cluster Managers](https://www.usenix.org/system/files/nsdi23-karthikeyan.pdf)
+
+
+
+## * Blogs
+
+[65,000 nodes and counting: Google Kubernetes Engine is ready for trillion-parameter AI models](https://cloud.google.com/blog/products/containers-kubernetes/gke-65k-nodes-and-counting)
