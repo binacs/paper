@@ -2,7 +2,7 @@
 
 ## ORCID
 
-https://orcid.org/my-orcid?orcid%253D0009-0002-7817-5479
+https://orcid.org/0009-0002-7817-5479
 
 ## growkudos
 
