@@ -4,6 +4,8 @@
 
 Paper link: [Gödel: Unified Large-Scale Resource Management and Scheduling at ByteDance](https://dl.acm.org/doi/abs/10.1145/3620678.3624663)
 
+Paper link: [From Bottleneck to Breakthrough: Optimizing Scheduling for Hyperscale Containerized Clusters](https://dl.acm.org/doi/10.1145/3772052.3772240)
+
 ## Google Borg
 
 Paper link: [Large-scale cluster management at Google with Borg](https://dl.acm.org/doi/abs/10.1145/2741948.2741964)
