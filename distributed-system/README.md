@@ -107,4 +107,11 @@ Paper link: [CvxCluster: Solving Large, Complex, Granular Resource Allocation Pr
 
 Analysis: [cvxcluster/2605.01614-cvxcluster-solving-large-complex-granular-resource-allocation-problems.md](cvxcluster/2605.01614-cvxcluster-solving-large-complex-granular-resource-allocation-problems.md)
 
+
+## Position: LLM Serving Needs Mathematical Optimization and Algorithmic Foundations, Not Just Heuristics
+
+Paper link: [Position: LLM Serving Needs Mathematical Optimization and Algorithmic Foundations, Not Just Heuristics](https://arxiv.org/abs/2605.01280)
+
+Analysis: [misc/2605.01280-position-llm-serving-needs-mathematical-optimization-and-algorithmic.md](misc/2605.01280-position-llm-serving-needs-mathematical-optimization-and-algorithmic.md)
+
 <!-- paper-bot:end -->
