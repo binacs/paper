@@ -79,4 +79,11 @@ Paper link: [Distributed Observer-based Fault Detection over Intelligent Network
 
 Analysis: [misc/2605.02235-distributed-observer-based-fault-detection-over-intelligent-networked.md](misc/2605.02235-distributed-observer-based-fault-detection-over-intelligent-networked.md)
 
+
+## AAFLOW: Scalable Patterns for Agentic AI Workflows
+
+Paper link: [AAFLOW: Scalable Patterns for Agentic AI Workflows](https://arxiv.org/abs/2605.02162)
+
+Analysis: [aaflow/2605.02162-aaflow-scalable-patterns-for-agentic-ai-workflows.md](aaflow/2605.02162-aaflow-scalable-patterns-for-agentic-ai-workflows.md)
+
 <!-- paper-bot:end -->
