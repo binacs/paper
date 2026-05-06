@@ -100,4 +100,11 @@ Paper link: [Joint Temporal-Structural Representation Learning for Distributed F
 
 Analysis: [misc/2605.01776-joint-temporal-structural-representation-learning-for-distributed-fault.md](misc/2605.01776-joint-temporal-structural-representation-learning-for-distributed-fault.md)
 
+
+## CvxCluster: Solving Large, Complex, Granular Resource Allocation Problems 100-1000x Faster
+
+Paper link: [CvxCluster: Solving Large, Complex, Granular Resource Allocation Problems 100-1000x Faster](https://arxiv.org/abs/2605.01614)
+
+Analysis: [cvxcluster/2605.01614-cvxcluster-solving-large-complex-granular-resource-allocation-problems.md](cvxcluster/2605.01614-cvxcluster-solving-large-complex-granular-resource-allocation-problems.md)
+
 <!-- paper-bot:end -->
