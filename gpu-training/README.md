@@ -35,4 +35,11 @@ Paper link: [PipeMax: Enhancing Offline LLM Inference on Commodity GPU Servers](
 
 Analysis: [pipemax/2605.02189-pipemax-enhancing-offline-llm-inference-on-commodity-gpu.md](pipemax/2605.02189-pipemax-enhancing-offline-llm-inference-on-commodity-gpu.md)
 
+
+## Cross-Layer Energy Analysis of Multimodal Training on Grace Hopper Superchips
+
+Paper link: [Cross-Layer Energy Analysis of Multimodal Training on Grace Hopper Superchips](https://arxiv.org/abs/2605.01938)
+
+Analysis: [misc/2605.01938-cross-layer-energy-analysis-of-multimodal-training-on.md](misc/2605.01938-cross-layer-energy-analysis-of-multimodal-training-on.md)
+
 <!-- paper-bot:end -->
