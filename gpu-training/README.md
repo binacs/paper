@@ -28,4 +28,11 @@ Paper link: [Taming Request Imbalance: SLO-Aware Scheduling for Disaggregated LL
 
 Analysis: [kairos/2605.02329-taming-request-imbalance-slo-aware-scheduling-for-disaggregated.md](kairos/2605.02329-taming-request-imbalance-slo-aware-scheduling-for-disaggregated.md)
 
+
+## PipeMax: Enhancing Offline LLM Inference on Commodity GPU Servers
+
+Paper link: [PipeMax: Enhancing Offline LLM Inference on Commodity GPU Servers](https://arxiv.org/abs/2605.02189)
+
+Analysis: [pipemax/2605.02189-pipemax-enhancing-offline-llm-inference-on-commodity-gpu.md](pipemax/2605.02189-pipemax-enhancing-offline-llm-inference-on-commodity-gpu.md)
+
 <!-- paper-bot:end -->
