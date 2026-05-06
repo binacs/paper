@@ -1,1 +1,8 @@
 .DS_Store
+
+# Python bytecode caches from local runs of paper-bot.
+__pycache__/
+*.pyc
+
+# paper-bot: PR body file is fed to `gh pr create --body-file` and never committed.
+.paper-bot-pr-body.md

@@ -1,0 +1,84 @@
+name: paper-bot-review
+
+# Listen for slash commands posted as PR comments and let the bot apply
+# them (refine / regenerate / reject).  See scripts/paper_bot/review.py.
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  apply:
+    # Only react to:
+    #   * comments on PRs (issue_comment fires for both issues and PRs)
+    #   * PRs labeled `paper-bot`
+    #   * comments authored by the repo owner (security: only you can drive the bot)
+    #   * comments that start with one of our slash commands
+    if: |
+      github.event.issue.pull_request != null &&
+      contains(github.event.issue.labels.*.name, 'paper-bot') &&
+      github.event.comment.user.login == github.repository_owner &&
+      (startsWith(github.event.comment.body, '/refine ') ||
+       startsWith(github.event.comment.body, '/regenerate ') ||
+       startsWith(github.event.comment.body, '/reject '))
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: ${{ github.workspace }}/scripts
+    steps:
+      - name: Resolve PR head ref
+        id: pr
+        run: |
+          headref=$(gh pr view "${{ github.event.issue.number }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --json headRefName --jq .headRefName)
+          echo "ref=$headref" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pr.outputs.ref }}
+          fetch-depth: 0
+          token: ${{ github.token }}
+
+      - name: Configure git identity (needed for rebase)
+        # Canonical github-actions[bot] identity — see paper-bot.yml for why.
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Rebase PR branch onto current main
+        # The bot branch was created off whatever main looked like when the
+        # batch was opened; rebasing here makes /refine etc. always run with
+        # the latest review.py / prompts / config.
+        run: |
+          git fetch origin main:refs/remotes/origin/main
+          git rebase origin/main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install deps
+        run: pip install -r scripts/requirements.txt
+
+      - name: Apply review command
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+        run: python -m paper_bot.review
+
+      - name: Push (force-with-lease, since /refine and /regenerate rewrite history)
+        run: |
+          set -e
+          if [ "$(git rev-list --count "origin/${{ steps.pr.outputs.ref }}..HEAD")" -eq 0 ]; then
+            echo "Branch is unchanged after review; nothing to push."
+            exit 0
+          fi
+          git push --force-with-lease origin "HEAD:${{ steps.pr.outputs.ref }}"

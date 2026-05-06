@@ -1,0 +1,50 @@
+# Configuration for the paper-bot weekly scan.
+#
+# Anything you tune lives here.  Code in scripts/paper_bot/ should rarely need
+# changes.  Edits to this file take effect on the next scheduled run or the
+# next `workflow_dispatch`.
+
+# arXiv categories to subscribe to.  `topic` is the FALLBACK topic used only
+# if the LLM classifier returns something off-list — the classifier picks
+# from the `topics:` allowlist below.  See https://arxiv.org/category_taxonomy.
+arxiv_categories:
+  - cat: cs.DC          # Distributed, Parallel, and Cluster Computing
+    topic: orchestration-scheduling
+  - cat: cs.OS          # Operating Systems
+    topic: distributed-system
+  - cat: cs.LG          # Machine Learning
+    topic: ai
+  - cat: cs.AI          # Artificial Intelligence
+    topic: ai
+
+# Hard filter applied BEFORE any LLM call (keeps DeepSeek spend bounded).
+# A paper passes only if its title+abstract contains at least one allowlist
+# substring AND none of the blocklist substrings.  Case-insensitive.
+keyword_allowlist:
+  - scheduling
+  - cluster
+  - kubernetes
+  - "large language model"
+  - "llm training"
+  - "llm inference"
+  - gpu
+  - datacenter
+  - "data center"
+  - "resource management"
+  - distributed
+  - serverless
+
+keyword_blocklist:
+  - "image classification"
+  - "medical imaging"
+
+# Maximum analyses per run, after filtering.  Cost guardrail.
+max_candidates_per_run: 8
+
+# Topics the classifier may return.  Each must correspond to an existing
+# top-level directory in this repo.  Add a directory before adding a topic.
+topics:
+  - distributed-system
+  - orchestration-scheduling
+  - gpu-training
+  - ai

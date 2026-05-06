@@ -1,0 +1,125 @@
+name: paper-bot
+
+on:
+  schedule:
+    # Mondays 06:00 UTC.  Pick a quiet hour to avoid arXiv rush.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      max_candidates:
+        description: "Override max candidates this run (blank = use sources.yaml)"
+        required: false
+        default: ""
+      dry_run:
+        description: "If true, fetch+filter only — no DeepSeek calls, no PR"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: paper-bot
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}/scripts
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Compute branch name
+        id: branch
+        run: |
+          # Branch per ISO week so unmerged PRs from prior weeks aren't disturbed.
+          week=$(date -u +%G-w%V)
+          echo "name=paper-bot/$week" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git identity
+        # Use the canonical github-actions[bot] identity so commits get the
+        # proper bot badge + avatar in the GitHub UI.  The numeric prefix
+        # `41898282` is the user id of github-actions[bot]; without that
+        # prefix, GitHub treats the commit as authored by a stranger.
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Switch to bot branch (preserve any in-progress unmerged work)
+        run: |
+          set -e
+          branch="${{ steps.branch.outputs.name }}"
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+            git fetch origin "$branch":refs/remotes/origin/"$branch"
+            git checkout -B "$branch" "origin/$branch"
+            # Rebase onto current main so the bot branch always runs with the
+            # latest pipeline code & config.  paper-bot commits only touch
+            # <topic>/<system>/*.md and <topic>/README.md; conflicts with main
+            # are essentially impossible.
+            git rebase origin/main
+          else
+            git checkout -B "$branch" origin/main
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install deps
+        run: pip install -r scripts/requirements.txt
+
+      - name: Run paper-bot
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          MAX_CANDIDATES: ${{ inputs.max_candidates }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+        run: python -m paper_bot.main
+
+      - name: Ensure paper-bot label exists
+        # `gh pr create --label paper-bot` requires the label to already exist
+        # in the repo.  Idempotent: errors-if-already-exists are swallowed.
+        run: |
+          gh label create paper-bot \
+            --repo "$GITHUB_REPOSITORY" \
+            --color BFD4F2 \
+            --description "Auto-generated PR from paper-bot" \
+            2>/dev/null || true
+
+      - name: Push & ensure PR exists
+        run: |
+          set -e
+          branch="${{ steps.branch.outputs.name }}"
+          if [ "$(git rev-list --count origin/main..HEAD)" -eq 0 ]; then
+            echo "No new commits this run; nothing to push."
+            exit 0
+          fi
+          git push -u origin "HEAD:$branch" --force-with-lease
+
+          if gh pr view "$branch" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            if [ -f .paper-bot-pr-body.md ]; then
+              gh pr edit "$branch" --repo "$GITHUB_REPOSITORY" \
+                --body-file .paper-bot-pr-body.md
+            fi
+          else
+            # PR body file may not exist on a re-run that finds nothing new
+            # but still needs to open the PR for previously-pushed commits.
+            body_arg=()
+            if [ -f .paper-bot-pr-body.md ]; then
+              body_arg=(--body-file .paper-bot-pr-body.md)
+            else
+              body_arg=(--body "paper-bot batch — review checklist was not regenerated this run.")
+            fi
+            gh pr create --repo "$GITHUB_REPOSITORY" \
+              --base main --head "$branch" \
+              --title "paper-bot: $branch" \
+              "${body_arg[@]}" \
+              --label paper-bot
+          fi
