@@ -86,4 +86,11 @@ Paper link: [AAFLOW: Scalable Patterns for Agentic AI Workflows](https://arxiv.o
 
 Analysis: [aaflow/2605.02162-aaflow-scalable-patterns-for-agentic-ai-workflows.md](aaflow/2605.02162-aaflow-scalable-patterns-for-agentic-ai-workflows.md)
 
+
+## On the Distortion of Partitioning Performance by Random Quantum Circuits
+
+Paper link: [On the Distortion of Partitioning Performance by Random Quantum Circuits](https://arxiv.org/abs/2605.01974)
+
+Analysis: [misc/2605.01974-on-the-distortion-of-partitioning-performance-by-random.md](misc/2605.01974-on-the-distortion-of-partitioning-performance-by-random.md)
+
 <!-- paper-bot:end -->
