@@ -72,4 +72,11 @@ Paper link: [FedPLT: Scalable, Resource-Efficient, and Heterogeneity-Aware Feder
 
 Analysis: [fedplt/2605.02337-fedplt-scalable-resource-efficient-and-heterogeneity-aware-federated.md](fedplt/2605.02337-fedplt-scalable-resource-efficient-and-heterogeneity-aware-federated.md)
 
+
+## Distributed Observer-based Fault Detection over Intelligent Networked Multi-Vehicle Systems
+
+Paper link: [Distributed Observer-based Fault Detection over Intelligent Networked Multi-Vehicle Systems](https://arxiv.org/abs/2605.02235)
+
+Analysis: [misc/2605.02235-distributed-observer-based-fault-detection-over-intelligent-networked.md](misc/2605.02235-distributed-observer-based-fault-detection-over-intelligent-networked.md)
+
 <!-- paper-bot:end -->
