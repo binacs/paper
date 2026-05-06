@@ -58,4 +58,11 @@ Paper link: [From Sensors to Insight: Rapid, Edge-to-Core Application Developmen
 
 Analysis: [misc/2605.02859-from-sensors-to-insight-rapid-edge-to-core.md](misc/2605.02859-from-sensors-to-insight-rapid-edge-to-core.md)
 
+
+## Distributed Quantum Circuit Optimisation: Evaluating Global and Local encodings
+
+Paper link: [Distributed Quantum Circuit Optimisation: Evaluating Global and Local encodings](https://arxiv.org/abs/2605.02727)
+
+Analysis: [misc/2605.02727-distributed-quantum-circuit-optimisation-evaluating-global-and-local.md](misc/2605.02727-distributed-quantum-circuit-optimisation-evaluating-global-and-local.md)
+
 <!-- paper-bot:end -->
