@@ -44,3 +44,18 @@ Paper link: [Spanner: Becoming a SQL System](https://static.googleusercontent.co
 ## F1 Query: Declarative Querying at Scale
 
 Paper link: [F1 Query: Declarative Querying at Scale](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/fa380016eccb33ac5e92c84f7b5eec136e73d3f1.pdf)
+
+---
+
+## Auto-analyzed papers
+
+_Entries below this line are managed by `paper-bot`. Manual edits are fine; just keep them above the marker._
+
+
+## From Sensors to Insight: Rapid, Edge-to-Core Application Development for Sensor-Driven Applications
+
+Paper link: [From Sensors to Insight: Rapid, Edge-to-Core Application Development for Sensor-Driven Applications](https://arxiv.org/abs/2605.02859)
+
+Analysis: [misc/2605.02859-from-sensors-to-insight-rapid-edge-to-core.md](misc/2605.02859-from-sensors-to-insight-rapid-edge-to-core.md)
+
+<!-- paper-bot:end -->
