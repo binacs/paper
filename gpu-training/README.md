@@ -63,4 +63,11 @@ Paper link: [SplitZip: Ultra Fast Lossless KV Compression for Disaggregated LLM 
 
 Analysis: [splitzip/2605.01708-splitzip-ultra-fast-lossless-kv-compression-for-disaggregated.md](splitzip/2605.01708-splitzip-ultra-fast-lossless-kv-compression-for-disaggregated.md)
 
+
+## MANOJAVAM: A Scalable, Unified FPGA Accelerator for Matrix Multiplication and Singular Value Decomposition in Principal Component Analysis
+
+Paper link: [MANOJAVAM: A Scalable, Unified FPGA Accelerator for Matrix Multiplication and Singular Value Decomposition in Principal Component Analysis](https://arxiv.org/abs/2605.01514)
+
+Analysis: [manojavam/2605.01514-manojavam-a-scalable-unified-fpga-accelerator-for-matrix.md](manojavam/2605.01514-manojavam-a-scalable-unified-fpga-accelerator-for-matrix.md)
+
 <!-- paper-bot:end -->
