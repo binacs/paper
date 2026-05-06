@@ -93,4 +93,11 @@ Paper link: [On the Distortion of Partitioning Performance by Random Quantum Cir
 
 Analysis: [misc/2605.01974-on-the-distortion-of-partitioning-performance-by-random.md](misc/2605.01974-on-the-distortion-of-partitioning-performance-by-random.md)
 
+
+## Joint Temporal-Structural Representation Learning for Distributed Fault Discrimination in Microservice Architectures
+
+Paper link: [Joint Temporal-Structural Representation Learning for Distributed Fault Discrimination in Microservice Architectures](https://arxiv.org/abs/2605.01776)
+
+Analysis: [misc/2605.01776-joint-temporal-structural-representation-learning-for-distributed-fault.md](misc/2605.01776-joint-temporal-structural-representation-learning-for-distributed-fault.md)
+
 <!-- paper-bot:end -->
