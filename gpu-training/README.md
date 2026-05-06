@@ -49,4 +49,11 @@ Paper link: [Stochastic Sparse Attention for Memory-Bound Inference](https://arx
 
 Analysis: [santa/2605.01910-stochastic-sparse-attention-for-memory-bound-inference.md](santa/2605.01910-stochastic-sparse-attention-for-memory-bound-inference.md)
 
+
+## nvPAX: Constrained Optimization for Dynamic Power Allocation in Hierarchical and Multi-Tenant Systems
+
+Paper link: [nvPAX: Constrained Optimization for Dynamic Power Allocation in Hierarchical and Multi-Tenant Systems](https://arxiv.org/abs/2605.01837)
+
+Analysis: [nvpax/2605.01837-nvpax-constrained-optimization-for-dynamic-power-allocation-in.md](nvpax/2605.01837-nvpax-constrained-optimization-for-dynamic-power-allocation-in.md)
+
 <!-- paper-bot:end -->
