@@ -21,4 +21,11 @@ Paper link: [SpecKV: Adaptive Speculative Decoding with Compression-Aware Gamma 
 
 Analysis: [speckv/2605.02888-speckv-adaptive-speculative-decoding-with-compression-aware-gamma.md](speckv/2605.02888-speckv-adaptive-speculative-decoding-with-compression-aware-gamma.md)
 
+
+## Taming Request Imbalance: SLO-Aware Scheduling for Disaggregated LLM Inference
+
+Paper link: [Taming Request Imbalance: SLO-Aware Scheduling for Disaggregated LLM Inference](https://arxiv.org/abs/2605.02329)
+
+Analysis: [kairos/2605.02329-taming-request-imbalance-slo-aware-scheduling-for-disaggregated.md](kairos/2605.02329-taming-request-imbalance-slo-aware-scheduling-for-disaggregated.md)
+
 <!-- paper-bot:end -->
