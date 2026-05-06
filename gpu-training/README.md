@@ -70,4 +70,11 @@ Paper link: [MANOJAVAM: A Scalable, Unified FPGA Accelerator for Matrix Multipli
 
 Analysis: [manojavam/2605.01514-manojavam-a-scalable-unified-fpga-accelerator-for-matrix.md](manojavam/2605.01514-manojavam-a-scalable-unified-fpga-accelerator-for-matrix.md)
 
+
+## VUDA: Breaking CUDA-Vulkan Isolation for Spatial Sharing of Compute and Graphics on the Same GPU
+
+Paper link: [VUDA: Breaking CUDA-Vulkan Isolation for Spatial Sharing of Compute and Graphics on the Same GPU](https://arxiv.org/abs/2605.01352)
+
+Analysis: [vuda/2605.01352-vuda-breaking-cuda-vulkan-isolation-for-spatial-sharing.md](vuda/2605.01352-vuda-breaking-cuda-vulkan-isolation-for-spatial-sharing.md)
+
 <!-- paper-bot:end -->
