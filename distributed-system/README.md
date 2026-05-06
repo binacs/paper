@@ -65,4 +65,11 @@ Paper link: [Distributed Quantum Circuit Optimisation: Evaluating Global and Loc
 
 Analysis: [misc/2605.02727-distributed-quantum-circuit-optimisation-evaluating-global-and-local.md](misc/2605.02727-distributed-quantum-circuit-optimisation-evaluating-global-and-local.md)
 
+
+## FedPLT: Scalable, Resource-Efficient, and Heterogeneity-Aware Federated Learning via Partial Layer Training
+
+Paper link: [FedPLT: Scalable, Resource-Efficient, and Heterogeneity-Aware Federated Learning via Partial Layer Training](https://arxiv.org/abs/2605.02337)
+
+Analysis: [fedplt/2605.02337-fedplt-scalable-resource-efficient-and-heterogeneity-aware-federated.md](fedplt/2605.02337-fedplt-scalable-resource-efficient-and-heterogeneity-aware-federated.md)
+
 <!-- paper-bot:end -->
