@@ -42,4 +42,11 @@ Paper link: [Cross-Layer Energy Analysis of Multimodal Training on Grace Hopper 
 
 Analysis: [misc/2605.01938-cross-layer-energy-analysis-of-multimodal-training-on.md](misc/2605.01938-cross-layer-energy-analysis-of-multimodal-training-on.md)
 
+
+## Stochastic Sparse Attention for Memory-Bound Inference
+
+Paper link: [Stochastic Sparse Attention for Memory-Bound Inference](https://arxiv.org/abs/2605.01910)
+
+Analysis: [santa/2605.01910-stochastic-sparse-attention-for-memory-bound-inference.md](santa/2605.01910-stochastic-sparse-attention-for-memory-bound-inference.md)
+
 <!-- paper-bot:end -->
