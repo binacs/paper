@@ -56,4 +56,11 @@ Paper link: [nvPAX: Constrained Optimization for Dynamic Power Allocation in Hie
 
 Analysis: [nvpax/2605.01837-nvpax-constrained-optimization-for-dynamic-power-allocation-in.md](nvpax/2605.01837-nvpax-constrained-optimization-for-dynamic-power-allocation-in.md)
 
+
+## SplitZip: Ultra Fast Lossless KV Compression for Disaggregated LLM Serving
+
+Paper link: [SplitZip: Ultra Fast Lossless KV Compression for Disaggregated LLM Serving](https://arxiv.org/abs/2605.01708)
+
+Analysis: [splitzip/2605.01708-splitzip-ultra-fast-lossless-kv-compression-for-disaggregated.md](splitzip/2605.01708-splitzip-ultra-fast-lossless-kv-compression-for-disaggregated.md)
+
 <!-- paper-bot:end -->
