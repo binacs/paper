@@ -1,48 +1,53 @@
-# Configuration for the paper-bot weekly scan.
+# paper-bot config.  Source of truth is Semantic Scholar's venue API: each
+# `venues:` entry is queried for papers in `since_year` or later, and the
+# combined pool is sorted by citation count locally so the highest-impact
+# unanalyzed paper bubbles up first ("classics over arXiv firehose").
 #
-# Anything you tune lives here.  Code in scripts/paper_bot/ should rarely need
-# changes.  Edits to this file take effect on the next scheduled run or the
-# next `workflow_dispatch`.
+# Tune this file rather than the Python code for routine adjustments;
+# changes take effect on the next scheduled or `workflow_dispatch` run.
 
-# arXiv categories to subscribe to.  `topic` is the FALLBACK topic used only
-# if the LLM classifier returns something off-list — the classifier picks
-# from the `topics:` allowlist below.  See https://arxiv.org/category_taxonomy.
-arxiv_categories:
-  - cat: cs.DC          # Distributed, Parallel, and Cluster Computing
+# Top systems venues, plus the two AI-infra-flavored architecture / ML
+# systems conferences.  Each venue has a default `topic` used as a fallback
+# when the LLM classifier returns something off-list.
+#
+# Topic must exist as a top-level directory in this repo; see `topics:` below.
+venues:
+  - name: OSDI
     topic: orchestration-scheduling
-  - cat: cs.OS          # Operating Systems
+  - name: SOSP
+    topic: orchestration-scheduling
+  - name: NSDI
     topic: distributed-system
-  - cat: cs.LG          # Machine Learning
-    topic: ai
-  - cat: cs.AI          # Artificial Intelligence
-    topic: ai
+  - name: USENIX ATC
+    topic: distributed-system
+  - name: EuroSys
+    topic: orchestration-scheduling
+  - name: SoCC
+    topic: orchestration-scheduling
+  - name: FAST
+    topic: distributed-system
+  - name: SIGCOMM
+    topic: distributed-system
+  - name: MLSys
+    topic: gpu-training
+  - name: ASPLOS
+    topic: gpu-training
 
-# Hard filter applied BEFORE any LLM call (keeps DeepSeek spend bounded).
-# A paper passes only if its title+abstract contains at least one allowlist
-# substring AND none of the blocklist substrings.  Case-insensitive.
-keyword_allowlist:
-  - scheduling
-  - cluster
-  - kubernetes
-  - "large language model"
-  - "llm training"
-  - "llm inference"
-  - gpu
-  - datacenter
-  - "data center"
-  - "resource management"
-  - distributed
-  - serverless
+# Backstop on how far back to look.  Recommend bumping lower (e.g. 2010) for
+# an initial backfill of canonical classics, then ratcheting up later.
+since_year: 2018
 
+# Optional hard pre-filter applied before any LLM call.  Venue is already a
+# strong relevance signal so this list stays short.
 keyword_blocklist:
-  - "image classification"
   - "medical imaging"
+  - "image classification"
 
-# Maximum analyses per run, after filtering.  Cost guardrail.
+# Cap analyses per run.  Cost guardrail.
 max_candidates_per_run: 8
 
-# Topics the classifier may return.  Each must correspond to an existing
-# top-level directory in this repo.  Add a directory before adding a topic.
+# Allowed topic slugs the classifier may return.  Each must exist as a
+# top-level directory in the repo.
 topics:
   - distributed-system
   - orchestration-scheduling

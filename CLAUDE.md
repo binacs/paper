@@ -41,24 +41,26 @@ Follow the existing log conventions — short, lowercase, prefixed by intent and
 
 Two workflows under `.github/workflows/`:
 
-- **`paper-bot.yml`** (scheduled + manual): weekly cron scans new arXiv submissions, calls DeepSeek to classify + analyze them, and opens a PR. Each paper is its own commit on a per-week branch (`paper-bot/YYYY-wWW`).
+- **`paper-bot.yml`** (scheduled + manual): weekly cron pulls papers from top systems venues via Semantic Scholar's API, calls DeepSeek to classify + analyze them, and opens a PR. Each paper is its own commit on a per-week branch (`paper-bot/YYYY-wWW`). Candidates are sorted by citation count so classics surface first.
 - **`paper-bot-review.yml`** (PR-comment-driven): listens for slash commands you post on the PR and rewrites the branch in place.
 
 Slash commands (posted as PR comments; only repo-owner comments trigger):
 
-- `/refine <arxiv-id|path> <free-form instructions>` — DeepSeek revises that paper's analysis with your feedback. The new content is folded into the **original commit** (`git commit --fixup` + `git rebase --autosquash`), then force-pushed.
-- `/regenerate <arxiv-id|path>` — re-fetches the abstract and runs the full analyzer. Same overwrite-original-commit semantics.
-- `/reject <arxiv-id|path>` — `git revert` the paper's commit (creates a revert commit, no force-push). Squash-merge the PR to keep `main` clean.
+- `/refine <id|path> <free-form instructions>` — DeepSeek revises that paper's analysis with your feedback. The new content is folded into the **original commit** (`git commit --fixup` + `git rebase --autosquash`), then force-pushed.
+- `/regenerate <id|path>` — re-fetches the paper from Semantic Scholar and runs the full analyzer. Same overwrite-original-commit semantics.
+- `/reject <id|path>` — `git revert` the paper's commit (creates a revert commit, no force-push). Squash-merge the PR to keep `main` clean.
 
-How the bot finds the right commit: each per-paper commit has an `arxiv-id: <id>` trailer in its message; `git_ops.find_by_arxiv_id` greps for that.
+`<id>` accepts: arXiv id (`2401.09670`), Semantic Scholar paperId (40-hex or its 7-char prefix), or a repo-relative file path.
 
-- Config (categories, keyword filters, per-run cap, allowed topics): `.github/paper-bot/sources.yaml` — edit this rather than the Python code for routine tuning.
+How the bot finds the right commit: each per-paper commit has a `paper-id: <ss_paperId>` trailer and (when available) an `arxiv-id:` trailer in its message; `git_ops.find_by_trailer` greps for either.
+
+- Config (venues, since_year, blocklist, per-run cap, allowed topics): `.github/paper-bot/sources.yaml` — edit this rather than the Python code for routine tuning.
 - Prompts: `.github/paper-bot/prompts/{classify,analyze,refine}.md`.
-- Code: `scripts/paper_bot/` (pure Python; deps in `scripts/requirements.txt`). Layered as `arxiv.py` (fetcher) → `pipeline.py` (orchestration) → `deepseek.py` (LLM client) → `render.py` (markdown) → `git_ops.py` (commits/fixups/reverts) → `main.py` (scan entry) / `review.py` (review entry).
-- Bot output goes to `<topic>/<system-slug>/<arxiv-id>-<title>.md` and a link is appended to `<topic>/README.md` *above* a `<!-- paper-bot:end -->` marker. Hand-curated entries should stay above that marker.
-- Dedup is filesystem-based: a paper's slug existing anywhere outside `.git/`, `.github/`, `scripts/` means "already processed". Deleting a generated file → it gets re-analyzed next run.
-- Local dry-run: `PYTHONPATH=scripts DRY_RUN=1 python -m paper_bot.main` (fetch + filter only, no API key needed). Real run requires `DEEPSEEK_API_KEY` env var.
-- Required repo secret: `DEEPSEEK_API_KEY`. PR creation, comment posting, and force-push all use the default `GITHUB_TOKEN`; no PAT needed.
+- Code: `scripts/paper_bot/` (pure Python, stdlib + openai/pyyaml only). Layered as `semscholar.py` (Semantic Scholar Graph API fetcher) → `pipeline.py` (orchestration) → `deepseek.py` (LLM client) → `render.py` (markdown) → `git_ops.py` (commits/fixups/reverts) → `main.py` (scan entry) / `review.py` (review entry).
+- Bot output goes to `<topic>/<system-slug>/<short-id>-<title>.md` (`<short-id>` is arxiv id when present, else 7-char paper-id prefix) and a link is appended to `<topic>/README.md` *above* a `<!-- paper-bot:end -->` marker. Hand-curated entries should stay above that marker.
+- Dedup is filesystem-based: a paper's short-id existing anywhere outside `.git/`, `.github/`, `scripts/` means "already processed". Deleting a generated file → it gets re-analyzed next run.
+- Local dry-run: `PYTHONPATH=scripts DRY_RUN=1 python -m paper_bot.main` (fetch + sort + filter only, no DeepSeek calls, no key needed). Real run requires `DEEPSEEK_API_KEY` env var.
+- Required repo secret: `DEEPSEEK_API_KEY`. Semantic Scholar API is key-less. PR creation, comment posting, and force-push all use the default `GITHUB_TOKEN`; no PAT needed.
 
 ## What this repo is *not*
 

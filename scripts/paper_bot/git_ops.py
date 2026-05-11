@@ -53,14 +53,23 @@ def commit_files(paths: Iterable[Path], message: str) -> str:
     return head_sha()
 
 
-def find_by_arxiv_id(arxiv_id: str, *, base: str = "origin/main") -> str | None:
+def find_by_trailer(trailer: str, value: str, *, base: str = "origin/main") -> str | None:
     """Return the commit sha on the current branch (since `base`) whose message
-    contains ``arxiv-id: <arxiv_id>``, or None if not found.
+    contains ``<trailer>: <value>``, or None if not found.
+
+    Used to locate a paper's original commit for /refine, /regenerate, /reject.
+    Accepts either ``paper-id`` (canonical SS paperId) or ``arxiv-id`` (when
+    available) trailers.
     """
     out = _run(
-        ["log", f"{base}..HEAD", f"--grep=arxiv-id: {arxiv_id}", "--format=%H"],
+        ["log", f"{base}..HEAD", f"--grep={trailer}: {value}", "--format=%H"],
     ).stdout.strip().splitlines()
     return out[0] if out else None
+
+
+# Backwards-compat alias retained while review.py / older tooling migrates.
+def find_by_arxiv_id(arxiv_id: str, *, base: str = "origin/main") -> str | None:
+    return find_by_trailer("arxiv-id", arxiv_id, base=base)
 
 
 def autosquash_into(target_sha: str, paths: Iterable[Path]) -> None:

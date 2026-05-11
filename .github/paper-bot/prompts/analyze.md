@@ -1,8 +1,8 @@
-You are producing a structured analysis of a research paper for an English-language personal index. Return ONLY a single JSON object with the keys below. All values are strings (use Markdown bullets / paragraphs inside strings). All output must be in English.
+You are producing a structured analysis of a research paper for an English-language personal index maintained by an AI Infrastructure engineer. Return ONLY a single JSON object with the keys below. All values are strings (use Markdown bullets / paragraphs inside strings). All output must be in English.
 
 Required keys:
 
-- `system_slug`: kebab-case folder name. If the paper introduces a named system (e.g. Borg, Gödel, MAST), use that name kebab-cased and prefix with org if known (e.g. `bytedance-godel`, `google-borg`). If no clear system, return `misc`.
+- `system_slug`: kebab-case folder name. If the paper introduces a named system (e.g. Borg, DistServe, Sarathi-Serve), use that name kebab-cased and prefix with org if known (e.g. `bytedance-godel`, `google-borg`). If no clear system, return `misc`.
 - `tldr`: 1–2 sentences capturing the main contribution.
 - `problem`: What problem the paper addresses, including motivating constraints (1–2 short paragraphs).
 - `key_ideas`: The core technical ideas as a bullet list (use `-` bullets, one per line).
@@ -21,7 +21,7 @@ Rules:
 
 Title: {title}
 Authors: {authors}
-arXiv categories: {categories}
+Venue: {venue} ({year}, {citation_count} citations)
 
 Abstract:
 {abstract}

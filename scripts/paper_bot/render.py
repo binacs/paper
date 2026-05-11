@@ -9,7 +9,7 @@ from pathlib import Path
 
 import yaml
 
-from .arxiv import ArxivEntry
+from .semscholar import PaperEntry
 
 log = logging.getLogger(__name__)
 _FM_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
@@ -47,7 +47,7 @@ def write_analysis(
     topic: str,
     system_slug: str,
     file_slug: str,
-    entry: ArxivEntry,
+    entry: PaperEntry,
     analysis: dict,
     model: str,
 ) -> Path:
@@ -63,19 +63,28 @@ def write_analysis(
             continue
         body_sections.append(f"## {heading}\n\n{str(v).strip()}")
 
-    meta = {
-        "arxiv_id": entry.arxiv_id,
+    meta: dict = {
+        "paper_id": entry.paper_id,
         "title": entry.title,
         "authors": entry.authors,
-        "categories": entry.categories,
-        "published": entry.published,
+        "venue": entry.venue,
+        "year": entry.year,
+        "citations": entry.citation_count,
         "abs_url": entry.abs_url,
         "pdf_url": entry.pdf_url,
         "analyzed_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "model": model,
     }
+    if entry.arxiv_id:
+        meta["arxiv_id"] = entry.arxiv_id
+    if entry.doi:
+        meta["doi"] = entry.doi
+
     body = "\n\n".join(body_sections) + ("\n" if body_sections else "")
-    target.write_text(_yaml_frontmatter(meta) + "\n# " + entry.title + "\n\n" + body, encoding="utf-8")
+    target.write_text(
+        _yaml_frontmatter(meta) + "\n# " + entry.title + "\n\n" + body,
+        encoding="utf-8",
+    )
     return target
 
 
@@ -84,18 +93,15 @@ def patch_topic_readme(
     topic: str,
     system_slug: str,
     file_slug: str,
-    entry: ArxivEntry,
+    entry: PaperEntry,
 ) -> None:
-    """Insert a section above the paper-bot end marker in <topic>/README.md.
-
-    If the marker is missing, append it at end-of-file with a heading so the
-    bot-managed region is visually distinct from hand-curated entries.
-    """
+    """Insert a section above the paper-bot end marker in <topic>/README.md."""
     readme = repo_root / topic / "README.md"
     text = readme.read_text(encoding="utf-8") if readme.exists() else f"# {topic}\n"
     rel_link = f"{system_slug}/{file_slug}.md"
+    venue_year = f" ({entry.venue} {entry.year})" if entry.venue else ""
     new_block = (
-        f"\n## {entry.title}\n\n"
+        f"\n## {entry.title}{venue_year}\n\n"
         f"Paper link: [{entry.title}]({entry.abs_url})\n\n"
         f"Analysis: [{rel_link}]({rel_link})\n"
     )
@@ -118,14 +124,14 @@ def _branch_paper_lines(repo_root: Path, base: str = "origin/main") -> list[str]
     """Walk every paper-bot commit between `base` and HEAD, collect a checklist
     line per analysis file still present in the worktree.
 
-    Building from branch state (rather than from this run's outputs) means a
-    re-run that finds 0 new candidates still re-derives the full PR body, and
-    a `/reject` of one paper produces a body that simply omits the rejected
-    one (revert commits delete the .md, so they're skipped here).
+    Built from branch state (rather than from the current run's outputs) so
+    re-runs after partial failures still produce a complete checklist, and
+    a `/reject` of one paper produces a body that simply omits that paper
+    (revert commits delete the .md, so it falls out here).
     """
     try:
         out = subprocess.check_output(
-            ["git", "log", f"{base}..HEAD", "--grep=arxiv-id:", "--format=%H"],
+            ["git", "log", f"{base}..HEAD", "--grep=paper-id:", "--format=%H"],
             text=True, cwd=repo_root,
         ).strip().splitlines()
     except subprocess.CalledProcessError:
@@ -133,8 +139,7 @@ def _branch_paper_lines(repo_root: Path, base: str = "origin/main") -> list[str]
 
     seen_paths: set[str] = set()
     lines: list[str] = []
-    # Oldest first so the checklist reads chronologically.
-    for sha in reversed(out):
+    for sha in reversed(out):  # oldest first; chronological reading order
         try:
             diff = subprocess.check_output(
                 ["git", "diff-tree", "--no-commit-id", "--name-status", "-r", sha],
@@ -144,7 +149,6 @@ def _branch_paper_lines(repo_root: Path, base: str = "origin/main") -> list[str]
             continue
         for entry in diff:
             status, _, path = entry.partition("\t")
-            # Only "A"dded files; skip "M"odified READMEs and "D"eleted reverts.
             if status != "A" or not path.endswith(".md"):
                 continue
             if path.endswith("README.md") or path in seen_paths:
@@ -152,7 +156,7 @@ def _branch_paper_lines(repo_root: Path, base: str = "origin/main") -> list[str]
             seen_paths.add(path)
             full = repo_root / path
             if not full.exists():
-                continue  # was reverted or otherwise removed
+                continue
             text = full.read_text(encoding="utf-8")
             m = _FM_RE.match(text)
             if not m:
@@ -160,42 +164,46 @@ def _branch_paper_lines(repo_root: Path, base: str = "origin/main") -> list[str]
             meta = yaml.safe_load(m.group(1)) or {}
             title = meta.get("title", "?")
             abs_url = meta.get("abs_url", "")
-            arxiv_id = meta.get("arxiv_id", "")
+            display_id = meta.get("arxiv_id") or (meta.get("paper_id") or "")[:7]
+            venue = meta.get("venue", "")
+            year = meta.get("year", "")
+            cites = meta.get("citations", "")
+            venue_meta = f"{venue} {year}" if venue else str(year)
             body_text = text[m.end():]
             tldr_match = re.search(r"##\s*TL;DR\s*\n+([^\n]+)", body_text)
             tldr = tldr_match.group(1).strip() if tldr_match else ""
             lines.append(
-                f"`{path}` (`{sha[:7]}`, arxiv-id `{arxiv_id}`) — [{title}]({abs_url}) — {tldr}"
+                f"`{display_id}` ({cites} cites, {venue_meta}) — "
+                f"[{title}]({abs_url})\n"
+                f"  - file: `{path}` (`{sha[:7]}`)\n"
+                f"  - tl;dr: {tldr}"
             )
     return lines
 
 
 def write_pr_body(repo_root: Path) -> Path | None:
-    """Generate the PR body from the branch's full paper-bot commit history.
-
-    Returns the path of the written file, or None if there are no paper-bot
-    commits on the branch (in which case no PR body is needed).
-    """
+    """Generate the PR body from the branch's full paper-bot commit history."""
     lines = _branch_paper_lines(repo_root)
     if not lines:
         return None
     target = repo_root / ".paper-bot-pr-body.md"
     body = (
         "## paper-bot batch\n\n"
-        f"{len(lines)} papers auto-analyzed from arXiv. Each paper is its own "
-        "commit so reviews are surgical.\n\n"
+        f"{len(lines)} papers from top systems venues, ranked by citation "
+        "count. Each paper is its own commit so reviews are surgical.\n\n"
         + "\n".join(f"- [ ] {line}" for line in lines)
         + "\n\n"
         "### How to review\n\n"
         "Comment on this PR with one of:\n\n"
-        "- `/refine <arxiv-id> <free-form instructions>` — re-write the analysis with your feedback. Folds into the original commit.\n"
-        "- `/regenerate <arxiv-id>` — re-fetch the abstract and run the full analyzer again.\n"
-        "- `/reject <arxiv-id>` — revert the paper's commit.\n\n"
-        "Examples:\n\n"
+        "- `/refine <id> <free-form instructions>` — re-write the analysis with your feedback. Folds into the original commit.\n"
+        "- `/regenerate <id>` — re-fetch the paper and run the full analyzer again.\n"
+        "- `/reject <id>` — revert the paper's commit.\n\n"
+        "`<id>` can be an arXiv id (when shown), the 7-char paper-id, "
+        "or the file path. Examples:\n\n"
         "```\n"
-        "/refine 2402.15627 缩短 TL;DR 到一句话；扩充 evaluation 段\n"
-        "/regenerate 2403.07648\n"
-        "/reject 2402.99999\n"
+        "/refine 2401.09670 把 evaluation 段补充和 vLLM 的对比数字\n"
+        "/regenerate 72f77a3\n"
+        "/reject gpu-training/misc/2024-some-paper.md\n"
         "```\n\n"
         "When done, merge with **Squash & merge** to keep `main` history clean.\n"
     )

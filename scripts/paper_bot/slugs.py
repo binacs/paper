@@ -1,4 +1,4 @@
-"""Slug helpers for arXiv papers."""
+"""Slug helpers for paper identifiers."""
 from __future__ import annotations
 
 import re
@@ -8,7 +8,7 @@ _VERSION_SUFFIX = re.compile(r"v\d+$")
 
 
 def normalize_arxiv_id(raw_id: str) -> str:
-    """Strip URL prefix and version suffix from an arXiv entry id.
+    """Strip URL prefix and version suffix from an arXiv id.
 
     >>> normalize_arxiv_id("http://arxiv.org/abs/2402.15627v2")
     '2402.15627'
@@ -22,8 +22,14 @@ def title_slug(title: str, max_words: int = 8) -> str:
     return "-".join(words[:max_words]) or "untitled"
 
 
-def paper_slug(arxiv_id: str, title: str) -> str:
-    return f"{arxiv_id}-{title_slug(title)}"
+def paper_slug(short_id: str, title: str) -> str:
+    """Filename slug: ``<short_id>-<title-slug>``.
+
+    ``short_id`` is the arXiv id when available (e.g. ``2401.09670``),
+    otherwise a 7-char prefix of the Semantic Scholar paperId so files
+    sort and dedup deterministically.
+    """
+    return f"{short_id}-{title_slug(title)}"
 
 
 def kebab(value: str) -> str:

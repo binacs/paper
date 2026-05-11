@@ -3,9 +3,12 @@
 Triggered by .github/workflows/paper-bot-review.yml when a comment on a PR
 labeled ``paper-bot`` starts with one of:
 
-- ``/refine <arxiv-id|path> <free-form instructions>``  — overwrite original commit
-- ``/regenerate <arxiv-id|path>``                       — re-analyze from scratch, overwrite original commit
-- ``/reject <arxiv-id|path>``                           — revert the paper's commit
+- ``/refine <id|path> <free-form instructions>``  — overwrite original commit
+- ``/regenerate <id|path>``                       — re-analyze from scratch
+- ``/reject <id|path>``                           — revert the paper's commit
+
+``<id>`` can be an arXiv id (``2401.09670``), a Semantic Scholar paperId
+(40-char hex or its 7-char prefix), or a repo-relative file path.
 
 Environment:
 - ``COMMENT_BODY`` — the raw comment text
@@ -25,12 +28,13 @@ from pathlib import Path
 import yaml
 
 from . import deepseek, git_ops, render, slugs
-from .arxiv import fetch_one
 from .pipeline import analyze
+from .semscholar import fetch_by_arxiv_id, fetch_by_paper_id
 
 log = logging.getLogger(__name__)
 
 ARXIV_ID_RE = re.compile(r"^\d{4}\.\d{4,5}$")
+HEX_ID_RE = re.compile(r"^[0-9a-f]{7,40}$")
 _FM_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 _DEDUP_SKIP_PARTS = {".git", ".github", "scripts"}
 
@@ -53,14 +57,47 @@ def _post_comment(body: str) -> None:
         log.warning("failed to post PR comment: %s", e)
 
 
-def _resolve_target(token: str, repo_root: Path) -> Path | None:
-    """Resolve an arxiv id or repo-relative path to a Path under repo_root."""
-    if ARXIV_ID_RE.match(token):
-        for p in repo_root.rglob(f"{token}-*.md"):
+def _file_for_arxiv_id(arxiv_id: str, repo_root: Path) -> Path | None:
+    for p in repo_root.rglob(f"{arxiv_id}-*.md"):
+        if any(part in _DEDUP_SKIP_PARTS for part in p.parts):
+            continue
+        return p
+    return None
+
+
+def _file_for_paper_id(paper_id: str, repo_root: Path) -> Path | None:
+    """Match by exact `paper_id` (40-hex) OR its 7-char prefix.
+
+    Falls back to scanning every .md frontmatter when the prefix alone isn't
+    enough to disambiguate (rare; <50 papers per PR).
+    """
+    if len(paper_id) >= 7:
+        # First try the filename prefix shortcut for non-arxiv papers.
+        for p in repo_root.rglob(f"{paper_id[:7]}-*.md"):
             if any(part in _DEDUP_SKIP_PARTS for part in p.parts):
                 continue
+            meta, _ = _split_frontmatter(p.read_text(encoding="utf-8"))
+            stored = (meta.get("paper_id") or "").lower()
+            if stored.startswith(paper_id.lower()):
+                return p
+    # Slow path: scan every .md frontmatter.
+    for p in repo_root.rglob("*.md"):
+        if any(part in _DEDUP_SKIP_PARTS for part in p.parts):
+            continue
+        if p.name == "README.md":
+            continue
+        meta, _ = _split_frontmatter(p.read_text(encoding="utf-8"))
+        stored = (meta.get("paper_id") or "").lower()
+        if stored.startswith(paper_id.lower()):
             return p
-        return None
+    return None
+
+
+def _resolve_target(token: str, repo_root: Path) -> Path | None:
+    if ARXIV_ID_RE.match(token):
+        return _file_for_arxiv_id(token, repo_root)
+    if HEX_ID_RE.match(token):
+        return _file_for_paper_id(token, repo_root)
     p = (repo_root / token).resolve()
     try:
         p.relative_to(repo_root)
@@ -70,7 +107,6 @@ def _resolve_target(token: str, repo_root: Path) -> Path | None:
 
 
 def _split_frontmatter(text: str) -> tuple[dict, str]:
-    """Return (meta_dict, body_after_frontmatter). meta_dict is empty if no FM."""
     m = _FM_RE.match(text)
     if not m:
         return {}, text
@@ -81,14 +117,7 @@ def _emit_frontmatter(meta: dict) -> str:
     return "---\n" + yaml.safe_dump(meta, sort_keys=False, allow_unicode=True) + "---\n"
 
 
-def _arxiv_id_from(target: Path) -> str | None:
-    meta, _ = _split_frontmatter(target.read_text(encoding="utf-8"))
-    aid = meta.get("arxiv_id")
-    return str(aid) if aid else None
-
-
 def _strip_code_fence(text: str) -> str:
-    """Trim a single leading/trailing markdown fence if the model added one."""
     text = text.strip()
     if text.startswith("```"):
         text = re.sub(r"^```[^\n]*\n", "", text, count=1)
@@ -96,41 +125,45 @@ def _strip_code_fence(text: str) -> str:
     return text
 
 
-def _resolve_paper(token: str, repo_root: Path) -> tuple[Path, str, str] | None:
-    """Common prefix for /refine, /regenerate, /reject: resolve token to
-    (path, arxiv_id, commit_sha). Posts a comment + returns None on failure.
+def _resolve_paper(token: str, repo_root: Path) -> tuple[Path, dict, str] | None:
+    """Resolve a user-supplied token to (file_path, frontmatter, commit_sha).
+
+    Posts a comment + returns None on failure.
     """
     target = _resolve_target(token, repo_root)
     if not target:
         _post_comment(f"⚠️ Couldn't resolve `{token}` to a file in this PR.")
         return None
-    arxiv_id = _arxiv_id_from(target)
-    if not arxiv_id:
-        _post_comment(f"⚠️ `{target.name}` has no `arxiv_id` in frontmatter.")
-        return None
-    commit = git_ops.find_by_arxiv_id(arxiv_id)
+    meta, _ = _split_frontmatter(target.read_text(encoding="utf-8"))
+    paper_id = meta.get("paper_id")
+    arxiv_id = meta.get("arxiv_id")
+    commit = None
+    if paper_id:
+        commit = git_ops.find_by_trailer("paper-id", str(paper_id))
+    if not commit and arxiv_id:
+        commit = git_ops.find_by_trailer("arxiv-id", str(arxiv_id))
     if not commit:
         _post_comment(
-            f"⚠️ No commit on this branch carries `arxiv-id: {arxiv_id}`. "
-            "Was the paper added by a different bot run?"
+            f"⚠️ Couldn't find a commit on this branch matching "
+            f"`paper-id: {paper_id}` (file: `{target.relative_to(repo_root)}`)."
         )
         return None
-    return target, arxiv_id, commit
+    return target, meta, commit
 
 
 def do_refine(args: str, repo_root: Path) -> int:
     parts = args.split(None, 1)
     if len(parts) < 2 or not parts[1].strip():
-        _post_comment("⚠️ Usage: `/refine <arxiv-id|path> <instructions...>`")
+        _post_comment("⚠️ Usage: `/refine <id|path> <instructions...>`")
         return 1
     target_token, instruction = parts[0], parts[1].strip()
 
     resolved = _resolve_paper(target_token, repo_root)
     if not resolved:
         return 1
-    target, arxiv_id, commit = resolved
+    target, meta, commit = resolved
 
-    meta, body = _split_frontmatter(target.read_text(encoding="utf-8"))
+    _, body = _split_frontmatter(target.read_text(encoding="utf-8"))
     prompt = (
         repo_root / ".github" / "paper-bot" / "prompts" / "refine.md"
     ).read_text(encoding="utf-8").format(instruction=instruction, body=body)
@@ -151,7 +184,8 @@ def do_refine(args: str, repo_root: Path) -> int:
 
     git_ops.autosquash_into(commit, [target.relative_to(repo_root)])
     _post_comment(
-        f"✅ Refined `{target.relative_to(repo_root)}`. Folded into commit `{commit[:7]}`."
+        f"✅ Refined `{target.relative_to(repo_root)}`. "
+        f"Folded into commit `{commit[:7]}`."
     )
     return 0
 
@@ -159,16 +193,22 @@ def do_refine(args: str, repo_root: Path) -> int:
 def do_regenerate(args: str, repo_root: Path) -> int:
     token = args.strip().split(None, 1)[0] if args.strip() else ""
     if not token:
-        _post_comment("⚠️ Usage: `/regenerate <arxiv-id|path>`")
+        _post_comment("⚠️ Usage: `/regenerate <id|path>`")
         return 1
     resolved = _resolve_paper(token, repo_root)
     if not resolved:
         return 1
-    target, arxiv_id, commit = resolved
+    target, meta, commit = resolved
+    paper_id = meta.get("paper_id")
+    arxiv_id = meta.get("arxiv_id")
 
-    entry = fetch_one(arxiv_id)
+    entry = None
+    if paper_id:
+        entry = fetch_by_paper_id(str(paper_id))
+    if not entry and arxiv_id:
+        entry = fetch_by_arxiv_id(str(arxiv_id))
     if not entry:
-        _post_comment(f"⚠️ Couldn't fetch `{arxiv_id}` from arXiv.")
+        _post_comment(f"⚠️ Couldn't fetch paper `{paper_id or arxiv_id}` from Semantic Scholar.")
         return 1
 
     analyze_prompt = (
@@ -193,7 +233,8 @@ def do_regenerate(args: str, repo_root: Path) -> int:
     )
     git_ops.autosquash_into(commit, [new_path.relative_to(repo_root)])
     _post_comment(
-        f"♻️ Regenerated `{rel}` from a fresh arXiv fetch. Folded into commit `{commit[:7]}`."
+        f"♻️ Regenerated `{rel}` from a fresh Semantic Scholar fetch. "
+        f"Folded into commit `{commit[:7]}`."
     )
     return 0
 
@@ -201,17 +242,18 @@ def do_regenerate(args: str, repo_root: Path) -> int:
 def do_reject(args: str, repo_root: Path) -> int:
     token = args.strip().split(None, 1)[0] if args.strip() else ""
     if not token:
-        _post_comment("⚠️ Usage: `/reject <arxiv-id|path>`")
+        _post_comment("⚠️ Usage: `/reject <id|path>`")
         return 1
     resolved = _resolve_paper(token, repo_root)
     if not resolved:
         return 1
-    _, arxiv_id, commit = resolved
+    target, meta, commit = resolved
 
     if git_ops.revert_commit(commit):
         _post_comment(
-            f"🗑️ Reverted commit `{commit[:7]}` for `{arxiv_id}`. "
-            "Squash-merge the PR when done to keep `main` clean."
+            f"🗑️ Reverted commit `{commit[:7]}` "
+            f"(`{target.relative_to(repo_root)}`). "
+            "Squash-merge the PR to keep `main` clean."
         )
         return 0
     _post_comment(
