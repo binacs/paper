@@ -44,3 +44,18 @@ Paper link: [Spanner: Becoming a SQL System](https://static.googleusercontent.co
 ## F1 Query: Declarative Querying at Scale
 
 Paper link: [F1 Query: Declarative Querying at Scale](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/fa380016eccb33ac5e92c84f7b5eec136e73d3f1.pdf)
+
+---
+
+## Auto-analyzed papers
+
+_Entries below this line are managed by `paper-bot`. Manual edits are fine; just keep them above the marker._
+
+
+## Hyperledger fabric: a distributed operating system for permissioned blockchains (European Conference on Computer Systems 2018)
+
+Paper link: [Hyperledger fabric: a distributed operating system for permissioned blockchains](https://arxiv.org/abs/1801.10228)
+
+Analysis: [hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md](hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md)
+
+<!-- paper-bot:end -->
