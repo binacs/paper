@@ -21,4 +21,11 @@ Paper link: [Federated Optimization in Heterogeneous Networks](https://arxiv.org
 
 Analysis: [fedprox/1812.06127-federated-optimization-in-heterogeneous-networks.md](fedprox/1812.06127-federated-optimization-in-heterogeneous-networks.md)
 
+
+## Efficient Memory Management for Large Language Model Serving with PagedAttention (Symposium on Operating Systems Principles 2023)
+
+Paper link: [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
+
+Analysis: [vllm/2309.06180-efficient-memory-management-for-large-language-model-serving.md](vllm/2309.06180-efficient-memory-management-for-large-language-model-serving.md)
+
 <!-- paper-bot:end -->
