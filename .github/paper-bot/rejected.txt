@@ -1,0 +1,5 @@
+# Papers explicitly excluded from paper-bot scanning.
+# One identifier per line — arXiv id (NNNN.NNNNN) or Semantic Scholar
+# paperId (40-hex). Inline comment after the first whitespace is ignored.
+# Lines starting with `#` are comments. Manual edits welcome and survive
+# bot-driven updates because the file is re-emitted sorted on every write.
