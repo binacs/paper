@@ -58,4 +58,11 @@ Paper link: [Hyperledger fabric: a distributed operating system for permissioned
 
 Analysis: [hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md](hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md)
 
+
+## HybridFlow: A Flexible and Efficient RLHF Framework (European Conference on Computer Systems 2024)
+
+Paper link: [HybridFlow: A Flexible and Efficient RLHF Framework](https://arxiv.org/abs/2409.19256)
+
+Analysis: [hybridflow/2409.19256-hybridflow-a-flexible-and-efficient-rlhf-framework.md](hybridflow/2409.19256-hybridflow-a-flexible-and-efficient-rlhf-framework.md)
+
 <!-- paper-bot:end -->
