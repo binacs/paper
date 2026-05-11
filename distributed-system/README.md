@@ -65,4 +65,11 @@ Paper link: [HybridFlow: A Flexible and Efficient RLHF Framework](https://arxiv.
 
 Analysis: [hybridflow/2409.19256-hybridflow-a-flexible-and-efficient-rlhf-framework.md](hybridflow/2409.19256-hybridflow-a-flexible-and-efficient-rlhf-framework.md)
 
+
+## PipeDream: generalized pipeline parallelism for DNN training (Symposium on Operating Systems Principles 2019)
+
+Paper link: [PipeDream: generalized pipeline parallelism for DNN training](https://www.semanticscholar.org/paper/3fd7c9ba742dd2b435afa75217847e5087e2f2a8)
+
+Analysis: [pipedream/3fd7c9b-pipedream-generalized-pipeline-parallelism-for-dnn-training.md](pipedream/3fd7c9b-pipedream-generalized-pipeline-parallelism-for-dnn-training.md)
+
 <!-- paper-bot:end -->
