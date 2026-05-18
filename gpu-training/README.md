@@ -35,4 +35,11 @@ Paper link: [HybridFlow: A Flexible and Efficient RLHF Framework](https://arxiv.
 
 Analysis: [hybridflow/2409.19256-hybridflow-a-flexible-and-efficient-rlhf-framework.md](hybridflow/2409.19256-hybridflow-a-flexible-and-efficient-rlhf-framework.md)
 
+
+## AWQ: Activation-aware Weight Quantization for On-Device LLM Compression and Acceleration (Conference on Machine Learning and Systems 2023)
+
+Paper link: [AWQ: Activation-aware Weight Quantization for On-Device LLM Compression and Acceleration](https://arxiv.org/abs/2306.00978)
+
+Analysis: [awq-tinychat/2306.00978-awq-activation-aware-weight-quantization-for-on-device.md](awq-tinychat/2306.00978-awq-activation-aware-weight-quantization-for-on-device.md)
+
 <!-- paper-bot:end -->
