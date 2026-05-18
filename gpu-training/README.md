@@ -28,4 +28,11 @@ Paper link: [Efficient Memory Management for Large Language Model Serving with P
 
 Analysis: [vllm/2309.06180-efficient-memory-management-for-large-language-model-serving.md](vllm/2309.06180-efficient-memory-management-for-large-language-model-serving.md)
 
+
+## HybridFlow: A Flexible and Efficient RLHF Framework (European Conference on Computer Systems 2024)
+
+Paper link: [HybridFlow: A Flexible and Efficient RLHF Framework](https://arxiv.org/abs/2409.19256)
+
+Analysis: [hybridflow/2409.19256-hybridflow-a-flexible-and-efficient-rlhf-framework.md](hybridflow/2409.19256-hybridflow-a-flexible-and-efficient-rlhf-framework.md)
+
 <!-- paper-bot:end -->
