@@ -49,4 +49,11 @@ Paper link: [PipeDream: generalized pipeline parallelism for DNN training](https
 
 Analysis: [pipedream/3fd7c9b-pipedream-generalized-pipeline-parallelism-for-dnn-training.md](pipedream/3fd7c9b-pipedream-generalized-pipeline-parallelism-for-dnn-training.md)
 
+
+## PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation (International Conference on Architectural Support for Programming Languages and Operating Systems 2024)
+
+Paper link: [PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation](https://www.semanticscholar.org/paper/a509670659e8b054e2b7d1b6f8a0bc722398fa62)
+
+Analysis: [pytorch-torchdynamo-torchinductor/a509670-pytorch-2-faster-machine-learning-through-dynamic-python.md](pytorch-torchdynamo-torchinductor/a509670-pytorch-2-faster-machine-learning-through-dynamic-python.md)
+
 <!-- paper-bot:end -->
