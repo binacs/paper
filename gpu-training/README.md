@@ -42,4 +42,11 @@ Paper link: [AWQ: Activation-aware Weight Quantization for On-Device LLM Compres
 
 Analysis: [awq-tinychat/2306.00978-awq-activation-aware-weight-quantization-for-on-device.md](awq-tinychat/2306.00978-awq-activation-aware-weight-quantization-for-on-device.md)
 
+
+## PipeDream: generalized pipeline parallelism for DNN training (Symposium on Operating Systems Principles 2019)
+
+Paper link: [PipeDream: generalized pipeline parallelism for DNN training](https://www.semanticscholar.org/paper/3fd7c9ba742dd2b435afa75217847e5087e2f2a8)
+
+Analysis: [pipedream/3fd7c9b-pipedream-generalized-pipeline-parallelism-for-dnn-training.md](pipedream/3fd7c9b-pipedream-generalized-pipeline-parallelism-for-dnn-training.md)
+
 <!-- paper-bot:end -->
