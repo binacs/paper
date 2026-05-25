@@ -72,4 +72,11 @@ Paper link: [An Open-Source Benchmark Suite for Microservices and Their Hardware
 
 Analysis: [deathstarbench/a022334-an-open-source-benchmark-suite-for-microservices-and.md](deathstarbench/a022334-an-open-source-benchmark-suite-for-microservices-and.md)
 
+
+## Learning scheduling algorithms for data processing clusters (Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication 2018)
+
+Paper link: [Learning scheduling algorithms for data processing clusters](https://arxiv.org/abs/1810.01963)
+
+Analysis: [decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md](decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md)
+
 <!-- paper-bot:end -->
