@@ -58,4 +58,11 @@ Paper link: [Hyperledger fabric: a distributed operating system for permissioned
 
 Analysis: [hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md](hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md)
 
+
+## Serverless in the Wild: Characterizing and Optimizing the Serverless Workload at a Large Cloud Provider (USENIX Annual Technical Conference 2020)
+
+Paper link: [Serverless in the Wild: Characterizing and Optimizing the Serverless Workload at a Large Cloud Provider](https://arxiv.org/abs/2003.03423)
+
+Analysis: [misc/2003.03423-serverless-in-the-wild-characterizing-and-optimizing-the.md](misc/2003.03423-serverless-in-the-wild-characterizing-and-optimizing-the.md)
+
 <!-- paper-bot:end -->
