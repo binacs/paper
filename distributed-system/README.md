@@ -86,4 +86,11 @@ Paper link: [HPCC: high precision congestion control](https://www.semanticschola
 
 Analysis: [hpcc/382b548-hpcc-high-precision-congestion-control.md](hpcc/382b548-hpcc-high-precision-congestion-control.md)
 
+
+## Azure Accelerated Networking: SmartNICs in the Public Cloud (Symposium on Networked Systems Design and Implementation 2018)
+
+Paper link: [Azure Accelerated Networking: SmartNICs in the Public Cloud](https://www.semanticscholar.org/paper/247ede1aa594d5fc849a5465553d8b58b1aec6d7)
+
+Analysis: [microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md](microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md)
+
 <!-- paper-bot:end -->
