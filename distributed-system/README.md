@@ -65,4 +65,11 @@ Paper link: [Serverless in the Wild: Characterizing and Optimizing the Serverles
 
 Analysis: [misc/2003.03423-serverless-in-the-wild-characterizing-and-optimizing-the.md](misc/2003.03423-serverless-in-the-wild-characterizing-and-optimizing-the.md)
 
+
+## An Open-Source Benchmark Suite for Microservices and Their Hardware-Software Implications for Cloud & Edge Systems (International Conference on Architectural Support for Programming Languages and Operating Systems 2019)
+
+Paper link: [An Open-Source Benchmark Suite for Microservices and Their Hardware-Software Implications for Cloud & Edge Systems](https://www.semanticscholar.org/paper/a022334521d88eb0181e76f01b53ce42e7dcc302)
+
+Analysis: [deathstarbench/a022334-an-open-source-benchmark-suite-for-microservices-and.md](deathstarbench/a022334-an-open-source-benchmark-suite-for-microservices-and.md)
+
 <!-- paper-bot:end -->
