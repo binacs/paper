@@ -4,4 +4,5 @@
 # Lines starting with `#` are comments. Manual edits welcome and survive
 # bot-driven updates because the file is re-emitted sorted on every write.
 
+382b54869bb92039a7f7c56de67d70fb2421f604  # HPCC: high precision congestion control
 a022334521d88eb0181e76f01b53ce42e7dcc302  # An Open-Source Benchmark Suite for Microservices and Their Hardware-Software Implications for Cloud & Edge Systems

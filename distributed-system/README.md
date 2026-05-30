@@ -73,13 +73,6 @@ Paper link: [Learning scheduling algorithms for data processing clusters](https:
 Analysis: [decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md](decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md)
 
 
-## HPCC: high precision congestion control (Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication 2019)
-
-Paper link: [HPCC: high precision congestion control](https://www.semanticscholar.org/paper/382b54869bb92039a7f7c56de67d70fb2421f604)
-
-Analysis: [hpcc/382b548-hpcc-high-precision-congestion-control.md](hpcc/382b548-hpcc-high-precision-congestion-control.md)
-
-
 ## Azure Accelerated Networking: SmartNICs in the Public Cloud (Symposium on Networked Systems Design and Implementation 2018)
 
 Paper link: [Azure Accelerated Networking: SmartNICs in the Public Cloud](https://www.semanticscholar.org/paper/247ede1aa594d5fc849a5465553d8b58b1aec6d7)
