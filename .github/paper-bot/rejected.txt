@@ -3,3 +3,5 @@
 # paperId (40-hex). Inline comment after the first whitespace is ignored.
 # Lines starting with `#` are comments. Manual edits welcome and survive
 # bot-driven updates because the file is re-emitted sorted on every write.
+
+a022334521d88eb0181e76f01b53ce42e7dcc302  # An Open-Source Benchmark Suite for Microservices and Their Hardware-Software Implications for Cloud & Edge Systems
