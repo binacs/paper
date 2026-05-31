@@ -58,4 +58,25 @@ Paper link: [Hyperledger fabric: a distributed operating system for permissioned
 
 Analysis: [hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md](hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md)
 
+
+## Serverless in the Wild: Characterizing and Optimizing the Serverless Workload at a Large Cloud Provider (USENIX Annual Technical Conference 2020)
+
+Paper link: [Serverless in the Wild: Characterizing and Optimizing the Serverless Workload at a Large Cloud Provider](https://arxiv.org/abs/2003.03423)
+
+Analysis: [misc/2003.03423-serverless-in-the-wild-characterizing-and-optimizing-the.md](misc/2003.03423-serverless-in-the-wild-characterizing-and-optimizing-the.md)
+
+
+## Learning scheduling algorithms for data processing clusters (Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication 2018)
+
+Paper link: [Learning scheduling algorithms for data processing clusters](https://arxiv.org/abs/1810.01963)
+
+Analysis: [decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md](decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md)
+
+
+## Azure Accelerated Networking: SmartNICs in the Public Cloud (Symposium on Networked Systems Design and Implementation 2018)
+
+Paper link: [Azure Accelerated Networking: SmartNICs in the Public Cloud](https://www.semanticscholar.org/paper/247ede1aa594d5fc849a5465553d8b58b1aec6d7)
+
+Analysis: [microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md](microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md)
+
 <!-- paper-bot:end -->
