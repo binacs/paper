@@ -63,4 +63,11 @@ Paper link: [Orca: A Distributed Serving System for Transformer-Based Generative
 
 Analysis: [orca/9d7a756-orca-a-distributed-serving-system-for-transformer-based.md](orca/9d7a756-orca-a-distributed-serving-system-for-transformer-based.md)
 
+
+## DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving (USENIX Symposium on Operating Systems Design and Implementation 2024)
+
+Paper link: [DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving](https://arxiv.org/abs/2401.09670)
+
+Analysis: [distserve/2401.09670-distserve-disaggregating-prefill-and-decoding-for-goodput-optimized.md](distserve/2401.09670-distserve-disaggregating-prefill-and-decoding-for-goodput-optimized.md)
+
 <!-- paper-bot:end -->
