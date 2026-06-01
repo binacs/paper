@@ -86,4 +86,11 @@ Paper link: [Peeking Behind the Curtains of Serverless Platforms](https://www.se
 
 Analysis: [misc/bbb606d-peeking-behind-the-curtains-of-serverless-platforms.md](misc/bbb606d-peeking-behind-the-curtains-of-serverless-platforms.md)
 
+
+## The Design and Operation of CloudLab (USENIX Annual Technical Conference 2019)
+
+Paper link: [The Design and Operation of CloudLab](https://www.semanticscholar.org/paper/05e41e129cb49cafc36810c7b062f707ada13fce)
+
+Analysis: [cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md](cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md)
+
 <!-- paper-bot:end -->
