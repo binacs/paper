@@ -70,4 +70,11 @@ Paper link: [DistServe: Disaggregating Prefill and Decoding for Goodput-optimize
 
 Analysis: [distserve/2401.09670-distserve-disaggregating-prefill-and-decoding-for-goodput-optimized.md](distserve/2401.09670-distserve-disaggregating-prefill-and-decoding-for-goodput-optimized.md)
 
+
+## Efficiently Scaling Transformer Inference (Conference on Machine Learning and Systems 2022)
+
+Paper link: [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102)
+
+Analysis: [misc/2211.05102-efficiently-scaling-transformer-inference.md](misc/2211.05102-efficiently-scaling-transformer-inference.md)
+
 <!-- paper-bot:end -->
