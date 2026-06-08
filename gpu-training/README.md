@@ -84,4 +84,11 @@ Paper link: [ZeRO-Offload: Democratizing Billion-Scale Model Training](https://a
 
 Analysis: [zero-offload/2101.06840-zero-offload-democratizing-billion-scale-model-training.md](zero-offload/2101.06840-zero-offload-democratizing-billion-scale-model-training.md)
 
+
+## Gandiva: Introspective Cluster Scheduling for Deep Learning (USENIX Symposium on Operating Systems Design and Implementation 2018)
+
+Paper link: [Gandiva: Introspective Cluster Scheduling for Deep Learning](https://www.semanticscholar.org/paper/0606676f16d581fa453f6b7b8a14fc7c4af8d025)
+
+Analysis: [microsoft-gandiva/0606676-gandiva-introspective-cluster-scheduling-for-deep-learning.md](microsoft-gandiva/0606676-gandiva-introspective-cluster-scheduling-for-deep-learning.md)
+
 <!-- paper-bot:end -->
