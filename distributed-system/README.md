@@ -79,4 +79,11 @@ Paper link: [Azure Accelerated Networking: SmartNICs in the Public Cloud](https:
 
 Analysis: [microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md](microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md)
 
+
+## The Design and Operation of CloudLab (USENIX Annual Technical Conference 2019)
+
+Paper link: [The Design and Operation of CloudLab](https://www.semanticscholar.org/paper/05e41e129cb49cafc36810c7b062f707ada13fce)
+
+Analysis: [cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md](cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md)
+
 <!-- paper-bot:end -->

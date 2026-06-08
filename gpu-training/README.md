@@ -56,4 +56,18 @@ Paper link: [PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode 
 
 Analysis: [pytorch-torchdynamo-torchinductor/a509670-pytorch-2-faster-machine-learning-through-dynamic-python.md](pytorch-torchdynamo-torchinductor/a509670-pytorch-2-faster-machine-learning-through-dynamic-python.md)
 
+
+## Orca: A Distributed Serving System for Transformer-Based Generative Models (USENIX Symposium on Operating Systems Design and Implementation 2022)
+
+Paper link: [Orca: A Distributed Serving System for Transformer-Based Generative Models](https://www.semanticscholar.org/paper/9d7a75601e0e50dd68d40cfb8ef0e891dad797a6)
+
+Analysis: [orca/9d7a756-orca-a-distributed-serving-system-for-transformer-based.md](orca/9d7a756-orca-a-distributed-serving-system-for-transformer-based.md)
+
+
+## DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving (USENIX Symposium on Operating Systems Design and Implementation 2024)
+
+Paper link: [DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving](https://arxiv.org/abs/2401.09670)
+
+Analysis: [distserve/2401.09670-distserve-disaggregating-prefill-and-decoding-for-goodput-optimized.md](distserve/2401.09670-distserve-disaggregating-prefill-and-decoding-for-goodput-optimized.md)
+
 <!-- paper-bot:end -->
