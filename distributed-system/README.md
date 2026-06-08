@@ -80,13 +80,6 @@ Paper link: [Azure Accelerated Networking: SmartNICs in the Public Cloud](https:
 Analysis: [microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md](microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md)
 
 
-## Peeking Behind the Curtains of Serverless Platforms (USENIX Annual Technical Conference 2018)
-
-Paper link: [Peeking Behind the Curtains of Serverless Platforms](https://www.semanticscholar.org/paper/bbb606d78d379262c85c4615cb5d9c191cd2e3bf)
-
-Analysis: [misc/bbb606d-peeking-behind-the-curtains-of-serverless-platforms.md](misc/bbb606d-peeking-behind-the-curtains-of-serverless-platforms.md)
-
-
 ## The Design and Operation of CloudLab (USENIX Annual Technical Conference 2019)
 
 Paper link: [The Design and Operation of CloudLab](https://www.semanticscholar.org/paper/05e41e129cb49cafc36810c7b062f707ada13fce)
