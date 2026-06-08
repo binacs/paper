@@ -77,4 +77,11 @@ Paper link: [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/22
 
 Analysis: [misc/2211.05102-efficiently-scaling-transformer-inference.md](misc/2211.05102-efficiently-scaling-transformer-inference.md)
 
+
+## ZeRO-Offload: Democratizing Billion-Scale Model Training (USENIX Annual Technical Conference 2021)
+
+Paper link: [ZeRO-Offload: Democratizing Billion-Scale Model Training](https://arxiv.org/abs/2101.06840)
+
+Analysis: [zero-offload/2101.06840-zero-offload-democratizing-billion-scale-model-training.md](zero-offload/2101.06840-zero-offload-democratizing-billion-scale-model-training.md)
+
 <!-- paper-bot:end -->
