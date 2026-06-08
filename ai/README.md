@@ -55,3 +55,18 @@
 - [PAGE 434 onwards: Komogrov Complexity](https://www.lirmm.fr/~ashen/kolmbook-eng-scan.pdf)
 
 - [CS231n Convolutional Neural Networks for Visual Recognition](https://cs231n.github.io/)
+
+---
+
+## Auto-analyzed papers
+
+_Entries below this line are managed by `paper-bot`. Manual edits are fine; just keep them above the marker._
+
+
+## Sustainable AI: Environmental Implications, Challenges and Opportunities (Conference on Machine Learning and Systems 2021)
+
+Paper link: [Sustainable AI: Environmental Implications, Challenges and Opportunities](https://arxiv.org/abs/2111.00364)
+
+Analysis: [misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md](misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md)
+
+<!-- paper-bot:end -->
