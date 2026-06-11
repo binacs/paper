@@ -70,4 +70,25 @@ Paper link: [DistServe: Disaggregating Prefill and Decoding for Goodput-optimize
 
 Analysis: [distserve/2401.09670-distserve-disaggregating-prefill-and-decoding-for-goodput-optimized.md](distserve/2401.09670-distserve-disaggregating-prefill-and-decoding-for-goodput-optimized.md)
 
+
+## Efficiently Scaling Transformer Inference (Conference on Machine Learning and Systems 2022)
+
+Paper link: [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102)
+
+Analysis: [misc/2211.05102-efficiently-scaling-transformer-inference.md](misc/2211.05102-efficiently-scaling-transformer-inference.md)
+
+
+## ZeRO-Offload: Democratizing Billion-Scale Model Training (USENIX Annual Technical Conference 2021)
+
+Paper link: [ZeRO-Offload: Democratizing Billion-Scale Model Training](https://arxiv.org/abs/2101.06840)
+
+Analysis: [zero-offload/2101.06840-zero-offload-democratizing-billion-scale-model-training.md](zero-offload/2101.06840-zero-offload-democratizing-billion-scale-model-training.md)
+
+
+## Gandiva: Introspective Cluster Scheduling for Deep Learning (USENIX Symposium on Operating Systems Design and Implementation 2018)
+
+Paper link: [Gandiva: Introspective Cluster Scheduling for Deep Learning](https://www.semanticscholar.org/paper/0606676f16d581fa453f6b7b8a14fc7c4af8d025)
+
+Analysis: [microsoft-gandiva/0606676-gandiva-introspective-cluster-scheduling-for-deep-learning.md](microsoft-gandiva/0606676-gandiva-introspective-cluster-scheduling-for-deep-learning.md)
+
 <!-- paper-bot:end -->
