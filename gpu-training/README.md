@@ -98,4 +98,11 @@ Paper link: [Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Se
 
 Analysis: [microsoft-sarathi-serve/2403.02310-taming-throughput-latency-tradeoff-in-llm-inference-with.md](microsoft-sarathi-serve/2403.02310-taming-throughput-latency-tradeoff-in-llm-inference-with.md)
 
+
+## Ansor : Generating High-Performance Tensor Programs for Deep Learning (USENIX Symposium on Operating Systems Design and Implementation 2020)
+
+Paper link: [Ansor : Generating High-Performance Tensor Programs for Deep Learning](https://arxiv.org/abs/2006.06762)
+
+Analysis: [ansor/2006.06762-ansor-generating-high-performance-tensor-programs-for-deep.md](ansor/2006.06762-ansor-generating-high-performance-tensor-programs-for-deep.md)
+
 <!-- paper-bot:end -->
