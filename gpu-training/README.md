@@ -91,4 +91,11 @@ Paper link: [Gandiva: Introspective Cluster Scheduling for Deep Learning](https:
 
 Analysis: [microsoft-gandiva/0606676-gandiva-introspective-cluster-scheduling-for-deep-learning.md](microsoft-gandiva/0606676-gandiva-introspective-cluster-scheduling-for-deep-learning.md)
 
+
+## Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve (USENIX Symposium on Operating Systems Design and Implementation 2024)
+
+Paper link: [Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve](https://arxiv.org/abs/2403.02310)
+
+Analysis: [microsoft-sarathi-serve/2403.02310-taming-throughput-latency-tradeoff-in-llm-inference-with.md](microsoft-sarathi-serve/2403.02310-taming-throughput-latency-tradeoff-in-llm-inference-with.md)
+
 <!-- paper-bot:end -->
