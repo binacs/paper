@@ -105,4 +105,11 @@ Paper link: [Ansor : Generating High-Performance Tensor Programs for Deep Learni
 
 Analysis: [ansor/2006.06762-ansor-generating-high-performance-tensor-programs-for-deep.md](ansor/2006.06762-ansor-generating-high-performance-tensor-programs-for-deep.md)
 
+
+## Scaling Distributed Machine Learning with In-Network Aggregation (Symposium on Networked Systems Design and Implementation 2019)
+
+Paper link: [Scaling Distributed Machine Learning with In-Network Aggregation](https://arxiv.org/abs/1903.06701)
+
+Analysis: [switchml/1903.06701-scaling-distributed-machine-learning-with-in-network-aggregation.md](switchml/1903.06701-scaling-distributed-machine-learning-with-in-network-aggregation.md)
+
 <!-- paper-bot:end -->
