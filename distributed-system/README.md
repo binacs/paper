@@ -86,4 +86,11 @@ Paper link: [The Design and Operation of CloudLab](https://www.semanticscholar.o
 
 Analysis: [cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md](cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md)
 
+
+## Monoxide: Scale out Blockchains with Asynchronous Consensus Zones (Symposium on Networked Systems Design and Implementation 2019)
+
+Paper link: [Monoxide: Scale out Blockchains with Asynchronous Consensus Zones](https://www.semanticscholar.org/paper/ea639e0bb4e4ef7ec5cbc7c0915033de4c89fd65)
+
+Analysis: [monoxide/ea639e0-monoxide-scale-out-blockchains-with-asynchronous-consensus-zones.md](monoxide/ea639e0-monoxide-scale-out-blockchains-with-asynchronous-consensus-zones.md)
+
 <!-- paper-bot:end -->
