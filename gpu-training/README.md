@@ -112,4 +112,11 @@ Paper link: [Scaling Distributed Machine Learning with In-Network Aggregation](h
 
 Analysis: [switchml/1903.06701-scaling-distributed-machine-learning-with-in-network-aggregation.md](switchml/1903.06701-scaling-distributed-machine-learning-with-in-network-aggregation.md)
 
+
+## A System for Massively Parallel Hyperparameter Tuning (Conference on Machine Learning and Systems 2018)
+
+Paper link: [A System for Massively Parallel Hyperparameter Tuning](https://arxiv.org/abs/1810.05934)
+
+Analysis: [determined-asha/1810.05934-a-system-for-massively-parallel-hyperparameter-tuning.md](determined-asha/1810.05934-a-system-for-massively-parallel-hyperparameter-tuning.md)
+
 <!-- paper-bot:end -->
