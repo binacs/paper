@@ -99,3 +99,18 @@ Paper link: [MAST: Global Scheduling of ML Training across Geo-Distributed Datac
 ## * Blogs
 
 [65,000 nodes and counting: Google Kubernetes Engine is ready for trillion-parameter AI models](https://cloud.google.com/blog/products/containers-kubernetes/gke-65k-nodes-and-counting)
+
+---
+
+## Auto-analyzed papers
+
+_Entries below this line are managed by `paper-bot`. Manual edits are fine; just keep them above the marker._
+
+
+## Optimus: an efficient dynamic resource scheduler for deep learning clusters (European Conference on Computer Systems 2018)
+
+Paper link: [Optimus: an efficient dynamic resource scheduler for deep learning clusters](https://www.semanticscholar.org/paper/93a06eb066fe58ed7d036e46e4cee53483e16bb8)
+
+Analysis: [optimus/93a06eb-optimus-an-efficient-dynamic-resource-scheduler-for-deep.md](optimus/93a06eb-optimus-an-efficient-dynamic-resource-scheduler-for-deep.md)
+
+<!-- paper-bot:end -->
