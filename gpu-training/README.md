@@ -119,4 +119,11 @@ Paper link: [A System for Massively Parallel Hyperparameter Tuning](https://arxi
 
 Analysis: [determined-asha/1810.05934-a-system-for-massively-parallel-hyperparameter-tuning.md](determined-asha/1810.05934-a-system-for-massively-parallel-hyperparameter-tuning.md)
 
+
+## Reducing Activation Recomputation in Large Transformer Models (Conference on Machine Learning and Systems 2022)
+
+Paper link: [Reducing Activation Recomputation in Large Transformer Models](https://arxiv.org/abs/2205.05198)
+
+Analysis: [misc/2205.05198-reducing-activation-recomputation-in-large-transformer-models.md](misc/2205.05198-reducing-activation-recomputation-in-large-transformer-models.md)
+
 <!-- paper-bot:end -->
