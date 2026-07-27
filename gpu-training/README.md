@@ -126,4 +126,11 @@ Paper link: [BatchCrypt: Efficient Homomorphic Encryption for Cross-Silo Federat
 
 Analysis: [batchcrypt/c783cdc-batchcrypt-efficient-homomorphic-encryption-for-cross-silo-federated.md](batchcrypt/c783cdc-batchcrypt-efficient-homomorphic-encryption-for-cross-silo-federated.md)
 
+
+## Reducing Activation Recomputation in Large Transformer Models (Conference on Machine Learning and Systems 2022)
+
+Paper link: [Reducing Activation Recomputation in Large Transformer Models](https://arxiv.org/abs/2205.05198)
+
+Analysis: [misc/2205.05198-reducing-activation-recomputation-in-large-transformer-models.md](misc/2205.05198-reducing-activation-recomputation-in-large-transformer-models.md)
+
 <!-- paper-bot:end -->
