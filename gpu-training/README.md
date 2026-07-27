@@ -119,4 +119,11 @@ Paper link: [A System for Massively Parallel Hyperparameter Tuning](https://arxi
 
 Analysis: [determined-asha/1810.05934-a-system-for-massively-parallel-hyperparameter-tuning.md](determined-asha/1810.05934-a-system-for-massively-parallel-hyperparameter-tuning.md)
 
+
+## BatchCrypt: Efficient Homomorphic Encryption for Cross-Silo Federated Learning (USENIX Annual Technical Conference 2020)
+
+Paper link: [BatchCrypt: Efficient Homomorphic Encryption for Cross-Silo Federated Learning](https://www.semanticscholar.org/paper/c783cdc03a32e5094affa7eef710459aac599aaf)
+
+Analysis: [batchcrypt/c783cdc-batchcrypt-efficient-homomorphic-encryption-for-cross-silo-federated.md](batchcrypt/c783cdc-batchcrypt-efficient-homomorphic-encryption-for-cross-silo-federated.md)
+
 <!-- paper-bot:end -->
