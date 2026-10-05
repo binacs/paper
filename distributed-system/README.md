@@ -100,4 +100,11 @@ Paper link: [Homa: a receiver-driven low-latency transport protocol using networ
 
 Analysis: [homa/1803.09615-homa-a-receiver-driven-low-latency-transport-protocol.md](homa/1803.09615-homa-a-receiver-driven-low-latency-transport-protocol.md)
 
+
+## Elastic sketch: adaptive and fast network-wide measurements (Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication 2018)
+
+Paper link: [Elastic sketch: adaptive and fast network-wide measurements](https://www.semanticscholar.org/paper/7d0bef4cc924dd3698013f22eeaa0a15f2bc6044)
+
+Analysis: [elastic-sketch/7d0bef4-elastic-sketch-adaptive-and-fast-network-wide-measurements.md](elastic-sketch/7d0bef4-elastic-sketch-adaptive-and-fast-network-wide-measurements.md)
+
 <!-- paper-bot:end -->
