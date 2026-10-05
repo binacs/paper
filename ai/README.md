@@ -69,4 +69,11 @@ Paper link: [Sustainable AI: Environmental Implications, Challenges and Opportun
 
 Analysis: [misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md](misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md)
 
+
+## What is the State of Neural Network Pruning? (Conference on Machine Learning and Systems 2020)
+
+Paper link: [What is the State of Neural Network Pruning?](https://arxiv.org/abs/2003.03033)
+
+Analysis: [shrinkbench/2003.03033-what-is-the-state-of-neural-network-pruning.md](shrinkbench/2003.03033-what-is-the-state-of-neural-network-pruning.md)
+
 <!-- paper-bot:end -->
