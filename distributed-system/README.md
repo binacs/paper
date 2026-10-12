@@ -100,4 +100,18 @@ Paper link: [Homa: a receiver-driven low-latency transport protocol using networ
 
 Analysis: [homa/1803.09615-homa-a-receiver-driven-low-latency-transport-protocol.md](homa/1803.09615-homa-a-receiver-driven-low-latency-transport-protocol.md)
 
+
+## Elastic sketch: adaptive and fast network-wide measurements (Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication 2018)
+
+Paper link: [Elastic sketch: adaptive and fast network-wide measurements](https://www.semanticscholar.org/paper/7d0bef4cc924dd3698013f22eeaa0a15f2bc6044)
+
+Analysis: [elastic-sketch/7d0bef4-elastic-sketch-adaptive-and-fast-network-wide-measurements.md](elastic-sketch/7d0bef4-elastic-sketch-adaptive-and-fast-network-wide-measurements.md)
+
+
+## Pond: CXL-Based Memory Pooling Systems for Cloud Platforms (International Conference on Architectural Support for Programming Languages and Operating Systems 2022)
+
+Paper link: [Pond: CXL-Based Memory Pooling Systems for Cloud Platforms](https://arxiv.org/abs/2203.00241)
+
+Analysis: [microsoft-pond/2203.00241-pond-cxl-based-memory-pooling-systems-for-cloud.md](microsoft-pond/2203.00241-pond-cxl-based-memory-pooling-systems-for-cloud.md)
+
 <!-- paper-bot:end -->

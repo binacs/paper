@@ -69,4 +69,18 @@ Paper link: [Sustainable AI: Environmental Implications, Challenges and Opportun
 
 Analysis: [misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md](misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md)
 
+
+## What is the State of Neural Network Pruning? (Conference on Machine Learning and Systems 2020)
+
+Paper link: [What is the State of Neural Network Pruning?](https://arxiv.org/abs/2003.03033)
+
+Analysis: [shrinkbench/2003.03033-what-is-the-state-of-neural-network-pruning.md](shrinkbench/2003.03033-what-is-the-state-of-neural-network-pruning.md)
+
+
+## Chameleon: scalable adaptation of video analytics (Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication 2018)
+
+Paper link: [Chameleon: scalable adaptation of video analytics](https://www.semanticscholar.org/paper/26ae0f7d0939d594ffb590a288ffa30f168cf603)
+
+Analysis: [chameleon-video-analytics/26ae0f7-chameleon-scalable-adaptation-of-video-analytics.md](chameleon-video-analytics/26ae0f7-chameleon-scalable-adaptation-of-video-analytics.md)
+
 <!-- paper-bot:end -->
