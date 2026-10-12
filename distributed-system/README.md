@@ -107,4 +107,11 @@ Paper link: [Elastic sketch: adaptive and fast network-wide measurements](https:
 
 Analysis: [elastic-sketch/7d0bef4-elastic-sketch-adaptive-and-fast-network-wide-measurements.md](elastic-sketch/7d0bef4-elastic-sketch-adaptive-and-fast-network-wide-measurements.md)
 
+
+## Pond: CXL-Based Memory Pooling Systems for Cloud Platforms (International Conference on Architectural Support for Programming Languages and Operating Systems 2022)
+
+Paper link: [Pond: CXL-Based Memory Pooling Systems for Cloud Platforms](https://arxiv.org/abs/2203.00241)
+
+Analysis: [microsoft-pond/2203.00241-pond-cxl-based-memory-pooling-systems-for-cloud.md](microsoft-pond/2203.00241-pond-cxl-based-memory-pooling-systems-for-cloud.md)
+
 <!-- paper-bot:end -->
