@@ -126,4 +126,11 @@ Paper link: [Reducing Activation Recomputation in Large Transformer Models](http
 
 Analysis: [nvidia-megatron-activation-recomputation/2205.05198-reducing-activation-recomputation-in-large-transformer-models.md](nvidia-megatron-activation-recomputation/2205.05198-reducing-activation-recomputation-in-large-transformer-models.md)
 
+
+## What is the State of Neural Network Pruning? (Conference on Machine Learning and Systems 2020)
+
+Paper link: [What is the State of Neural Network Pruning?](https://arxiv.org/abs/2003.03033)
+
+Analysis: [shrinkbench/2003.03033-what-is-the-state-of-neural-network-pruning.md](shrinkbench/2003.03033-what-is-the-state-of-neural-network-pruning.md)
+
 <!-- paper-bot:end -->
