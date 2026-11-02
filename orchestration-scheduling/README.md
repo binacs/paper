@@ -113,4 +113,11 @@ Paper link: [Optimus: an efficient dynamic resource scheduler for deep learning 
 
 Analysis: [optimus/93a06eb-optimus-an-efficient-dynamic-resource-scheduler-for-deep.md](optimus/93a06eb-optimus-an-efficient-dynamic-resource-scheduler-for-deep.md)
 
+
+## Analysis of Large-Scale Multi-Tenant GPU Clusters for DNN Training Workloads (USENIX Annual Technical Conference 2019)
+
+Paper link: [Analysis of Large-Scale Multi-Tenant GPU Clusters for DNN Training Workloads](https://arxiv.org/abs/1901.05758)
+
+Analysis: [misc/1901.05758-analysis-of-large-scale-multi-tenant-gpu-clusters.md](misc/1901.05758-analysis-of-large-scale-multi-tenant-gpu-clusters.md)
+
 <!-- paper-bot:end -->
