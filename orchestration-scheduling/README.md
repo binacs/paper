@@ -127,4 +127,11 @@ Paper link: [Tiresias: A GPU Cluster Manager for Distributed Deep Learning](http
 
 Analysis: [tiresias/8d2d560-tiresias-a-gpu-cluster-manager-for-distributed-deep.md](tiresias/8d2d560-tiresias-a-gpu-cluster-manager-for-distributed-deep.md)
 
+
+## SOCK: Rapid Task Provisioning with Serverless-Optimized Containers (USENIX Annual Technical Conference 2018)
+
+Paper link: [SOCK: Rapid Task Provisioning with Serverless-Optimized Containers](https://www.semanticscholar.org/paper/8352e3ba20cb0fd48e2514bc1948e68108943e39)
+
+Analysis: [sock/8352e3b-sock-rapid-task-provisioning-with-serverless-optimized-containers.md](sock/8352e3b-sock-rapid-task-provisioning-with-serverless-optimized-containers.md)
+
 <!-- paper-bot:end -->
