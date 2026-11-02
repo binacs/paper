@@ -69,4 +69,18 @@ Paper link: [Sustainable AI: Environmental Implications, Challenges and Opportun
 
 Analysis: [misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md](misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md)
 
+
+## Chameleon: scalable adaptation of video analytics (Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication 2018)
+
+Paper link: [Chameleon: scalable adaptation of video analytics](https://www.semanticscholar.org/paper/26ae0f7d0939d594ffb590a288ffa30f168cf603)
+
+Analysis: [chameleon-video-analytics/26ae0f7-chameleon-scalable-adaptation-of-video-analytics.md](chameleon-video-analytics/26ae0f7-chameleon-scalable-adaptation-of-video-analytics.md)
+
+
+## SAND: Towards High-Performance Serverless Computing (USENIX Annual Technical Conference 2018)
+
+Paper link: [SAND: Towards High-Performance Serverless Computing](https://www.semanticscholar.org/paper/1a937f78c2d968d134981b5c82adba6495e470e5)
+
+Analysis: [sand/1a937f7-sand-towards-high-performance-serverless-computing.md](sand/1a937f7-sand-towards-high-performance-serverless-computing.md)
+
 <!-- paper-bot:end -->

@@ -113,4 +113,25 @@ Paper link: [Optimus: an efficient dynamic resource scheduler for deep learning 
 
 Analysis: [optimus/93a06eb-optimus-an-efficient-dynamic-resource-scheduler-for-deep.md](optimus/93a06eb-optimus-an-efficient-dynamic-resource-scheduler-for-deep.md)
 
+
+## Analysis of Large-Scale Multi-Tenant GPU Clusters for DNN Training Workloads (USENIX Annual Technical Conference 2019)
+
+Paper link: [Analysis of Large-Scale Multi-Tenant GPU Clusters for DNN Training Workloads](https://arxiv.org/abs/1901.05758)
+
+Analysis: [misc/1901.05758-analysis-of-large-scale-multi-tenant-gpu-clusters.md](misc/1901.05758-analysis-of-large-scale-multi-tenant-gpu-clusters.md)
+
+
+## Tiresias: A GPU Cluster Manager for Distributed Deep Learning (Symposium on Networked Systems Design and Implementation 2019)
+
+Paper link: [Tiresias: A GPU Cluster Manager for Distributed Deep Learning](https://www.semanticscholar.org/paper/8d2d560bf1c4c6930d2d1411e48b642bd5b81179)
+
+Analysis: [tiresias/8d2d560-tiresias-a-gpu-cluster-manager-for-distributed-deep.md](tiresias/8d2d560-tiresias-a-gpu-cluster-manager-for-distributed-deep.md)
+
+
+## SOCK: Rapid Task Provisioning with Serverless-Optimized Containers (USENIX Annual Technical Conference 2018)
+
+Paper link: [SOCK: Rapid Task Provisioning with Serverless-Optimized Containers](https://www.semanticscholar.org/paper/8352e3ba20cb0fd48e2514bc1948e68108943e39)
+
+Analysis: [sock/8352e3b-sock-rapid-task-provisioning-with-serverless-optimized-containers.md](sock/8352e3b-sock-rapid-task-provisioning-with-serverless-optimized-containers.md)
+
 <!-- paper-bot:end -->
