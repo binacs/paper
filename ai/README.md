@@ -69,4 +69,11 @@ Paper link: [Sustainable AI: Environmental Implications, Challenges and Opportun
 
 Analysis: [misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md](misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md)
 
+
+## Chameleon: scalable adaptation of video analytics (Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication 2018)
+
+Paper link: [Chameleon: scalable adaptation of video analytics](https://www.semanticscholar.org/paper/26ae0f7d0939d594ffb590a288ffa30f168cf603)
+
+Analysis: [chameleon/26ae0f7-chameleon-scalable-adaptation-of-video-analytics.md](chameleon/26ae0f7-chameleon-scalable-adaptation-of-video-analytics.md)
+
 <!-- paper-bot:end -->
