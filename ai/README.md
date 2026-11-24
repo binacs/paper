@@ -11,7 +11,7 @@
 - [Identity Mappings in Deep Residual Networks](https://arxiv.org/pdf/1603.05027.pdf) — ECCV 2016 · [deep read](microsoft-resnet/1603.05027-identity-mappings-deep-read.md)
 - [Multi-Scale Context Aggregation by Dilated Convolutions](https://arxiv.org/pdf/1511.07122.pdf) — ICLR 2016
 - [GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism](https://arxiv.org/pdf/1811.06965.pdf) — NeurIPS 2019 · [deep read](google-gpipe/1811.06965-gpipe-deep-read.md)
-- [Neural Message Passing for Quantum Chemistry](https://arxiv.org/pdf/1704.01212.pdf) — ICML 2017
+- [Neural Message Passing for Quantum Chemistry](https://arxiv.org/pdf/1704.01212.pdf) — ICML 2017 · [deep read](google-mpnn/1704.01212-neural-message-passing-deep-read.md)
 - [A Simple Neural Network Module for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf) — NeurIPS 2017
 - [Variational Lossy Autoencoder](https://arxiv.org/pdf/1611.02731.pdf) — ICLR 2017
 - [Deep Speech 2: End-to-End Speech Recognition in English and Mandarin](https://arxiv.org/pdf/1512.02595.pdf) — ICML 2016 · [deep read](baidu-deep-speech-2/1512.02595-deep-speech-2-deep-read.md)
@@ -23,11 +23,11 @@
 - [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf) — ICLR 2015 · [deep read](bahdanau-attention/1409.0473-bahdanau-attention-deep-read.md)
 - [The Unreasonable Effectiveness of RNNs](https://karpathy.github.io/2015/05/21/rnn-effectiveness/) — Karpathy (blog, 2015)
 - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) — Olah (blog, 2015)
-- [Recurrent Neural Network Regularization](https://arxiv.org/pdf/1409.2329) — arXiv 2014
-- [Pointer Networks](https://arxiv.org/pdf/1506.03134) — NeurIPS 2015
+- [Recurrent Neural Network Regularization](https://arxiv.org/pdf/1409.2329) — arXiv 2014 · [deep read](rnn-regularization/1409.2329-rnn-regularization-deep-read.md)
+- [Pointer Networks](https://arxiv.org/pdf/1506.03134) — NeurIPS 2015 · [deep read](pointer-networks/1506.03134-pointer-networks-deep-read.md)
 - [Order Matters: Sequence to sequence for sets](https://arxiv.org/pdf/1511.06391.pdf) — ICLR 2016
 - [Relational Recurrent Neural Networks](https://arxiv.org/pdf/1806.01822.pdf) — NeurIPS 2018
-- [Neural Turing Machines](https://arxiv.org/pdf/1410.5401.pdf) — arXiv 2014
+- [Neural Turing Machines](https://arxiv.org/pdf/1410.5401.pdf) — arXiv 2014 · [deep read](deepmind-ntm/1410.5401-neural-turing-machines-deep-read.md)
 
 ## Scaling
 
