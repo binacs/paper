@@ -30,6 +30,7 @@ Entry format: **Paper** (title link — institution · venue year), **Why** (one
 
 - **Paper:** [Megastore: Providing Scalable, Highly Available Storage for Interactive Services](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/36971.pdf) — Google · CIDR 2011
 - **Why:** Paxos-replicated entity groups on Bigtable, giving ACID within a group across datacenters; Spanner's predecessor.
+- **Deep read:** [deep-read note](google-megastore/cidr11-megastore-providing-scalable-highly-available-storage-for-interactive.md)
 
 ## Data processing
 
@@ -43,11 +44,13 @@ Entry format: **Paper** (title link — institution · venue year), **Why** (one
 
 - **Paper:** [Large-scale Incremental Processing Using Distributed Transactions and Notifications](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/36726.pdf) — Google · OSDI 2010
 - **Why:** Snapshot-isolation transactions and observers on Bigtable for incremental index updates; its 2PC scheme is reused by TiKV and others.
+- **Deep read:** [deep-read note](google-percolator/osdi10-large-scale-incremental-processing-using-distributed-transactions-and.md)
 
 ### F1 Query
 
 - **Paper:** [F1 Query: Declarative Querying at Scale](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/fa380016eccb33ac5e92c84f7b5eec136e73d3f1.pdf) — Google · VLDB 2018
 - **Why:** One federated SQL engine covering OLTP-style point queries, interactive analytics and batch ETL over many storage systems.
+- **Deep read:** [deep-read note](google-f1-query/vldb18-f1-query-declarative-querying-at-scale.md)
 
 See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md) (RL-learned scheduling for Spark jobs, SIGCOMM 2019).
 
@@ -65,6 +68,7 @@ See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-pro
 - **Paper:** [F1: A Distributed SQL Database That Scales](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/41344.pdf) — Google · VLDB 2013
 - **Paper:** [Online, Asynchronous Schema Change in F1](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/41376.pdf) — Google · VLDB 2013
 - **Why:** The AdWords database on Spanner; the schema-change paper's intermediate-state protocol is widely copied by online DDL tools.
+- **Deep read:** [deep-read note](google-f1/vldb13-f1-a-distributed-sql-database-that-scales.md)
 
 ## Datacenter networking
 
