@@ -56,6 +56,7 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 - **Paper:** [From Bottleneck to Breakthrough: Optimizing Scheduling for Hyperscale Containerized Clusters](https://dl.acm.org/doi/10.1145/3772052.3772240) — ByteDance · SoCC 2025
 - **Why:** A Kubernetes-based unified scheduler for online and offline workloads at very large cluster sizes, using partitioned optimistic concurrency; the follow-up pushes scheduling throughput further.
 - **Code:** [kubewharf/godel-scheduler](https://github.com/kubewharf/godel-scheduler)
+- **Deep read:** [deep-read note](bytedance-godel/4f005ef-godel-unified-large-scale-resource-management-and-scheduling.md)
 
 ### Google Omega
 
@@ -81,12 +82,14 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 
 - **Paper:** [MAST: Global Scheduling of ML Training across Geo-Distributed Datacenters at Hyperscale](https://www.usenix.org/system/files/osdi24-choudhury.pdf) — Meta · OSDI 2024
 - **Why:** Global scheduling of training jobs and their data across regions; the scheduler behind Meta's LLM training fleet.
+- **Deep read:** [deep-read note](meta-mast/c286274-mast-global-scheduling-of-ml-training-across-geo-distributed.md)
 
 ### Sia
 
 - **Paper:** [Sia: Heterogeneity-aware, Goodput-optimized ML-cluster Scheduling](https://dl.acm.org/doi/10.1145/3600006.3613175) — CMU, Cornell, Petuum · SOSP 2023
 - **Why:** Picks GPU type, count and batch size per job on heterogeneous clusters from online-learned throughput models; the state of the art for goodput-driven DL scheduling.
 - **Code:** [siasosp23/artifacts](https://github.com/siasosp23/artifacts)
+- **Deep read:** [deep-read note](sia/71de9b9-sia-heterogeneity-aware-goodput-optimized-ml-cluster-scheduling.md)
 
 ### Pollux
 

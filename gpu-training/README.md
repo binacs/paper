@@ -12,11 +12,13 @@ Entry format: **Paper** (title link — institution · venue year), **Why** (one
 
 - **Paper:** [MegaScale: Scaling Large Language Model Training to More Than 10,000 GPUs](https://arxiv.org/abs/2402.15627) — ByteDance, Peking University · NSDI 2024
 - **Why:** Full-stack account of training on >10k GPUs: algorithm–system co-design, communication overlap, and the diagnosis / fault-tolerance tooling that keeps MFU high over weeks.
+- **Deep read:** [deep-read note](bytedance-megascale/2402.15627-megascale-scaling-large-language-model-training-to-more.md)
 
 ### * Llama 3 infrastructure
 
 - **Paper:** [The Llama 3 Herd of Models](https://arxiv.org/abs/2407.21783) — Meta · arXiv 2024 (infrastructure and reliability sections)
 - **Why:** The most detailed public account of a 16K-H100 pretraining run: 4D parallelism, the network, and a categorised list of every job interruption during the run.
+- **Deep read:** [deep-read note](meta-llama3-infra/2407.21783-the-llama-3-herd-of-models-infrastructure.md)
 
 ### * DeepSeek-V3
 
@@ -24,6 +26,7 @@ Entry format: **Paper** (title link — institution · venue year), **Why** (one
 - **Paper:** [Insights into DeepSeek-V3: Scaling Challenges and Reflections on Hardware for AI Architectures](https://arxiv.org/abs/2505.09343) — DeepSeek-AI · ISCA 2025
 - **Why:** FP8 mixed-precision training, DualPipe compute/communication overlap and a multi-plane network show how far co-design can push cost per token on constrained hardware; the ISCA paper turns that into a hardware wish-list.
 - **Code:** [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3)
+- **Deep read:** [deep-read note](deepseek-v3/2505.09343-insights-into-deepseek-v3-scaling-challenges-and-reflections.md)
 
 ### Acme (LLM development characterization)
 
@@ -35,7 +38,7 @@ Also: [MegaScale-MoE: Large-Scale Communication-Efficient Training of Mixture-of
 
 ## Reliability, checkpointing & fault tolerance
 
-- [Robust LLM Training Infrastructure at ByteDance (ByteRobust)](https://arxiv.org/abs/2509.16293) — ByteDance Seed, HKU · SOSP 2025 — detects, localises and recovers from faults in large training jobs; why: at 10k+ GPUs, effective training time is decided by fault handling, not peak MFU.
+- [Robust LLM Training Infrastructure at ByteDance (ByteRobust)](https://arxiv.org/abs/2509.16293) — ByteDance Seed, HKU · SOSP 2025 — detects, localises and recovers from faults in large training jobs · [deep read](bytedance-byterobust/2509.16293-robust-llm-training-infrastructure-at-bytedance.md); why: at 10k+ GPUs, effective training time is decided by fault handling, not peak MFU.
 - [Understanding Stragglers in Large Model Training Using What-if Analysis](https://arxiv.org/abs/2505.05713) — NYU, ByteDance Seed, ZJU · OSDI 2025 — trace-driven what-if simulation of how often stragglers occur and what causes them; why: first production-scale quantification of a problem most teams only see anecdotally.
 - [ByteCheckpoint: A Unified Checkpointing System for Large Foundation Model Development](https://arxiv.org/abs/2407.20143) — HKU, ByteDance · NSDI 2025 — parallelism-agnostic checkpoint format with automatic resharding · [code](https://github.com/ByteDance-Seed/ByteCheckpoint); why: checkpoints must survive changes of parallel layout between pretraining, evaluation and fine-tuning.
 - [GEMINI: Fast Failure Recovery in Distributed Training with In-Memory Checkpoints](https://dl.acm.org/doi/10.1145/3600006.3613145) — Rice, AWS · SOSP 2023 — checkpoints to peer CPU memory with traffic scheduling that hides the transfer; why: makes per-iteration-scale checkpoint frequency practical.
@@ -75,16 +78,16 @@ See also [orchestration-scheduling → ML-specific](../orchestration-scheduling/
 
 ### Disaggregated & KV-cache-centric serving
 
-- [Mooncake: Trading More Storage for Less Computation — A KVCache-centric Architecture for Serving LLM Chatbot](https://www.usenix.org/conference/fast25/presentation/qin) — Moonshot AI, Tsinghua · FAST 2025 — Kimi's serving platform built around a distributed KV-cache pool in CPU DRAM / SSD, with KV-aware scheduling and overload rejection · [code](https://github.com/kvcache-ai/Mooncake); why: treats KV cache as a first-class distributed storage tier.
+- [Mooncake: Trading More Storage for Less Computation — A KVCache-centric Architecture for Serving LLM Chatbot](https://www.usenix.org/conference/fast25/presentation/qin) — Moonshot AI, Tsinghua · FAST 2025 — Kimi's serving platform built around a distributed KV-cache pool in CPU DRAM / SSD, with KV-aware scheduling and overload rejection · [code](https://github.com/kvcache-ai/Mooncake) · [deep read](moonshot-mooncake/2407.00079-mooncake-a-kvcache-centric-disaggregated-architecture-for-llm.md); why: treats KV cache as a first-class distributed storage tier.
 - [MegaScale-Infer: Efficient Mixture-of-Experts Model Serving with Disaggregated Expert Parallelism](https://arxiv.org/abs/2504.02263) — ByteDance Seed, PKU · SIGCOMM 2025 — attention and experts on separate GPU pools with ping-pong micro-batch pipelining; why: disaggregation applied inside the model, not only across prefill/decode.
 - [Introducing NVIDIA Dynamo](https://developer.nvidia.com/blog/introducing-nvidia-dynamo-a-low-latency-distributed-inference-framework-for-scaling-reasoning-ai-models) — NVIDIA · Blog 2025 — open-source disaggregated serving with KV-aware routing and KV offload · [code](https://github.com/ai-dynamo/dynamo); why: the research ideas above packaged as a vendor-supported framework.
-- [Splitwise: Efficient Generative LLM Inference Using Phase Splitting](https://arxiv.org/abs/2311.18677) — Microsoft, UW · ISCA 2024 — prefill and decode on separate machine pools, possibly different hardware · [code](https://github.com/Mutinifni/splitwise-sim); why: makes the cost/power case for heterogeneous prefill vs decode hardware.
+- [Splitwise: Efficient Generative LLM Inference Using Phase Splitting](https://arxiv.org/abs/2311.18677) — Microsoft, UW · ISCA 2024 — prefill and decode on separate machine pools, possibly different hardware · [code](https://github.com/Mutinifni/splitwise-sim) · [deep read](microsoft-splitwise/2311.18677-splitwise-efficient-generative-llm-inference-using-phase-splitting.md); why: makes the cost/power case for heterogeneous prefill vs decode hardware.
 - [DistServe: Disaggregating Prefill and Decoding for Goodput-optimized LLM Serving](distserve/2401.09670-distserve-disaggregating-prefill-and-decoding-for-goodput-optimized.md) — Peking University, UCSD · OSDI 2024 — prefill/decode disaggregation sized for per-phase SLOs.
 - [Inference without Interference: Disaggregate LLM Inference for Mixed Downstream Workloads (TetriInfer)](https://arxiv.org/abs/2401.11181) — Huawei Cloud, ICT CAS · arXiv 2024 — chunked prefill, disaggregation and output-length prediction for decode scheduling; why: targets interference between heterogeneous request types.
 
 ### Batching & request scheduling
 
-- [Llumnix: Dynamic Scheduling for Large Language Model Serving](https://www.usenix.org/conference/osdi24/presentation/sun-biao) — Alibaba · OSDI 2024 — live-migrates requests and their KV cache between instances · [code](https://github.com/AlibabaPAI/llumnix); why: brings VM-style live migration to LLM load balancing and priority isolation.
+- [Llumnix: Dynamic Scheduling for Large Language Model Serving](https://www.usenix.org/conference/osdi24/presentation/sun-biao) — Alibaba · OSDI 2024 — live-migrates requests and their KV cache between instances · [code](https://github.com/AlibabaPAI/llumnix) · [deep read](alibaba-llumnix/2406.03243-llumnix-dynamic-scheduling-for-large-language-model-serving.md); why: brings VM-style live migration to LLM load balancing and priority isolation.
 - [Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve](microsoft-sarathi-serve/2403.02310-taming-throughput-latency-tradeoff-in-llm-inference-with.md) — Microsoft, Georgia Tech · OSDI 2024 — chunked prefill and stall-free batching.
 - [DeepSpeed-FastGen: High-throughput Text Generation for LLMs via MII and DeepSpeed-Inference](https://arxiv.org/abs/2401.08671) — Microsoft · arXiv 2024 — Dynamic SplitFuse fills a fixed per-step token budget · [code](https://github.com/microsoft/DeepSpeed-MII); why: independent arrival at the chunked-prefill idea in a production library.
 - [SARATHI: Efficient LLM Inference by Piggybacking Decodes with Chunked Prefills](https://arxiv.org/abs/2308.16369) — MSR India, Georgia Tech · arXiv 2023 — the original chunked-prefill paper behind Sarathi-Serve.
@@ -106,7 +109,7 @@ See also [orchestration-scheduling → ML-specific](../orchestration-scheduling/
 
 ## RL training systems
 
-- [AReaL: A Large-Scale Asynchronous Reinforcement Learning System for Language Reasoning](https://arxiv.org/abs/2505.24298) — Tsinghua IIIS, Ant Research, HKUST · NeurIPS 2025 — fully asynchronous rollout and training with bounded staleness · [code](https://github.com/areal-project/AReaL); why: removes the synchronous-generation barrier that dominates RL wall-clock time.
+- [AReaL: A Large-Scale Asynchronous Reinforcement Learning System for Language Reasoning](https://arxiv.org/abs/2505.24298) — Tsinghua IIIS, Ant Research, HKUST · NeurIPS 2025 — fully asynchronous rollout and training with bounded staleness · [code](https://github.com/areal-project/AReaL) · [deep read](areal/2505.24298-areal-a-large-scale-asynchronous-reinforcement-learning-system.md); why: removes the synchronous-generation barrier that dominates RL wall-clock time.
 - [StreamRL: Scalable, Heterogeneous, and Elastic RL for LLMs with Disaggregated Stream Generation](https://arxiv.org/abs/2504.15930) — PKU, StepFun · arXiv 2025 — rollout and training on separate, possibly heterogeneous clusters with streamed samples; why: disaggregation applied to RL.
 - [HybridFlow: A Flexible and Efficient RLHF Framework (verl)](hybridflow/2409.19256-hybridflow-a-flexible-and-efficient-rlhf-framework.md) — ByteDance, HKU · EuroSys 2025 — hybrid single/multi-controller dataflow for RLHF · [code](https://github.com/volcengine/verl).
 - [Optimizing RLHF Training for Large Language Models with Stage Fusion (RLHFuse)](https://www.usenix.org/conference/nsdi25/presentation/zhong) — PKU, StepFun · NSDI 2025 — fuses generation with inference per sample and overlaps actor/critic pipelines; why: attacks long-tail rollouts and pipeline bubbles directly.

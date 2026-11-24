@@ -13,6 +13,7 @@ Entry format follows [CLAUDE.md](../CLAUDE.md). Within a section: newest first.
 - **Paper:** [Firecracker: Lightweight Virtualization for Serverless Applications](https://www.usenix.org/conference/nsdi20/presentation/agache) — Amazon Web Services · NSDI 2020
 - **Why:** A minimal Rust KVM VMM giving VM-level isolation at container-like density and boot time; the isolation primitive behind Lambda and Fargate and many agent sandboxes.
 - **Code:** [firecracker-microvm/firecracker](https://github.com/firecracker-microvm/firecracker)
+- **Deep read:** [deep-read note](aws-firecracker/nsdi20-firecracker-lightweight-virtualization-for-serverless-applications.md)
 
 ### Google gVisor
 

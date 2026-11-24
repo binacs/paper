@@ -31,6 +31,8 @@ Lighter sections (e.g. "Node & Cluster", sections that only point at bot analyse
 
 Rules: VENUE YEAR is the conference/journal edition, not the arXiv year (e.g. AWQ is MLSys 2024); prefer arXiv `abs`, USENIX presentation or ACM DOI pages over Semantic Scholar links; only public papers or official engineering blogs. Prefix `### *` flags emphasized / featured entries (e.g. `### * ByteDance Gödel`); preserve that convention. Keep hand-curated entries above the `---` / `## Auto-analyzed papers` block, which paper-bot manages.
 
+Deep-read notes (hand-written, `note_type: deep-read` in frontmatter) live next to bot analyses at `<topic>/<system-slug>/<short-id>-<slug>.md` and use the sections Problem → Core design → Key numbers (each with a section/table reference) → Limitations → Relation to other systems → Takeaways for practice → References. Link them from the topic README as **Deep read**. When a paper has no arXiv id, use the 7-char Semantic Scholar prefix, or a venue tag such as `nsdi20-` when that is unknown.
+
 When adding an entirely new topic, create a new top-level directory with a `README.md` whose first line is `# <Topic Title>`.
 
 ## Commit message style
