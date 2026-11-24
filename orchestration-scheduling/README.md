@@ -22,6 +22,7 @@ One logical scheduler (possibly sharded or replicated) owns placement for the wh
 - **Paper:** [Twine: A Unified Cluster Management System for Shared Infrastructure](https://www.usenix.org/conference/osdi20/presentation/tang) — Meta · OSDI 2020
 - **Blog:** [Efficient, reliable cluster management at scale with Twine](https://engineering.fb.com/2019/06/06/data-center-engineering/twine/) · [Meta Research page](https://research.facebook.com/publications/twine-a-unified-cluster-management-system-for-shared-infrastructure/)
 - **Why:** One control plane per region instead of per cluster, with entitlements and host profiles; the substrate MAST builds on.
+- **Deep read:** [deep-read note](meta-twine/osdi20-twine-a-unified-cluster-management-system-for-shared.md)
 
 ### Microsoft Protean
 
