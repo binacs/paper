@@ -18,7 +18,7 @@
 
 ## Sequence models & attention
 
-- [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) — NeurIPS 2017
+- [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) — NeurIPS 2017 · [deep read](google-transformer/1706.03762-attention-is-all-you-need-deep-read.md)
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/) — Harvard NLP (blog)
 - [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf) — ICLR 2015
 - [The Unreasonable Effectiveness of RNNs](https://karpathy.github.io/2015/05/21/rnn-effectiveness/) — Karpathy (blog, 2015)
@@ -31,7 +31,7 @@
 
 ## Scaling
 
-- [Scaling Laws for Neural Language Models](https://arxiv.org/pdf/2001.08361.pdf) — arXiv 2020
+- [Scaling Laws for Neural Language Models](https://arxiv.org/pdf/2001.08361.pdf) — arXiv 2020 · [deep read](openai-scaling-laws/2001.08361-scaling-laws-deep-read.md)
 
 ## Complexity & description length
 

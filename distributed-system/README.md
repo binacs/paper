@@ -62,6 +62,7 @@ See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-pro
 - **Paper:** [Spanner: Becoming a SQL System](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/46103.pdf) — Google · SIGMOD 2017
 - **Why:** Externally consistent transactions across the globe via TrueTime-bounded commit wait; the 2017 paper covers its evolution into a full SQL system.
 - **Deep read:** [deep-read note](google-spanner/osdi12-spanner-googles-globally-distributed-database.md)
+- **Deep read:** [SQL paper deep-read note](google-spanner/sigmod17-spanner-sql-deep-read.md)
 
 ### F1
 
@@ -69,6 +70,7 @@ See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-pro
 - **Paper:** [Online, Asynchronous Schema Change in F1](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/41376.pdf) — Google · VLDB 2013
 - **Why:** The AdWords database on Spanner; the schema-change paper's intermediate-state protocol is widely copied by online DDL tools.
 - **Deep read:** [deep-read note](google-f1/vldb13-f1-a-distributed-sql-database-that-scales.md)
+- **Deep read:** [schema-change paper deep-read note](google-f1/vldb13-f1-online-schema-change-deep-read.md)
 
 ## Datacenter networking
 
