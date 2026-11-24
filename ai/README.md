@@ -6,21 +6,21 @@
 
 ## Architectures & training
 
-- [ImageNet Classification with Deep CNNs (AlexNet)](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf) — NeurIPS 2012
-- [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385.pdf) — CVPR 2016
+- [ImageNet Classification with Deep CNNs (AlexNet)](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf) — NeurIPS 2012 · [deep read](toronto-alexnet/nips12-alexnet-deep-read.md)
+- [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385.pdf) — CVPR 2016 · [deep read](microsoft-resnet/1512.03385-resnet-deep-read.md)
 - [Identity Mappings in Deep Residual Networks](https://arxiv.org/pdf/1603.05027.pdf) — ECCV 2016
 - [Multi-Scale Context Aggregation by Dilated Convolutions](https://arxiv.org/pdf/1511.07122.pdf) — ICLR 2016
 - [GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism](https://arxiv.org/pdf/1811.06965.pdf) — NeurIPS 2019 · [deep read](google-gpipe/1811.06965-gpipe-deep-read.md)
 - [Neural Message Passing for Quantum Chemistry](https://arxiv.org/pdf/1704.01212.pdf) — ICML 2017
 - [A Simple Neural Network Module for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf) — NeurIPS 2017
 - [Variational Lossy Autoencoder](https://arxiv.org/pdf/1611.02731.pdf) — ICLR 2017
-- [Deep Speech 2: End-to-End Speech Recognition in English and Mandarin](https://arxiv.org/pdf/1512.02595.pdf) — ICML 2016
+- [Deep Speech 2: End-to-End Speech Recognition in English and Mandarin](https://arxiv.org/pdf/1512.02595.pdf) — ICML 2016 · [deep read](baidu-deep-speech-2/1512.02595-deep-speech-2-deep-read.md)
 
 ## Sequence models & attention
 
 - [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) — NeurIPS 2017 · [deep read](google-transformer/1706.03762-attention-is-all-you-need-deep-read.md)
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/) — Harvard NLP (blog)
-- [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf) — ICLR 2015
+- [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf) — ICLR 2015 · [deep read](bahdanau-attention/1409.0473-bahdanau-attention-deep-read.md)
 - [The Unreasonable Effectiveness of RNNs](https://karpathy.github.io/2015/05/21/rnn-effectiveness/) — Karpathy (blog, 2015)
 - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) — Olah (blog, 2015)
 - [Recurrent Neural Network Regularization](https://arxiv.org/pdf/1409.2329) — arXiv 2014
