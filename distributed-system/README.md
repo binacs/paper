@@ -52,7 +52,7 @@ Entry format: **Paper** (title link — institution · venue year), **Why** (one
 - **Why:** One federated SQL engine covering OLTP-style point queries, interactive analytics and batch ETL over many storage systems.
 - **Deep read:** [deep-read note](google-f1-query/vldb18-f1-query-declarative-querying-at-scale.md)
 
-See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md) (RL-learned scheduling for Spark jobs, SIGCOMM 2019).
+See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md) (RL-learned scheduling for Spark jobs, SIGCOMM 2019) · [deep read](decima/1810.01963-decima-deep-read.md).
 
 ## Databases & transactions
 

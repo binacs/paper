@@ -16,6 +16,7 @@ One logical scheduler (possibly sharded or replicated) owns placement for the wh
 - **Paper:** [Borg: the Next Generation](https://dl.acm.org/doi/pdf/10.1145/3342195.3387517) — Google, Harvard · EuroSys 2020
 - **Why:** The reference design for shared production clusters (cells, priorities, quotas, Borgmaster); the 2020 paper revisits it with the 2019 trace.
 - **Deep read:** [deep-read note](google-borg/3a04371-large-scale-cluster-management-at-google-with-borg.md) (EuroSys 2015 paper)
+- **Deep read:** [deep-read note](google-borg/eurosys20-borg-next-generation-deep-read.md) (EuroSys 2020 paper)
 
 ### Meta Twine
 

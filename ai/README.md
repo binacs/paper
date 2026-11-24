@@ -8,7 +8,7 @@
 
 - [ImageNet Classification with Deep CNNs (AlexNet)](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf) — NeurIPS 2012 · [deep read](toronto-alexnet/nips12-alexnet-deep-read.md)
 - [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385.pdf) — CVPR 2016 · [deep read](microsoft-resnet/1512.03385-resnet-deep-read.md)
-- [Identity Mappings in Deep Residual Networks](https://arxiv.org/pdf/1603.05027.pdf) — ECCV 2016
+- [Identity Mappings in Deep Residual Networks](https://arxiv.org/pdf/1603.05027.pdf) — ECCV 2016 · [deep read](microsoft-resnet/1603.05027-identity-mappings-deep-read.md)
 - [Multi-Scale Context Aggregation by Dilated Convolutions](https://arxiv.org/pdf/1511.07122.pdf) — ICLR 2016
 - [GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism](https://arxiv.org/pdf/1811.06965.pdf) — NeurIPS 2019 · [deep read](google-gpipe/1811.06965-gpipe-deep-read.md)
 - [Neural Message Passing for Quantum Chemistry](https://arxiv.org/pdf/1704.01212.pdf) — ICML 2017

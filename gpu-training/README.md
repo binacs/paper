@@ -27,6 +27,7 @@ Entry format: **Paper** (title link — institution · venue year), **Why** (one
 - **Why:** FP8 mixed-precision training, DualPipe compute/communication overlap and a multi-plane network show how far co-design can push cost per token on constrained hardware; the ISCA paper turns that into a hardware wish-list.
 - **Code:** [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3)
 - **Deep read:** [deep-read note](deepseek-v3/2505.09343-insights-into-deepseek-v3-scaling-challenges-and-reflections.md)
+- **Deep read:** [technical report deep-read note](deepseek-v3/2412.19437-deepseek-v3-technical-report-deep-read.md)
 
 ### Acme (LLM development characterization)
 
