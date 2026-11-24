@@ -11,7 +11,7 @@ Top-level topic directories, each containing a single `README.md` index:
 - `distributed-system/` — classic distributed systems papers (GFS, MapReduce, Bigtable, Spanner, F1, …)
 - `orchestration-scheduling/` — cluster scheduling / resource management (Borg, Omega, Mesos, YARN, Apollo, Twine, MAST, Gödel, …); contains placeholder subdirectories with `.gitkeep` files reserved for per-system deep-dive notes
 - `gpu-training/` — large-scale ML training and inference systems (MegaScale, Llama 3 infra, DistServe, Mooncake, RL training systems, …)
-- `agent-sandbox/` — sandboxes for untrusted code and agents (Firecracker, gVisor, SOCK, Kubernetes Agent Sandbox, …); not yet in paper-bot's `topics:` allowlist
+- `agent-sandbox/` — sandboxes for untrusted code and agents (Firecracker, gVisor, SOCK, Kubernetes Agent Sandbox, …)
 - `ai/` — AI/ML reading list (Ilya's "30u30" reference list)
 - `profile/` — repo owner's academic profile links (ORCID, ACM, Google Scholar)
 
