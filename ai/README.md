@@ -39,7 +39,7 @@
 - [Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton](https://arxiv.org/pdf/1405.6903.pdf) — arXiv 2014
 - [Keeping Neural Networks Simple by Minimizing the Description Length of the Weights](https://www.cs.toronto.edu/~hinton/absps/colt93.pdf) — COLT 1993
 - [A Tutorial Introduction to the Minimum Description Length Principle](https://arxiv.org/pdf/math/0406077.pdf) — Grünwald, 2004
-- [Machine Super Intelligence (PhD dissertation)](https://www.vetta.org/documents/Machine_Super_Intelligence.pdf) — Legg, 2008
+- [Machine Super Intelligence (PhD dissertation)](https://susi.usi.ch/usi/documents/317954) — Legg, 2008
 - [Kolmogorov Complexity and Algorithmic Randomness, p. 434 onwards](https://www.lirmm.fr/~ashen/kolmbook-eng-scan.pdf) — Shen, Uspensky, Vereshchagin (book)
 
 ## Courses & tutorials

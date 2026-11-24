@@ -25,24 +25,24 @@ Entry format: **Paper** (title link — institution · venue year), **Why** (one
 
 ### Megastore
 
-- **Paper:** [Megastore: Providing Scalable, Highly Available Storage for Interactive Services](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36971.pdf) — Google · CIDR 2011
+- **Paper:** [Megastore: Providing Scalable, Highly Available Storage for Interactive Services](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/36971.pdf) — Google · CIDR 2011
 - **Why:** Paxos-replicated entity groups on Bigtable, giving ACID within a group across datacenters; Spanner's predecessor.
 
 ## Data processing
 
 ### MapReduce
 
-- **Paper:** [MapReduce: Simplified Data Processing on Large Clusters](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/16cb30b4b92fd4989b8619a61752a2387c6dd474.pdf) — Google · OSDI 2004
+- **Paper:** [MapReduce: Simplified Data Processing on Large Clusters](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/16cb30b4b92fd4989b8619a61752a2387c6dd474.pdf) — Google · OSDI 2004
 - **Why:** The programming model and fault-tolerant runtime that made commodity-cluster batch processing mainstream.
 
 ### Percolator
 
-- **Paper:** [Large-scale Incremental Processing Using Distributed Transactions and Notifications](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36726.pdf) — Google · OSDI 2010
+- **Paper:** [Large-scale Incremental Processing Using Distributed Transactions and Notifications](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/36726.pdf) — Google · OSDI 2010
 - **Why:** Snapshot-isolation transactions and observers on Bigtable for incremental index updates; its 2PC scheme is reused by TiKV and others.
 
 ### F1 Query
 
-- **Paper:** [F1 Query: Declarative Querying at Scale](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/fa380016eccb33ac5e92c84f7b5eec136e73d3f1.pdf) — Google · VLDB 2018
+- **Paper:** [F1 Query: Declarative Querying at Scale](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/fa380016eccb33ac5e92c84f7b5eec136e73d3f1.pdf) — Google · VLDB 2018
 - **Why:** One federated SQL engine covering OLTP-style point queries, interactive analytics and batch ETL over many storage systems.
 
 See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md) (RL-learned scheduling for Spark jobs, SIGCOMM 2019).
@@ -64,17 +64,17 @@ See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-pro
 ## Datacenter networking
 
 - [Homa](homa/1803.09615-homa-a-receiver-driven-low-latency-transport-protocol.md) — Stanford · SIGCOMM 2018 — receiver-driven transport using network priorities for low tail latency.
-- [Azure Accelerated Networking](microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md) — Microsoft · NSDI 2018 — FPGA SmartNICs offloading the host SDN stack.
+- [Azure Accelerated Networking](microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md) ([paper](https://www.usenix.org/conference/nsdi18/presentation/firestone)) — Microsoft · NSDI 2018 — FPGA SmartNICs offloading the host SDN stack.
 
 ## Cloud & serverless
 
 - [Serverless in the Wild](misc/2003.03423-serverless-in-the-wild-characterizing-and-optimizing-the.md) — Microsoft · ATC 2020 — Azure Functions trace characterisation and a hybrid keep-alive policy against cold starts.
-- [The Design and Operation of CloudLab](cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md) — Utah, Wisconsin, Clemson et al. · ATC 2019 — the bare-metal research testbed.
+- [The Design and Operation of CloudLab](cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md) ([paper](https://www.usenix.org/conference/atc19/presentation/duplyakin)) — Utah, Wisconsin, Clemson et al. · ATC 2019 — the bare-metal research testbed.
 
 ## Blockchain
 
 - [Hyperledger Fabric](hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md) — IBM · EuroSys 2018 — execute-order-validate architecture for permissioned chains.
-- [Monoxide](monoxide/ea639e0-monoxide-scale-out-blockchains-with-asynchronous-consensus-zones.md) — Tsinghua · NSDI 2019 — sharded blockchain with asynchronous consensus zones.
+- [Monoxide](monoxide/ea639e0-monoxide-scale-out-blockchains-with-asynchronous-consensus-zones.md) ([paper](https://www.usenix.org/conference/nsdi19/presentation/wang-jiaping)) — Tsinghua · NSDI 2019 — sharded blockchain with asynchronous consensus zones.
 
 ---
 

@@ -83,7 +83,7 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 
 ### Optimus
 
-- **Paper:** [Optimus: an efficient dynamic resource scheduler for deep learning clusters](https://www.semanticscholar.org/paper/93a06eb066fe58ed7d036e46e4cee53483e16bb8) — HKU, ByteDance · EuroSys 2018
+- **Paper:** [Optimus: an efficient dynamic resource scheduler for deep learning clusters](https://dl.acm.org/doi/10.1145/3190508.3190517) — HKU, ByteDance · EuroSys 2018
 - **Why:** Fits online models of training convergence and speed to allocate parameter-server / worker resources dynamically.
 - **Analysis:** [optimus/93a06eb-…](optimus/93a06eb-optimus-an-efficient-dynamic-resource-scheduler-for-deep.md)
 
@@ -100,16 +100,16 @@ See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva
 
 ## Isolation
 
-- [CPI²: CPU performance isolation for shared compute clusters](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/40737.pdf) — Google · EuroSys 2013 — detects and throttles antagonists using CPI outliers.
+- [CPI²: CPU performance isolation for shared compute clusters](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/40737.pdf) — Google · EuroSys 2013 — detects and throttles antagonists using CPI outliers.
 - [IOCost: Block IO Control for Containers in Datacenters](http://www.cs.cmu.edu/~dskarlat/publications/iocost_asplos22.pdf) — Meta, CMU · ASPLOS 2022 — cost-model-based IO isolation in the Linux cgroup controller.
 - [Heracles: Improving Resource Efficiency at Scale](https://dl.acm.org/doi/pdf/10.1145/2749469.2749475) — Stanford, Google · ISCA 2015 — co-locates best-effort work with latency-critical services via a feedback controller over cores, LLC, memory bandwidth and network.
 
 ## QoS
 
-- [Reconciling High Server Utilization and Sub-millisecond Quality-of-Service](http://www-cs-students.stanford.edu/~leverich/papers/2014.mutilate.eurosys.pdf) — Stanford · EuroSys 2014 — shows tail-latency interference sources for memcached-style services under co-location.
+- [Reconciling High Server Utilization and Sub-millisecond Quality-of-Service](https://mast.stanford.edu/pubs/reconciling_high_server_utilization_and_sub_millisecond_quality_of_service/paper.pdf) — Stanford · EuroSys 2014 — shows tail-latency interference sources for memcached-style services under co-location.
 - [PARTIES: QoS-Aware Resource Partitioning for Multiple Interactive Services](https://dl.acm.org/doi/pdf/10.1145/3297858.3304005) — Cornell · ASPLOS 2019 — partitions resources among several latency-critical services on one server.
 - [Sinan: ML-Based and QoS-Aware Resource Management for Cloud Microservices](https://dl.acm.org/doi/pdf/10.1145/3445814.3446693) — Cornell · ASPLOS 2021 — learned models predict QoS violations across microservice graphs.
-- [Quasar: Resource-Efficient and QoS-Aware Cluster Management](https://web.stanford.edu/group/mast/cgi-bin/drupal/system/files/2014.asplos.quasar.pdf) — Stanford · ASPLOS 2014 — classifies workloads with collaborative filtering instead of user reservations.
+- [Quasar: Resource-Efficient and QoS-Aware Cluster Management](https://mast.stanford.edu/pubs/quasar_resource_efficient_and_qos_aware_cluster_management/paper.pdf) — Stanford · ASPLOS 2014 — classifies workloads with collaborative filtering instead of user reservations.
 - [Thunderbolt: Throughput-Optimized, Quality-of-Service-Aware Power Capping at Scale](https://www.usenix.org/system/files/osdi20-li_shaohong.pdf) — Google · OSDI 2020 — power capping that throttles batch work first.
 
 ## Fairness
@@ -119,7 +119,7 @@ See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva
 ## Workload & autoscaling
 
 - [Autopilot: workload autoscaling at Google](https://dl.acm.org/doi/pdf/10.1145/3342195.3387524) — Google · EuroSys 2020 — automatic vertical and horizontal scaling of Borg jobs.
-- [Towards Energy Proportionality for Large-Scale Latency-Critical Workloads](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/42523.pdf) — Google, Stanford · ISCA 2014 — energy-proportional operation for latency-critical search.
+- [Towards Energy Proportionality for Large-Scale Latency-Critical Workloads](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/42523.pdf) — Google, Stanford · ISCA 2014 — energy-proportional operation for latency-critical search.
 
 ## Building cluster managers
 
