@@ -15,6 +15,7 @@ One logical scheduler (possibly sharded or replicated) owns placement for the wh
 - **Paper:** [Large-scale cluster management at Google with Borg](https://dl.acm.org/doi/abs/10.1145/2741948.2741964) — Google · EuroSys 2015
 - **Paper:** [Borg: the Next Generation](https://dl.acm.org/doi/pdf/10.1145/3342195.3387517) — Google, Harvard · EuroSys 2020
 - **Why:** The reference design for shared production clusters (cells, priorities, quotas, Borgmaster); the 2020 paper revisits it with the 2019 trace.
+- **Deep read:** [deep-read note](google-borg/3a04371-large-scale-cluster-management-at-google-with-borg.md) (EuroSys 2015 paper)
 
 ### Meta Twine
 
@@ -96,6 +97,7 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 - **Paper:** [Pollux: Co-adaptive Cluster Scheduling for Goodput-Optimized Deep Learning](https://arxiv.org/abs/2008.12260) — CMU, Petuum · OSDI 2021
 - **Why:** Introduced goodput (throughput × statistical efficiency) as the scheduling objective and co-adapts batch size with GPU allocation.
 - **Code:** [petuum/adaptdl](https://github.com/petuum/adaptdl)
+- **Deep read:** [deep-read note](pollux/2008.12260-pollux-co-adaptive-cluster-scheduling-for-goodput-optimized-deep.md)
 
 ### Tiresias
 

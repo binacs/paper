@@ -42,10 +42,10 @@ Longer notes (problem → core design → key numbers with section references �
 
 | Area | Note |
 |---|---|
-| Scheduling | [MAST](orchestration-scheduling/meta-mast/c286274-mast-global-scheduling-of-ml-training-across-geo-distributed.md) (OSDI 2024) · [Gödel](orchestration-scheduling/bytedance-godel/4f005ef-godel-unified-large-scale-resource-management-and-scheduling.md) (SoCC 2023) · [Sia](orchestration-scheduling/sia/71de9b9-sia-heterogeneity-aware-goodput-optimized-ml-cluster-scheduling.md) (SOSP 2023) |
+| Scheduling | [Borg](orchestration-scheduling/google-borg/3a04371-large-scale-cluster-management-at-google-with-borg.md) (EuroSys 2015) · [Pollux](orchestration-scheduling/pollux/2008.12260-pollux-co-adaptive-cluster-scheduling-for-goodput-optimized-deep.md) (OSDI 2021) · [MAST](orchestration-scheduling/meta-mast/c286274-mast-global-scheduling-of-ml-training-across-geo-distributed.md) (OSDI 2024) · [Gödel](orchestration-scheduling/bytedance-godel/4f005ef-godel-unified-large-scale-resource-management-and-scheduling.md) (SoCC 2023) · [Sia](orchestration-scheduling/sia/71de9b9-sia-heterogeneity-aware-goodput-optimized-ml-cluster-scheduling.md) (SOSP 2023) |
 | Training infra | [MegaScale](gpu-training/bytedance-megascale/2402.15627-megascale-scaling-large-language-model-training-to-more.md) (NSDI 2024) · [Llama 3 infra](gpu-training/meta-llama3-infra/2407.21783-the-llama-3-herd-of-models-infrastructure.md) (2024) · [DeepSeek-V3 insights](gpu-training/deepseek-v3/2505.09343-insights-into-deepseek-v3-scaling-challenges-and-reflections.md) (ISCA 2025) · [ByteRobust](gpu-training/bytedance-byterobust/2509.16293-robust-llm-training-infrastructure-at-bytedance.md) (SOSP 2025) |
-| Inference | [Splitwise](gpu-training/microsoft-splitwise/2311.18677-splitwise-efficient-generative-llm-inference-using-phase-splitting.md) (ISCA 2024) · [Llumnix](gpu-training/alibaba-llumnix/2406.03243-llumnix-dynamic-scheduling-for-large-language-model-serving.md) (OSDI 2024) · [Mooncake](gpu-training/moonshot-mooncake/2407.00079-mooncake-a-kvcache-centric-disaggregated-architecture-for-llm.md) (FAST 2025) |
-| RL systems | [AReaL](gpu-training/areal/2505.24298-areal-a-large-scale-asynchronous-reinforcement-learning-system.md) (NeurIPS 2025) |
+| Inference | [Splitwise](gpu-training/microsoft-splitwise/2311.18677-splitwise-efficient-generative-llm-inference-using-phase-splitting.md) (ISCA 2024) · [Llumnix](gpu-training/alibaba-llumnix/2406.03243-llumnix-dynamic-scheduling-for-large-language-model-serving.md) (OSDI 2024) · [Mooncake](gpu-training/moonshot-mooncake/2407.00079-mooncake-a-kvcache-centric-disaggregated-architecture-for-llm.md) (FAST 2025) · [MegaScale-Infer](gpu-training/bytedance-megascale-infer/2504.02263-megascale-infer-serving-mixture-of-experts-at-scale-with.md) (SIGCOMM 2025) |
+| RL systems | [HybridFlow](gpu-training/hybridflow/2409.19256-hybridflow-deep-read.md) (EuroSys 2025) · [AReaL](gpu-training/areal/2505.24298-areal-a-large-scale-asynchronous-reinforcement-learning-system.md) (NeurIPS 2025) |
 | Sandboxes | [Firecracker](agent-sandbox/aws-firecracker/nsdi20-firecracker-lightweight-virtualization-for-serverless-applications.md) (NSDI 2020) |
 
 ## How this repo is maintained
@@ -55,6 +55,6 @@ Longer notes (problem → core design → key numbers with section references �
 
 ## Recently updated
 
-- 2026-11 — 12 deep-read notes added (see above).
+- 2026-11 — 16 deep-read notes added (see above).
 - 2026-11 — 2023–2026 frontier added (training reliability, disaggregated serving, RL systems, Kubernetes batch); new [agent-sandbox](agent-sandbox/README.md) topic.
 - 2026-11 — READMEs reorganised into categories with a unified entry format; venue years corrected to conference editions.
