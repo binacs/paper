@@ -50,7 +50,7 @@ Also: [MegaScale-MoE: Large-Scale Communication-Efficient Training of Mixture-of
 - [PyTorch FSDP: Experiences on Scaling Fully Sharded Data Parallel](https://arxiv.org/abs/2304.11277) — Meta · VLDB 2023 — production lessons of PyTorch's ZeRO-3-style sharding · [deep read](pytorch-fsdp/2304.11277-pytorch-fsdp-experiences-on-scaling-fully-sharded-data.md); why: the default way most teams now shard large models.
 - [Reducing Activation Recomputation in Large Transformer Models](nvidia-megatron-activation-recomputation/2205.05198-reducing-activation-recomputation-in-large-transformer-models.md) — NVIDIA · MLSys 2023 — sequence parallelism plus selective recomputation in Megatron-LM · [deep read](nvidia-megatron-activation-recomputation/2205.05198-activation-recomputation-deep-read.md).
 - [Efficient Large-Scale Language Model Training on GPU Clusters Using Megatron-LM](https://arxiv.org/abs/2104.04473) — NVIDIA, MSR, Stanford · SC 2021 — composes tensor, pipeline and data parallelism (PTD-P) with an interleaved schedule · [code](https://github.com/NVIDIA/Megatron-LM) · [deep read](nvidia-megatron-lm/2104.04473-efficient-large-scale-language-model-training-on-gpu-clusters.md); why: the reference 3D-parallel recipe that MegaScale and Llama 3 build on.
-- [PipeDream: Generalized Pipeline Parallelism for DNN Training](pipedream/3fd7c9b-pipedream-generalized-pipeline-parallelism-for-dnn-training.md) ([paper](https://dl.acm.org/doi/10.1145/3341301.3359646)) — Microsoft, CMU, Stanford · SOSP 2019 — 1F1B pipeline schedule with weight stashing.
+- [PipeDream: Generalized Pipeline Parallelism for DNN Training](pipedream/3fd7c9b-pipedream-generalized-pipeline-parallelism-for-dnn-training.md) ([paper](https://dl.acm.org/doi/10.1145/3341301.3359646)) — Microsoft, CMU, Stanford · SOSP 2019 — 1F1B pipeline schedule with weight stashing · [deep read](pipedream/sosp19-pipedream-deep-read.md).
 
 ## Memory
 
@@ -60,14 +60,14 @@ Also: [MegaScale-MoE: Large-Scale Communication-Efficient Training of Mixture-of
 
 - [RDMA over Ethernet for Distributed AI Training at Meta Scale](https://dl.acm.org/doi/10.1145/3651890.3672233) — Meta · SIGCOMM 2024 — design and operation of Meta's RoCEv2 training backend (topology, routing, congestion control) · [deep read](meta-roce/sigcomm24-rdma-over-ethernet-for-distributed-ai-training-at.md); why: a rare production report on running RDMA over Ethernet for GPU training at scale.
 - [Alibaba HPN: A Data Center Network for Large Language Model Training](https://dl.acm.org/doi/10.1145/3651890.3672265) — Alibaba Cloud · SIGCOMM 2024 — two-tier, dual-plane Ethernet fabric that avoids ECMP hash polarisation and single-ToR failures · [deep read](alibaba-hpn/sigcomm24-alibaba-hpn-a-data-center-network-for-large.md); why: shows how LLM traffic patterns change datacenter network design.
-- [Scaling Distributed Machine Learning with In-Network Aggregation (SwitchML)](switchml/1903.06701-scaling-distributed-machine-learning-with-in-network-aggregation.md) ([paper](https://www.usenix.org/conference/nsdi21/presentation/sapio)) — KAUST, Microsoft et al. · NSDI 2021 — all-reduce aggregation on programmable switches.
+- [Scaling Distributed Machine Learning with In-Network Aggregation (SwitchML)](switchml/1903.06701-scaling-distributed-machine-learning-with-in-network-aggregation.md) ([paper](https://www.usenix.org/conference/nsdi21/presentation/sapio)) — KAUST, Microsoft et al. · NSDI 2021 — all-reduce aggregation on programmable switches · [deep read](switchml/nsdi21-switchml-deep-read.md).
 
 ## Compilers & kernels
 
 - [FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision](https://arxiv.org/abs/2407.08608) — Colfax, Meta, NVIDIA, Princeton, Together AI · NeurIPS 2024 — Hopper-specific attention using warp specialisation, GEMM/softmax overlap and FP8 · [code](https://github.com/Dao-AILab/flash-attention) · [deep read](flashattention-3/2407.08608-flashattention-3-fast-and-accurate-attention-with-asynchrony-and.md); why: kernels must now be written for asynchronous tensor-core hardware to reach peak.
 - [FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning](https://arxiv.org/abs/2307.08691) — Princeton, Stanford · ICLR 2024 — better work partitioning across thread blocks and warps · [deep read](flashattention-2/2307.08691-flashattention-2-faster-attention-with-better-parallelism-and.md); why: the attention kernel behind most training and serving stacks.
 - [PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation](pytorch-torchdynamo-torchinductor/a509670-pytorch-2-faster-machine-learning-through-dynamic-python.md) ([paper](https://dl.acm.org/doi/10.1145/3620665.3640366)) — Meta et al. · ASPLOS 2024 — TorchDynamo graph capture + TorchInductor codegen.
-- [Ansor: Generating High-Performance Tensor Programs for Deep Learning](ansor/2006.06762-ansor-generating-high-performance-tensor-programs-for-deep.md) — UC Berkeley et al. · OSDI 2020 — search-based tensor program generation in TVM.
+- [Ansor: Generating High-Performance Tensor Programs for Deep Learning](ansor/2006.06762-ansor-generating-high-performance-tensor-programs-for-deep.md) — UC Berkeley et al. · OSDI 2020 — search-based tensor program generation in TVM · [deep read](ansor/2006.06762-ansor-deep-read.md).
 
 ## Scheduling for DL clusters
 
@@ -104,7 +104,7 @@ See also [orchestration-scheduling → ML-specific](../orchestration-scheduling/
 
 ### Model-level speedups
 
-- [AWQ: Activation-aware Weight Quantization for On-Device LLM Compression and Acceleration](awq-tinychat/2306.00978-awq-activation-aware-weight-quantization-for-on-device.md) — MIT et al. · MLSys 2024 — 4-bit weight-only quantization guided by activation salience.
+- [AWQ: Activation-aware Weight Quantization for On-Device LLM Compression and Acceleration](awq-tinychat/2306.00978-awq-activation-aware-weight-quantization-for-on-device.md) — MIT et al. · MLSys 2024 — 4-bit weight-only quantization guided by activation salience · [deep read](awq-tinychat/2306.00978-awq-deep-read.md).
 - [Efficiently Scaling Transformer Inference](misc/2211.05102-efficiently-scaling-transformer-inference.md) — Google · MLSys 2023 — partitioning analysis for large-model inference on TPUs · [deep read](google-transformer-inference/2211.05102-efficiently-scaling-transformer-inference-deep-read.md).
 - [Fast Inference from Transformers via Speculative Decoding](https://arxiv.org/abs/2211.17192) — Google Research · ICML 2023 — draft-then-verify decoding that exactly preserves the target distribution · [deep read](speculative-decoding/2211.17192-fast-inference-from-transformers-via-speculative-decoding.md); why: the basis of most current decode-latency optimisations.
 
