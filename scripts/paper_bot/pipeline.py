@@ -9,13 +9,14 @@ from __future__ import annotations
 import logging
 import os
 import re
+import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
 
 import yaml
 
-from . import deepseek, git_ops, rejected, render
+from . import dedup, deepseek, git_ops, rejected, render
 from .semscholar import PaperEntry, fetch_venues
 from .slugs import kebab, paper_slug
 
@@ -23,7 +24,6 @@ log = logging.getLogger(__name__)
 
 # Filesystem locations to skip when checking for prior analyses.
 _DEDUP_SKIP_PARTS = {".git", ".github", "scripts"}
-_FM_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 
 
 @dataclass
@@ -33,6 +33,15 @@ class Sources:
     keyword_blocklist: list[str] = field(default_factory=list)
     max_candidates_per_run: int = 8
     topics: list[str] = field(default_factory=list)
+    # Backlog guard: skip the whole run while this many *other* paper-bot PRs
+    # are still open.  0 disables the guard.
+    max_open_bot_prs: int = 0
+    # Analyses are written from the abstract alone; below this length the LLM
+    # tends to fill sections with generic text.  0 disables the check.
+    min_abstract_chars: int = 0
+    # Case-insensitive substrings; papers matching any are ranked ahead of
+    # non-matching ones (citations still order within each group).
+    focus_keywords: list[str] = field(default_factory=list)
 
 
 def load_sources(path: Path) -> Sources:
@@ -44,6 +53,9 @@ def load_sources(path: Path) -> Sources:
         keyword_blocklist=[w.lower() for w in data.get("keyword_blocklist", [])],
         max_candidates_per_run=int(data.get("max_candidates_per_run", 8)),
         topics=list(data.get("topics", [])),
+        max_open_bot_prs=int(data.get("max_open_bot_prs", 0) or 0),
+        min_abstract_chars=int(data.get("min_abstract_chars", 0) or 0),
+        focus_keywords=[w.lower() for w in data.get("focus_keywords", []) or []],
     )
 
 
@@ -68,72 +80,75 @@ def _already_present(repo_root: Path, entry: PaperEntry) -> bool:
     return False
 
 
-def _gather_existing_ids(repo_root: Path) -> tuple[set[str], set[str]]:
-    """Walk every analysis .md frontmatter, return (paper_ids, arxiv_ids).
-
-    Used to cross-source-dedup: a paper that exists as both an arXiv preprint
-    and a peer-reviewed venue copy must not be analyzed twice just because
-    its filename prefix differs (preprint uses arxiv id, venue copy uses
-    SS paperId when arxiv id is absent).
-    """
-    paper_ids: set[str] = set()
-    arxiv_ids: set[str] = set()
-    for p in repo_root.rglob("*.md"):
-        if any(part in _DEDUP_SKIP_PARTS for part in p.parts):
-            continue
-        if p.name == "README.md":
-            continue
-        try:
-            text = p.read_text(encoding="utf-8")
-        except OSError:
-            continue
-        m = _FM_RE.match(text)
-        if not m:
-            continue
-        try:
-            meta = yaml.safe_load(m.group(1)) or {}
-        except yaml.YAMLError:
-            continue
-        if isinstance(meta, dict):
-            if meta.get("paper_id"):
-                paper_ids.add(str(meta["paper_id"]))
-            if meta.get("arxiv_id"):
-                arxiv_ids.add(str(meta["arxiv_id"]))
-    return paper_ids, arxiv_ids
-
-
 def hard_filter(
     repo_root: Path,
     entries: Iterable[PaperEntry],
     sources: Sources,
     rejected_ids: set[str],
-    existing_paper_ids: set[str],
-    existing_arxiv_ids: set[str],
+    known: "dedup.KnownPapers",
+    skipped: dict[str, list[PaperEntry]] | None = None,
 ) -> list[PaperEntry]:
     """Pre-LLM filter. A candidate is dropped if ANY of:
 
     1. Matches the blocklist (title/abstract substring).
     2. Listed in the persistent reject manifest (paper_id OR arxiv_id).
-    3. Cross-source dedup — its paper_id or arxiv_id already appears in
-       another analysis file's frontmatter (catches preprint vs venue
-       double-coverage even when filename prefixes differ).
+    3. Already known (``dedup.KnownPapers``): its paper_id / arxiv_id / DOI /
+       normalised title appears in an analysis file's frontmatter, in any
+       topic README (hand-curated entries included), or in another open
+       paper-bot PR.
     4. Filename-prefix dedup — fast fallback for files lacking frontmatter.
+    5. Abstract shorter than ``min_abstract_chars`` (analysis would be
+       mostly guesswork).
+
+    ``skipped`` (optional) collects dropped entries by reason, for logging
+    and the PR body.
     """
+    def _skip(reason: str, e: PaperEntry) -> None:
+        if skipped is not None:
+            skipped.setdefault(reason, []).append(e)
+
     out: list[PaperEntry] = []
     for e in entries:
         text = f"{e.title}\n{e.abstract}"
         if _matches_any(text, sources.keyword_blocklist):
+            _skip("blocklist", e)
             continue
         if e.paper_id in rejected_ids or (e.arxiv_id and e.arxiv_id in rejected_ids):
+            _skip("rejected", e)
             continue
-        if e.paper_id in existing_paper_ids:
+        if e.paper_id in known.in_open_prs:
+            _skip("in-open-pr", e)
             continue
-        if e.arxiv_id and e.arxiv_id in existing_arxiv_ids:
+        why = known.seen(e)
+        if why:
+            _skip(f"known-{why}", e)
             continue
         if _already_present(repo_root, e):
+            _skip("known-filename", e)
+            continue
+        if sources.min_abstract_chars and len(e.abstract) < sources.min_abstract_chars:
+            _skip("short-abstract", e)
             continue
         out.append(e)
     return out
+
+
+def rank(candidates: list[PaperEntry], sources: Sources) -> list[PaperEntry]:
+    """Focus-keyword matches first, then citation count, then recency."""
+    def key(p: PaperEntry):
+        focus = _matches_any(f"{p.title}\n{p.abstract}", sources.focus_keywords)
+        return (0 if focus else 1, -p.citation_count, -p.year)
+    return sorted(candidates, key=key)
+
+
+def _current_branch(repo_root: Path) -> str:
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            text=True, cwd=repo_root, stderr=subprocess.DEVNULL,
+        ).strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return ""
 
 
 def classify(entry: PaperEntry, topics: list[str], prompt_template: str) -> str | None:
@@ -205,17 +220,27 @@ def run(
     rejected_ids = rejected.load(repo_root)
     if rejected_ids:
         log.info("rejected manifest contains %d ids", len(rejected_ids))
-    existing_paper_ids, existing_arxiv_ids = _gather_existing_ids(repo_root)
-    log.info(
-        "existing analyses: %d paper_ids, %d arxiv_ids",
-        len(existing_paper_ids), len(existing_arxiv_ids),
-    )
+
+    branch = _current_branch(repo_root)
+    prs = dedup.open_bot_prs()
+    other_open = [p for p in prs if p["head_ref"] != branch]
+    if sources.max_open_bot_prs and len(other_open) >= sources.max_open_bot_prs:
+        log.warning(
+            "backlog guard: %d other paper-bot PR(s) still open (%s) >= max_open_bot_prs=%d; "
+            "skipping this run so the queue does not grow. Merge or close them to resume.",
+            len(other_open), ", ".join(f"#{p['number']}" for p in other_open),
+            sources.max_open_bot_prs,
+        )
+        return 0
+
+    known = dedup.build(repo_root, current_branch=branch, prs=prs)
+    skipped: dict[str, list[PaperEntry]] = {}
     candidates = hard_filter(
-        repo_root, all_papers, sources, rejected_ids,
-        existing_paper_ids, existing_arxiv_ids,
+        repo_root, all_papers, sources, rejected_ids, known, skipped,
     )
-    # Classics-first: rank by citation count, then by year (recent breaks ties).
-    candidates.sort(key=lambda p: (-p.citation_count, -p.year))
+    for reason, items in sorted(skipped.items()):
+        log.info("filtered %-16s %d", reason, len(items))
+    candidates = rank(candidates, sources)
     candidates = candidates[: sources.max_candidates_per_run]
     log.info("after filter+cap: %d candidates (top cites: %s)",
              len(candidates),

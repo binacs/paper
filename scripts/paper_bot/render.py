@@ -263,30 +263,51 @@ def _branch_paper_lines(repo_root: Path, base: str = "origin/main") -> list[str]
 
 
 def write_pr_body(repo_root: Path) -> Path | None:
-    """Generate the PR body from the branch's full paper-bot commit history."""
+    """Generate the PR body from the branch's full paper-bot commit history.
+
+    Layout is optimised for a one-pass review: a summary table first
+    (where each paper would be filed), then the per-paper checklist, then the
+    slash-command reference.  The command examples use placeholders on
+    purpose — real-looking paths in the old examples were copy-pasted and
+    posted verbatim (PR #14).
+    """
     lines = _branch_paper_lines(repo_root)
     if not lines:
         return None
     target = repo_root / ".paper-bot-pr-body.md"
+    rows = []
+    for line in lines:
+        m = re.match(r"`([^`]+)` \((.*?)\) — \[(.*?)\]\(.*?\)\n  - file: `([^`]+)`", line)
+        if not m:
+            continue
+        pid, meta, title, path = m.groups()
+        parts = path.split("/")
+        where = f"`{parts[0]}` / `{parts[1]}`" if len(parts) >= 3 else f"`{path}`"
+        rows.append(f"| `{pid}` | {title} | {meta} | {where} |")
+    table = (
+        "| id | paper | cites, venue | proposed topic / folder |\n"
+        "|---|---|---|---|\n" + "\n".join(rows) + "\n\n"
+    ) if rows else ""
     body = (
         "## paper-bot batch\n\n"
-        f"{len(lines)} papers from top systems venues, ranked by citation "
-        "count. Each paper is its own commit so reviews are surgical.\n\n"
+        f"{len(lines)} papers from top systems venues (focus-keyword matches "
+        "first, then citation count). Each paper is its own commit so reviews "
+        "are surgical. Papers already in any README, in an analysis file, or "
+        "in another open paper-bot PR were skipped.\n\n"
+        + table
+        + "### Papers\n\n"
         + "\n".join(f"- [ ] {line}" for line in lines)
         + "\n\n"
         "### How to review\n\n"
-        "Comment on this PR with one of:\n\n"
-        "- `/refine <id> <free-form instructions>` — re-write the analysis with your feedback. Folds into the original commit.\n"
+        "Comment on this PR with one of (replace `<id>` with an id from the table):\n\n"
+        "- `/refine <id> <instructions>` — re-write the analysis with your feedback. Folds into the original commit.\n"
         "- `/regenerate <id>` — re-fetch the paper and run the full analyzer again.\n"
-        "- `/reject <id>` — revert the paper's commit.\n\n"
-        "`<id>` can be an arXiv id (when shown), the 7-char paper-id, "
-        "or the file path. Examples:\n\n"
-        "```\n"
-        "/refine 2401.09670 把 evaluation 段补充和 vLLM 的对比数字\n"
-        "/regenerate 72f77a3\n"
-        "/reject gpu-training/misc/2024-some-paper.md\n"
-        "```\n\n"
-        "When done, merge with **Squash & merge** to keep `main` history clean.\n"
+        "- `/reject <id>` — drop the paper and add it to `rejected.txt` so it never comes back.\n"
+        "- `/move <id> <topic>` — file it under another topic.\n\n"
+        "`<id>` can be an arXiv id, the 7-char paper-id, or the file path.\n\n"
+        "When done, merge with **Squash & merge** to keep `main` history clean. "
+        "While this PR is open, next week's run will not open another one "
+        "(`max_open_bot_prs` in `sources.yaml`).\n"
     )
     target.write_text(body, encoding="utf-8")
     return target

@@ -63,7 +63,8 @@ How the bot finds the right commit: each per-paper commit has a `paper-id: <ss_p
 - Prompts: `.github/paper-bot/prompts/{classify,analyze,refine}.md`.
 - Code: `scripts/paper_bot/` (pure Python, stdlib + openai/pyyaml only). Layered as `semscholar.py` (Semantic Scholar Graph API fetcher) → `pipeline.py` (orchestration) → `deepseek.py` (LLM client) → `render.py` (markdown) → `git_ops.py` (commits/fixups/reverts) → `main.py` (scan entry) / `review.py` (review entry).
 - Bot output goes to `<topic>/<system-slug>/<short-id>-<title>.md` (`<short-id>` is arxiv id when present, else 7-char paper-id prefix) and a link is appended to `<topic>/README.md` *above* a `<!-- paper-bot:end -->` marker. Hand-curated entries should stay above that marker.
-- Dedup is filesystem-based: a paper's short-id existing anywhere outside `.git/`, `.github/`, `scripts/` means "already processed". Deleting a generated file → it gets re-analyzed next run.
+- Dedup (`scripts/paper_bot/dedup.py`): a paper is skipped if its paper_id / arXiv id / DOI / normalised title appears in any analysis frontmatter, in any topic `README.md` (hand-curated entries included), or in the commits of another open paper-bot PR; the short-id filename check remains as a fallback. Deleting a generated file *and* its README entry → it gets re-analyzed next run.
+- Backlog guard: while `max_open_bot_prs` (sources.yaml) other paper-bot PRs are open, the weekly run is a no-op. See `scripts/paper_bot/README.md` for the rationale.
 - Local dry-run: `PYTHONPATH=scripts DRY_RUN=1 python -m paper_bot.main` (fetch + sort + filter only, no DeepSeek calls, no key needed). Real run requires `DEEPSEEK_API_KEY` env var.
 - Required repo secret: `DEEPSEEK_API_KEY`. Semantic Scholar API is key-less. PR creation, comment posting, and force-push all use the default `GITHUB_TOKEN`; no PAT needed.
 
