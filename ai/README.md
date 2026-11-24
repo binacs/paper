@@ -57,6 +57,6 @@ _Entries below this line are managed by `paper-bot`. Manual edits are fine; just
 
 Paper link: [Sustainable AI: Environmental Implications, Challenges and Opportunities](https://arxiv.org/abs/2111.00364)
 
-Analysis: [misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md](misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md)
+Analysis: [misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md](misc/2111.00364-sustainable-ai-environmental-implications-challenges-and-opportunities.md) · [deep read](misc/2111.00364-sustainable-ai-deep-read.md)
 
 <!-- paper-bot:end -->
