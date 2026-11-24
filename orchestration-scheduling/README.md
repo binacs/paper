@@ -71,6 +71,7 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 
 - **Paper:** [Apollo: Scalable and Coordinated Scheduling for Cloud-Scale Computing](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-boutin_0.pdf) — Microsoft · OSDI 2014
 - **Why:** Distributed schedulers sharing a global cluster view, with estimated completion times used for placement.
+- **Deep read:** [deep-read note](microsoft-apollo/osdi14-apollo-scalable-and-coordinated-scheduling-for-cloud-scale.md)
 
 ## Distributed
 
@@ -141,7 +142,7 @@ See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva
 
 ## Isolation
 
-- [CPI²: CPU performance isolation for shared compute clusters](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/40737.pdf) — Google · EuroSys 2013 — detects and throttles antagonists using CPI outliers.
+- [CPI²: CPU performance isolation for shared compute clusters](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/40737.pdf) — Google · EuroSys 2013 — detects and throttles antagonists using CPI outliers · [deep read](google-cpi2/eurosys13-cpi2-cpu-performance-isolation-for-shared-compute-clusters.md).
 - [IOCost: Block IO Control for Containers in Datacenters](http://www.cs.cmu.edu/~dskarlat/publications/iocost_asplos22.pdf) — Meta, CMU · ASPLOS 2022 — cost-model-based IO isolation in the Linux cgroup controller.
 - [Heracles: Improving Resource Efficiency at Scale](https://dl.acm.org/doi/pdf/10.1145/2749469.2749475) — Stanford, Google · ISCA 2015 — co-locates best-effort work with latency-critical services via a feedback controller over cores, LLC, memory bandwidth and network.
 
@@ -151,7 +152,7 @@ See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva
 - [PARTIES: QoS-Aware Resource Partitioning for Multiple Interactive Services](https://dl.acm.org/doi/pdf/10.1145/3297858.3304005) — Cornell · ASPLOS 2019 — partitions resources among several latency-critical services on one server.
 - [Sinan: ML-Based and QoS-Aware Resource Management for Cloud Microservices](https://dl.acm.org/doi/pdf/10.1145/3445814.3446693) — Cornell · ASPLOS 2021 — learned models predict QoS violations across microservice graphs.
 - [Quasar: Resource-Efficient and QoS-Aware Cluster Management](https://mast.stanford.edu/pubs/quasar_resource_efficient_and_qos_aware_cluster_management/paper.pdf) — Stanford · ASPLOS 2014 — classifies workloads with collaborative filtering instead of user reservations.
-- [Thunderbolt: Throughput-Optimized, Quality-of-Service-Aware Power Capping at Scale](https://www.usenix.org/system/files/osdi20-li_shaohong.pdf) — Google · OSDI 2020 — power capping that throttles batch work first.
+- [Thunderbolt: Throughput-Optimized, Quality-of-Service-Aware Power Capping at Scale](https://www.usenix.org/system/files/osdi20-li_shaohong.pdf) — Google · OSDI 2020 — power capping that throttles batch work first · [deep read](google-thunderbolt/osdi20-thunderbolt-throughput-optimized-quality-of-service-aware-power-capping.md).
 
 ## Fairness
 
@@ -164,8 +165,8 @@ See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva
 
 ## Building cluster managers
 
-- [Building Scalable and Flexible Cluster Managers Using Declarative Programming](https://www.usenix.org/system/files/osdi20-suresh.pdf) — VMware Research et al. · OSDI 2020 — DCM expresses scheduling policy as SQL constraints solved by a solver.
-- [SelfTune: Tuning Cluster Managers](https://www.usenix.org/system/files/nsdi23-karthikeyan.pdf) — Microsoft · NSDI 2023 — online tuning of cluster-manager configuration parameters.
+- [Building Scalable and Flexible Cluster Managers Using Declarative Programming](https://www.usenix.org/system/files/osdi20-suresh.pdf) — VMware Research et al. · OSDI 2020 — DCM expresses scheduling policy as SQL constraints solved by a solver · [deep read](vmware-dcm/osdi20-building-scalable-and-flexible-cluster-managers-using-declarative.md).
+- [SelfTune: Tuning Cluster Managers](https://www.usenix.org/system/files/nsdi23-karthikeyan.pdf) — Microsoft · NSDI 2023 — online tuning of cluster-manager configuration parameters · [deep read](microsoft-selftune/nsdi23-selftune-tuning-cluster-managers.md).
 
 ## * Blogs
 
