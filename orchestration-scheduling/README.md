@@ -117,6 +117,7 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 - **Paper:** [Optimus: an efficient dynamic resource scheduler for deep learning clusters](https://dl.acm.org/doi/10.1145/3190508.3190517) — HKU, ByteDance · EuroSys 2018
 - **Why:** Fits online models of training convergence and speed to allocate parameter-server / worker resources dynamically.
 - **Analysis:** [optimus/93a06eb-…](optimus/93a06eb-optimus-an-efficient-dynamic-resource-scheduler-for-deep.md)
+- **Deep read:** [deep-read note](optimus/eurosys18-optimus-deep-read.md)
 
 Workload studies and production schedulers:
 
@@ -152,7 +153,7 @@ See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva
 
 - [Reconciling High Server Utilization and Sub-millisecond Quality-of-Service](https://mast.stanford.edu/pubs/reconciling_high_server_utilization_and_sub_millisecond_quality_of_service/paper.pdf) — Stanford · EuroSys 2014 — shows tail-latency interference sources for memcached-style services under co-location · [deep read](stanford-reconciling-utilization-qos/eurosys14-reconciling-utilization-qos-deep-read.md).
 - [PARTIES: QoS-Aware Resource Partitioning for Multiple Interactive Services](https://dl.acm.org/doi/pdf/10.1145/3297858.3304005) — Cornell · ASPLOS 2019 — partitions resources among several latency-critical services on one server · [deep read](cornell-parties/asplos19-parties-deep-read.md).
-- [Sinan: ML-Based and QoS-Aware Resource Management for Cloud Microservices](https://dl.acm.org/doi/pdf/10.1145/3445814.3446693) — Cornell · ASPLOS 2021 — learned models predict QoS violations across microservice graphs.
+- [Sinan: ML-Based and QoS-Aware Resource Management for Cloud Microservices](https://dl.acm.org/doi/pdf/10.1145/3445814.3446693) — Cornell · ASPLOS 2021 — learned models predict QoS violations across microservice graphs · [deep read](cornell-sinan/asplos21-sinan-deep-read.md).
 - [Quasar: Resource-Efficient and QoS-Aware Cluster Management](https://mast.stanford.edu/pubs/quasar_resource_efficient_and_qos_aware_cluster_management/paper.pdf) — Stanford · ASPLOS 2014 — classifies workloads with collaborative filtering instead of user reservations · [deep read](stanford-quasar/asplos14-quasar-resource-efficient-and-qos-aware-cluster-management.md).
 - [Thunderbolt: Throughput-Optimized, Quality-of-Service-Aware Power Capping at Scale](https://www.usenix.org/system/files/osdi20-li_shaohong.pdf) — Google · OSDI 2020 — power capping that throttles batch work first · [deep read](google-thunderbolt/osdi20-thunderbolt-throughput-optimized-quality-of-service-aware-power-capping.md).
 

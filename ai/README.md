@@ -10,7 +10,7 @@
 - [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385.pdf) — CVPR 2016
 - [Identity Mappings in Deep Residual Networks](https://arxiv.org/pdf/1603.05027.pdf) — ECCV 2016
 - [Multi-Scale Context Aggregation by Dilated Convolutions](https://arxiv.org/pdf/1511.07122.pdf) — ICLR 2016
-- [GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism](https://arxiv.org/pdf/1811.06965.pdf) — NeurIPS 2019
+- [GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism](https://arxiv.org/pdf/1811.06965.pdf) — NeurIPS 2019 · [deep read](google-gpipe/1811.06965-gpipe-deep-read.md)
 - [Neural Message Passing for Quantum Chemistry](https://arxiv.org/pdf/1704.01212.pdf) — ICML 2017
 - [A Simple Neural Network Module for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf) — NeurIPS 2017
 - [Variational Lossy Autoencoder](https://arxiv.org/pdf/1611.02731.pdf) — ICLR 2017
