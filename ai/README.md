@@ -26,7 +26,7 @@
 - [Recurrent Neural Network Regularization](https://arxiv.org/pdf/1409.2329) — arXiv 2014 · [deep read](rnn-regularization/1409.2329-rnn-regularization-deep-read.md)
 - [Pointer Networks](https://arxiv.org/pdf/1506.03134) — NeurIPS 2015 · [deep read](pointer-networks/1506.03134-pointer-networks-deep-read.md)
 - [Order Matters: Sequence to sequence for sets](https://arxiv.org/pdf/1511.06391.pdf) — ICLR 2016 · [deep read](order-matters/1511.06391-order-matters-deep-read.md)
-- [Relational Recurrent Neural Networks](https://arxiv.org/pdf/1806.01822.pdf) — NeurIPS 2018
+- [Relational Recurrent Neural Networks](https://arxiv.org/pdf/1806.01822.pdf) — NeurIPS 2018 · [deep read](relational-rnn/1806.01822-relational-rnn-deep-read.md)
 - [Neural Turing Machines](https://arxiv.org/pdf/1410.5401.pdf) — arXiv 2014 · [deep read](deepmind-ntm/1410.5401-neural-turing-machines-deep-read.md)
 
 ## Scaling
@@ -36,9 +36,9 @@
 ## Complexity & description length
 
 - [The First Law of Complexodynamics](https://scottaaronson.blog/?p=762) — Aaronson (blog, 2011)
-- [Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton](https://arxiv.org/pdf/1405.6903.pdf) — arXiv 2014
-- [Keeping Neural Networks Simple by Minimizing the Description Length of the Weights](https://www.cs.toronto.edu/~hinton/absps/colt93.pdf) — COLT 1993
-- [A Tutorial Introduction to the Minimum Description Length Principle](https://arxiv.org/pdf/math/0406077.pdf) — Grünwald, 2004
+- [Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton](https://arxiv.org/pdf/1405.6903.pdf) — arXiv 2014 · [deep read](coffee-automaton/1405.6903-coffee-automaton-deep-read.md)
+- [Keeping Neural Networks Simple by Minimizing the Description Length of the Weights](https://www.cs.toronto.edu/~hinton/absps/colt93.pdf) — COLT 1993 · [deep read](hinton-mdl-weights/colt93-mdl-weights-deep-read.md)
+- [A Tutorial Introduction to the Minimum Description Length Principle](https://arxiv.org/pdf/math/0406077.pdf) — Grünwald, 2004 · [deep read](mdl-tutorial/math-0406077-mdl-tutorial-deep-read.md) (Ch. 1–2.5 only)
 - [Machine Super Intelligence (PhD dissertation)](https://susi.usi.ch/usi/documents/317954) — Legg, 2008
 - [Kolmogorov Complexity and Algorithmic Randomness, p. 434 onwards](https://www.lirmm.fr/~ashen/kolmbook-eng-scan.pdf) — Shen, Uspensky, Vereshchagin (book)
 
