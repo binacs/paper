@@ -123,8 +123,8 @@ See also [agent-sandbox](../agent-sandbox/README.md) for the execution sandboxes
 
 ## Other
 
-- [A System for Massively Parallel Hyperparameter Tuning (ASHA)](determined-asha/1810.05934-a-system-for-massively-parallel-hyperparameter-tuning.md) — CMU, Determined AI et al. · MLSys 2020.
-- [Federated Optimization in Heterogeneous Networks (FedProx)](fedprox/1812.06127-federated-optimization-in-heterogeneous-networks.md) — CMU et al. · MLSys 2020.
+- [A System for Massively Parallel Hyperparameter Tuning (ASHA)](determined-asha/1810.05934-a-system-for-massively-parallel-hyperparameter-tuning.md) — CMU, Determined AI et al. · MLSys 2020 · [deep read](determined-asha/1810.05934-asha-deep-read.md).
+- [Federated Optimization in Heterogeneous Networks (FedProx)](fedprox/1812.06127-federated-optimization-in-heterogeneous-networks.md) — CMU et al. · MLSys 2020 · [deep read](fedprox/1812.06127-fedprox-deep-read.md).
 
 ---
 

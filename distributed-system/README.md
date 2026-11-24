@@ -89,7 +89,7 @@ See also [agent-sandbox](../agent-sandbox/README.md) for microVMs, sandboxes and
 ## Blockchain
 
 - [Hyperledger Fabric](hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md) — IBM · EuroSys 2018 — execute-order-validate architecture for permissioned chains · [deep read](hyperledger-fabric/1801.10228-hyperledger-fabric-deep-read.md).
-- [Monoxide](monoxide/ea639e0-monoxide-scale-out-blockchains-with-asynchronous-consensus-zones.md) ([paper](https://www.usenix.org/conference/nsdi19/presentation/wang-jiaping)) — Tsinghua · NSDI 2019 — sharded blockchain with asynchronous consensus zones.
+- [Monoxide](monoxide/ea639e0-monoxide-scale-out-blockchains-with-asynchronous-consensus-zones.md) ([paper](https://www.usenix.org/conference/nsdi19/presentation/wang-jiaping)) — Tsinghua · NSDI 2019 — sharded blockchain with asynchronous consensus zones · [deep read](monoxide/nsdi19-monoxide-deep-read.md).
 
 ---
 
