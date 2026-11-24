@@ -73,7 +73,7 @@ See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-pro
 ## Datacenter networking
 
 - [Homa](homa/1803.09615-homa-a-receiver-driven-low-latency-transport-protocol.md) — Stanford · SIGCOMM 2018 — receiver-driven transport using network priorities for low tail latency · [deep read](homa/1803.09615-homa-deep-read.md).
-- [Azure Accelerated Networking](microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md) ([paper](https://www.usenix.org/conference/nsdi18/presentation/firestone)) — Microsoft · NSDI 2018 — FPGA SmartNICs offloading the host SDN stack.
+- [Azure Accelerated Networking](microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md) ([paper](https://www.usenix.org/conference/nsdi18/presentation/firestone)) — Microsoft · NSDI 2018 — FPGA SmartNICs offloading the host SDN stack · [deep read](microsoft-azure-accelerated-networking/nsdi18-azure-accelnet-deep-read.md).
 
 ## Memory disaggregation
 
@@ -83,12 +83,12 @@ See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-pro
 
 See also [agent-sandbox](../agent-sandbox/README.md) for microVMs, sandboxes and fast-start techniques.
 
-- [Serverless in the Wild](misc/2003.03423-serverless-in-the-wild-characterizing-and-optimizing-the.md) — Microsoft · ATC 2020 — Azure Functions trace characterisation and a hybrid keep-alive policy against cold starts.
-- [The Design and Operation of CloudLab](cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md) ([paper](https://www.usenix.org/conference/atc19/presentation/duplyakin)) — Utah, Wisconsin, Clemson et al. · ATC 2019 — the bare-metal research testbed.
+- [Serverless in the Wild](misc/2003.03423-serverless-in-the-wild-characterizing-and-optimizing-the.md) — Microsoft · ATC 2020 — Azure Functions trace characterisation and a hybrid keep-alive policy against cold starts · [deep read](microsoft-serverless-in-the-wild/atc20-serverless-in-the-wild-deep-read.md).
+- [The Design and Operation of CloudLab](cloudlab/05e41e1-the-design-and-operation-of-cloudlab.md) ([paper](https://www.usenix.org/conference/atc19/presentation/duplyakin)) — Utah, Wisconsin, Clemson et al. · ATC 2019 — the bare-metal research testbed · [deep read](cloudlab/atc19-cloudlab-deep-read.md).
 
 ## Blockchain
 
-- [Hyperledger Fabric](hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md) — IBM · EuroSys 2018 — execute-order-validate architecture for permissioned chains.
+- [Hyperledger Fabric](hyperledger-fabric/1801.10228-hyperledger-fabric-a-distributed-operating-system-for-permissioned.md) — IBM · EuroSys 2018 — execute-order-validate architecture for permissioned chains · [deep read](hyperledger-fabric/1801.10228-hyperledger-fabric-deep-read.md).
 - [Monoxide](monoxide/ea639e0-monoxide-scale-out-blockchains-with-asynchronous-consensus-zones.md) ([paper](https://www.usenix.org/conference/nsdi19/presentation/wang-jiaping)) — Tsinghua · NSDI 2019 — sharded blockchain with asynchronous consensus zones.
 
 ---
