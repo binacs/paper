@@ -25,6 +25,7 @@ Entry format follows [CLAUDE.md](../CLAUDE.md). Within a section: newest first.
 
 - **Paper:** [Blending Containers and Virtual Machines: A Study of Firecracker and gVisor](https://dl.acm.org/doi/10.1145/3381052.3381315) — University of Wisconsin-Madison · VEE 2020
 - **Why:** Measures how much host-kernel code Firecracker, gVisor and plain containers exercise, and what each costs in performance; the best single read for choosing between them.
+- **Deep read:** [deep-read note](firecracker-gvisor-study/vee20-blending-containers-and-virtual-machines-a-study-of.md)
 
 ## Fast start: snapshots, forking, caching
 

@@ -105,6 +105,7 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 - **Paper:** [Tiresias: A GPU Cluster Manager for Distributed Deep Learning](https://www.usenix.org/conference/nsdi19/presentation/gu) — UMich, Microsoft, Alibaba, ByteDance · NSDI 2019
 - **Why:** Schedules DL jobs without knowing their durations, using two-dimensional attained service (GPUs × time) in a discretised MLFQ, and consolidates only placement-sensitive jobs.
 - **Code:** [SymbioticLab/Tiresias](https://github.com/SymbioticLab/Tiresias) · **Analysis:** [tiresias/8d2d560-…](tiresias/8d2d560-tiresias-a-gpu-cluster-manager-for-distributed-deep.md)
+- **Deep read:** [deep-read note](tiresias/nsdi19-tiresias-a-gpu-cluster-manager-for-distributed-deep.md)
 
 ### Optimus
 
