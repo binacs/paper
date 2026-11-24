@@ -43,8 +43,45 @@ keyword_blocklist:
   - "medical imaging"
   - "image classification"
 
-# Cap analyses per run.  Cost guardrail.
-max_candidates_per_run: 8
+# Cap analyses per run.  Cost guardrail, and the main review-load knob:
+# one small batch a week is easier to actually review than eight papers.
+max_candidates_per_run: 3
+
+# Backlog guard.  While this many OTHER paper-bot PRs are still open, the
+# weekly run does nothing (no DeepSeek calls, no new PR).  Merging or closing
+# the open PR resumes the bot.  0 disables the guard.
+max_open_bot_prs: 1
+
+# Analyses are generated from the abstract only.  Skip papers whose abstract
+# (as returned by Semantic Scholar) is shorter than this — those produced the
+# vaguest notes (e.g. Tiresias / SOCK in 2026-w45).  0 disables the check.
+min_abstract_chars: 400
+
+# Papers whose title/abstract contains any of these (case-insensitive) are
+# ranked ahead of the rest; citation count still orders within each group.
+# Mirrors the owner's focus: cluster scheduling, GPU training/inference
+# systems, agent sandboxes / isolation.
+focus_keywords:
+  - "gpu"
+  - "cluster"
+  - "schedul"
+  - "large language model"
+  - "llm"
+  - "inference"
+  - "serving"
+  - "deep learning"
+  - "distributed training"
+  - "kubernetes"
+  - "container"
+  - "serverless"
+  - "sandbox"
+  - "isolation"
+  - "kv cache"
+  - "checkpoint"
+  - "fault toleran"
+  - "straggler"
+  - "reinforcement learning"
+  - "parallelism"
 
 # Allowed topic slugs the classifier may return.  Each must exist as a
 # top-level directory in the repo.

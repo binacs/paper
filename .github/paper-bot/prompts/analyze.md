@@ -2,7 +2,7 @@ You are producing a structured analysis of a research paper for an English-langu
 
 Required keys:
 
-- `system_slug`: kebab-case folder name. If the paper introduces a named system (e.g. Borg, DistServe, Sarathi-Serve), use that name kebab-cased and prefix with org if known (e.g. `bytedance-godel`, `google-borg`). If no clear system, return `misc`.
+- `system_slug`: kebab-case folder name. If the paper introduces a named system (e.g. Borg, DistServe, Sarathi-Serve), use that name kebab-cased. Prefix it with the organisation (e.g. `bytedance-godel`, `google-borg`) ONLY when the authors list or abstract below makes the organisation unambiguous; never guess it from the system name (a wrong prefix such as `google-pond` for a Microsoft paper is worse than none). If no clear system, return `misc`.
 - `tldr`: 1–2 sentences capturing the main contribution.
 - `problem`: What problem the paper addresses, including motivating constraints (1–2 short paragraphs).
 - `key_ideas`: The core technical ideas as a bullet list (use `-` bullets, one per line).
