@@ -72,7 +72,7 @@ See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-pro
 
 ## Datacenter networking
 
-- [Homa](homa/1803.09615-homa-a-receiver-driven-low-latency-transport-protocol.md) — Stanford · SIGCOMM 2018 — receiver-driven transport using network priorities for low tail latency.
+- [Homa](homa/1803.09615-homa-a-receiver-driven-low-latency-transport-protocol.md) — Stanford · SIGCOMM 2018 — receiver-driven transport using network priorities for low tail latency · [deep read](homa/1803.09615-homa-deep-read.md).
 - [Azure Accelerated Networking](microsoft-azure-accelerated-networking/247ede1-azure-accelerated-networking-smartnics-in-the-public-cloud.md) ([paper](https://www.usenix.org/conference/nsdi18/presentation/firestone)) — Microsoft · NSDI 2018 — FPGA SmartNICs offloading the host SDN stack.
 
 ## Memory disaggregation
