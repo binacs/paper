@@ -42,6 +42,7 @@ A resource manager offers or grants resources; per-framework schedulers decide p
 
 - **Paper:** [Mesos: A Platform for Fine-Grained Resource Sharing in the Data Center](https://www.usenix.org/event/nsdi11/tech/full_papers/Hindman.pdf) — UC Berkeley · NSDI 2011
 - **Why:** Introduced resource offers so multiple frameworks (Hadoop, MPI, Spark) share one cluster.
+- **Deep read:** [deep-read note](apache-mesos/nsdi11-mesos-a-platform-for-fine-grained-resource-sharing.md)
 
 ### Apache YARN
 
@@ -64,6 +65,7 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 
 - **Paper:** [Omega: flexible, scalable schedulers for large compute clusters](https://dl.acm.org/doi/abs/10.1145/2465351.2465386) — Google, UC Berkeley, Cambridge · EuroSys 2013
 - **Why:** Defined the monolithic / two-level / shared-state taxonomy used on this page and argued for shared state with optimistic concurrency.
+- **Deep read:** [deep-read note](google-omega/eurosys13-omega-flexible-scalable-schedulers-for-large-compute-clusters.md)
 
 ### Microsoft Apollo
 
@@ -77,6 +79,7 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 - **Paper:** [Sparrow: Distributed, Low Latency Scheduling](https://people.eecs.berkeley.edu/~matei/papers/2013/sosp_sparrow.pdf) — UC Berkeley · SOSP 2013
 - **Code:** [radlab/sparrow](https://github.com/radlab/sparrow)
 - **Why:** Stateless schedulers using batch sampling and late binding for sub-second tasks.
+- **Deep read:** [deep-read note](ucb-sparrow/sosp13-sparrow-distributed-low-latency-scheduling.md)
 
 ## ML-specific
 
@@ -152,7 +155,7 @@ See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva
 
 ## Fairness
 
-- [Dominant Resource Fairness: Fair Allocation of Multiple Resource Types](https://www.usenix.org/legacy/event/nsdi11/tech/full_papers/Ghodsi.pdf) — UC Berkeley · NSDI 2011 — max-min fairness on each user's dominant resource; the basis of many multi-resource schedulers.
+- [Dominant Resource Fairness: Fair Allocation of Multiple Resource Types](https://www.usenix.org/legacy/event/nsdi11/tech/full_papers/Ghodsi.pdf) — UC Berkeley · NSDI 2011 — max-min fairness on each user's dominant resource; the basis of many multi-resource schedulers · [deep read](drf/nsdi11-dominant-resource-fairness-fair-allocation-of-multiple-resource.md).
 
 ## Workload & autoscaling
 
