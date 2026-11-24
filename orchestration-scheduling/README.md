@@ -138,6 +138,7 @@ See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva
 
 - **Paper:** [Borg, Omega, and Kubernetes](https://queue.acm.org/detail.cfm?id=2898444) — Google · ACM Queue / CACM 2016 ([CACM HTML](https://dl.acm.org/doi/fullHtml/10.1145/2890784))
 - **Why:** Lessons from three generations of Google container management, by their designers.
+- **Deep read:** [deep-read note](google-borg-omega-kubernetes/queue16-borg-omega-and-kubernetes.md)
 
 # Node & Cluster
 

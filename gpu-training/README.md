@@ -54,7 +54,7 @@ Also: [MegaScale-MoE: Large-Scale Communication-Efficient Training of Mixture-of
 
 ## Memory
 
-- [ZeRO-Offload: Democratizing Billion-Scale Model Training](zero-offload/2101.06840-zero-offload-democratizing-billion-scale-model-training.md) — Microsoft, UC Merced · ATC 2021 — offloads optimizer state and update to CPU.
+- [ZeRO-Offload: Democratizing Billion-Scale Model Training](zero-offload/2101.06840-zero-offload-democratizing-billion-scale-model-training.md) — Microsoft, UC Merced · ATC 2021 — offloads optimizer state and update to CPU · [deep read](zero-offload/2101.06840-zero-offload-deep-read.md).
 
 ## Communication
 
@@ -105,7 +105,7 @@ See also [orchestration-scheduling → ML-specific](../orchestration-scheduling/
 ### Model-level speedups
 
 - [AWQ: Activation-aware Weight Quantization for On-Device LLM Compression and Acceleration](awq-tinychat/2306.00978-awq-activation-aware-weight-quantization-for-on-device.md) — MIT et al. · MLSys 2024 — 4-bit weight-only quantization guided by activation salience.
-- [Efficiently Scaling Transformer Inference](misc/2211.05102-efficiently-scaling-transformer-inference.md) — Google · MLSys 2023 — partitioning analysis for large-model inference on TPUs.
+- [Efficiently Scaling Transformer Inference](misc/2211.05102-efficiently-scaling-transformer-inference.md) — Google · MLSys 2023 — partitioning analysis for large-model inference on TPUs · [deep read](google-transformer-inference/2211.05102-efficiently-scaling-transformer-inference-deep-read.md).
 - [Fast Inference from Transformers via Speculative Decoding](https://arxiv.org/abs/2211.17192) — Google Research · ICML 2023 — draft-then-verify decoding that exactly preserves the target distribution · [deep read](speculative-decoding/2211.17192-fast-inference-from-transformers-via-speculative-decoding.md); why: the basis of most current decode-latency optimisations.
 
 ## RL training systems
@@ -116,7 +116,7 @@ See also [orchestration-scheduling → ML-specific](../orchestration-scheduling/
 - [Optimizing RLHF Training for Large Language Models with Stage Fusion (RLHFuse)](https://www.usenix.org/conference/nsdi25/presentation/zhong) — PKU, StepFun · NSDI 2025 — fuses generation with inference per sample and overlaps actor/critic pipelines · [deep read](rlhfuse/nsdi25-optimizing-rlhf-training-for-large-language-models-with.md); why: attacks long-tail rollouts and pipeline bubbles directly.
 - [ReaL: Efficient RLHF Training of Large Language Models with Parameter Reallocation](https://arxiv.org/abs/2406.14088) — Tsinghua IIIS et al. · MLSys 2025 — redistributes parameters between RLHF stages so each runs with its own parallel layout · [code](https://github.com/openpsi-project/ReaLHF) · [deep read](real/2406.14088-real-efficient-rlhf-training-of-large-language-models-with.md).
 - [Kimi k1.5: Scaling Reinforcement Learning with LLMs](https://arxiv.org/abs/2501.12599) — Moonshot AI · arXiv 2025 — §2.6 covers RL infrastructure: partial rollouts, hybrid train/inference deployment and a code sandbox · [deep read](kimi-k1.5/2501.12599-kimi-k1-5-scaling-reinforcement-learning-with-llms.md); why: a production RL stack described end to end.
-- [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948) — DeepSeek-AI · Nature 2025 — large-scale GRPO with rule-based rewards; why: the workload that made RL-systems efficiency a first-order concern.
+- [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948) — DeepSeek-AI · Nature 2025 — large-scale GRPO with rule-based rewards · [deep read](deepseek-r1/2501.12948-deepseek-r1-deep-read.md); why: the workload that made RL-systems efficiency a first-order concern.
 - [OpenRLHF: An Easy-to-use, Scalable and High-performance RLHF Framework](https://arxiv.org/abs/2405.11143) — OpenRLHF team et al. · arXiv 2024 — Ray-based placement of actor/critic/reward/reference with vLLM rollouts · [code](https://github.com/OpenRLHF/OpenRLHF) · [deep read](openrlhf/2405.11143-openrlhf-an-easy-to-use-scalable-and-high-performance.md).
 
 See also [agent-sandbox](../agent-sandbox/README.md) for the execution sandboxes that RL rollouts and coding agents run in.
