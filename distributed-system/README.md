@@ -54,6 +54,7 @@ See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-pro
 - **Paper:** [Spanner: Google's Globally-Distributed Database](https://www.usenix.org/system/files/conference/osdi12/osdi12-final-16.pdf) — Google · OSDI 2012
 - **Paper:** [Spanner: Becoming a SQL System](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/46103.pdf) — Google · SIGMOD 2017
 - **Why:** Externally consistent transactions across the globe via TrueTime-bounded commit wait; the 2017 paper covers its evolution into a full SQL system.
+- **Deep read:** [deep-read note](google-spanner/osdi12-spanner-googles-globally-distributed-database.md)
 
 ### F1
 
@@ -68,7 +69,7 @@ See also: [Decima](decima/1810.01963-learning-scheduling-algorithms-for-data-pro
 
 ## Memory disaggregation
 
-- [Pond: CXL-Based Memory Pooling Systems for Cloud Platforms](https://arxiv.org/abs/2203.00241) — Microsoft Azure, CMU, Virginia Tech · ASPLOS 2023 (Distinguished Paper) — small CXL memory pools with ML-predicted per-VM pool allocation · [analysis](microsoft-pond/2203.00241-pond-cxl-based-memory-pooling-systems-for-cloud.md); why: the reference design for CXL memory pooling in a public cloud.
+- [Pond: CXL-Based Memory Pooling Systems for Cloud Platforms](https://arxiv.org/abs/2203.00241) — Microsoft Azure, CMU, Virginia Tech · ASPLOS 2023 (Distinguished Paper) — small CXL memory pools with ML-predicted per-VM pool allocation · [analysis](microsoft-pond/2203.00241-pond-cxl-based-memory-pooling-systems-for-cloud.md) · [deep read](microsoft-pond/2203.00241-pond-deep-read.md); why: the reference design for CXL memory pooling in a public cloud.
 
 ## Cloud & serverless
 
