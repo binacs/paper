@@ -58,8 +58,8 @@ Also: [MegaScale-MoE: Large-Scale Communication-Efficient Training of Mixture-of
 
 ## Communication
 
-- [RDMA over Ethernet for Distributed AI Training at Meta Scale](https://dl.acm.org/doi/10.1145/3651890.3672233) — Meta · SIGCOMM 2024 — design and operation of Meta's RoCEv2 training backend (topology, routing, congestion control); why: a rare production report on running RDMA over Ethernet for GPU training at scale.
-- [Alibaba HPN: A Data Center Network for Large Language Model Training](https://dl.acm.org/doi/10.1145/3651890.3672265) — Alibaba Cloud · SIGCOMM 2024 — two-tier, dual-plane Ethernet fabric that avoids ECMP hash polarisation and single-ToR failures; why: shows how LLM traffic patterns change datacenter network design.
+- [RDMA over Ethernet for Distributed AI Training at Meta Scale](https://dl.acm.org/doi/10.1145/3651890.3672233) — Meta · SIGCOMM 2024 — design and operation of Meta's RoCEv2 training backend (topology, routing, congestion control) · [deep read](meta-roce/sigcomm24-rdma-over-ethernet-for-distributed-ai-training-at.md); why: a rare production report on running RDMA over Ethernet for GPU training at scale.
+- [Alibaba HPN: A Data Center Network for Large Language Model Training](https://dl.acm.org/doi/10.1145/3651890.3672265) — Alibaba Cloud · SIGCOMM 2024 — two-tier, dual-plane Ethernet fabric that avoids ECMP hash polarisation and single-ToR failures · [deep read](alibaba-hpn/sigcomm24-alibaba-hpn-a-data-center-network-for-large.md); why: shows how LLM traffic patterns change datacenter network design.
 - [Scaling Distributed Machine Learning with In-Network Aggregation (SwitchML)](switchml/1903.06701-scaling-distributed-machine-learning-with-in-network-aggregation.md) ([paper](https://www.usenix.org/conference/nsdi21/presentation/sapio)) — KAUST, Microsoft et al. · NSDI 2021 — all-reduce aggregation on programmable switches.
 
 ## Compilers & kernels
