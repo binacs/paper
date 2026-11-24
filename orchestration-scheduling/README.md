@@ -2,7 +2,7 @@
 
 Cluster managers and schedulers, from Borg-era shared clusters to ML-specific and geo-distributed schedulers, plus the node-level isolation / QoS work they depend on. `*` marks featured entries.
 
-**Contents:** [Monolithic / centralised](#monolithic--centralised) · [Two-level](#two-level) · [Shared-state / optimistic](#shared-state--optimistic) · [Distributed](#distributed) · [ML-specific](#ml-specific) · [Overviews](#overviews) · [Node & cluster](#node--cluster) · [Blogs](#blogs) · [Auto-analyzed papers](#auto-analyzed-papers)
+**Contents:** [Monolithic / centralised](#monolithic--centralised) · [Two-level](#two-level) · [Shared-state / optimistic](#shared-state--optimistic) · [Distributed](#distributed) · [ML-specific](#ml-specific) · [Kubernetes batch & AI](#kubernetes-batch--ai-scheduling) · [Overviews](#overviews) · [Node & cluster](#node--cluster) · [Blogs](#blogs) · [Auto-analyzed papers](#auto-analyzed-papers)
 
 Entry format: `### <System>` then **Paper** (title link — institution · venue year), **Why** (one sentence), and Code / Blog / Analysis links when they exist.
 
@@ -55,6 +55,7 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 - **Paper:** [Gödel: Unified Large-Scale Resource Management and Scheduling at ByteDance](https://dl.acm.org/doi/abs/10.1145/3620678.3624663) — ByteDance · SoCC 2023
 - **Paper:** [From Bottleneck to Breakthrough: Optimizing Scheduling for Hyperscale Containerized Clusters](https://dl.acm.org/doi/10.1145/3772052.3772240) — ByteDance · SoCC 2025
 - **Why:** A Kubernetes-based unified scheduler for online and offline workloads at very large cluster sizes, using partitioned optimistic concurrency; the follow-up pushes scheduling throughput further.
+- **Code:** [kubewharf/godel-scheduler](https://github.com/kubewharf/godel-scheduler)
 
 ### Google Omega
 
@@ -81,13 +82,43 @@ Several schedulers work on a shared view of the cluster and resolve conflicts op
 - **Paper:** [MAST: Global Scheduling of ML Training across Geo-Distributed Datacenters at Hyperscale](https://www.usenix.org/system/files/osdi24-choudhury.pdf) — Meta · OSDI 2024
 - **Why:** Global scheduling of training jobs and their data across regions; the scheduler behind Meta's LLM training fleet.
 
+### Sia
+
+- **Paper:** [Sia: Heterogeneity-aware, Goodput-optimized ML-cluster Scheduling](https://dl.acm.org/doi/10.1145/3600006.3613175) — CMU, Cornell, Petuum · SOSP 2023
+- **Why:** Picks GPU type, count and batch size per job on heterogeneous clusters from online-learned throughput models; the state of the art for goodput-driven DL scheduling.
+- **Code:** [siasosp23/artifacts](https://github.com/siasosp23/artifacts)
+
+### Pollux
+
+- **Paper:** [Pollux: Co-adaptive Cluster Scheduling for Goodput-Optimized Deep Learning](https://arxiv.org/abs/2008.12260) — CMU, Petuum · OSDI 2021
+- **Why:** Introduced goodput (throughput × statistical efficiency) as the scheduling objective and co-adapts batch size with GPU allocation.
+- **Code:** [petuum/adaptdl](https://github.com/petuum/adaptdl)
+
+### Tiresias
+
+- **Paper:** [Tiresias: A GPU Cluster Manager for Distributed Deep Learning](https://www.usenix.org/conference/nsdi19/presentation/gu) — UMich, Microsoft, Alibaba, ByteDance · NSDI 2019
+- **Why:** Schedules DL jobs without knowing their durations, using two-dimensional attained service (GPUs × time) in a discretised MLFQ, and consolidates only placement-sensitive jobs.
+- **Code:** [SymbioticLab/Tiresias](https://github.com/SymbioticLab/Tiresias) · **Analysis:** [tiresias/8d2d560-…](tiresias/8d2d560-tiresias-a-gpu-cluster-manager-for-distributed-deep.md)
+
 ### Optimus
 
 - **Paper:** [Optimus: an efficient dynamic resource scheduler for deep learning clusters](https://dl.acm.org/doi/10.1145/3190508.3190517) — HKU, ByteDance · EuroSys 2018
 - **Why:** Fits online models of training convergence and speed to allocate parameter-server / worker resources dynamically.
 - **Analysis:** [optimus/93a06eb-…](optimus/93a06eb-optimus-an-efficient-dynamic-resource-scheduler-for-deep.md)
 
+Workload studies and production schedulers:
+
+- [Lucid: A Non-intrusive, Scalable and Interpretable Scheduler for Deep Learning Training Jobs](https://dl.acm.org/doi/10.1145/3575693.3575705) — NTU, Shanghai AI Lab, SenseTime · ASPLOS 2023 — interpretable runtime and interference models for packing jobs · [code](https://github.com/S-Lab-System-Group/Lucid); why: scheduling that operators can explain and debug.
+- [MLaaS in the Wild: Workload Analysis and Scheduling in Large-Scale Heterogeneous GPU Clusters](https://www.usenix.org/conference/nsdi22/presentation/weng) — Alibaba, HKUST · NSDI 2022 — two-month trace of Alibaba PAI's ~6,000-GPU cluster · [trace](https://github.com/alibaba/clusterdata); why: one of the few public traces of a heterogeneous production GPU fleet.
+- [Singularity: Planet-Scale, Preemptive and Elastic Scheduling of AI Workloads](https://arxiv.org/abs/2202.07848) — Microsoft · arXiv 2022 — transparent preemption, migration and resizing of DL jobs via device-proxy checkpointing; why: MAST's closest public counterpart at Microsoft.
+- [Analysis of Large-Scale Multi-Tenant GPU Clusters for DNN Training Workloads](https://arxiv.org/abs/1901.05758) — Microsoft Research et al. · ATC 2019 — Philly trace: gang scheduling, locality and failures as the causes of low utilisation · [analysis](microsoft-philly/1901.05758-analysis-of-large-scale-multi-tenant-gpu-clusters.md); why: the workload study most DL schedulers cite.
+
 See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva/0606676-gandiva-introspective-cluster-scheduling-for-deep-learning.md) (OSDI 2018), [Decima](../distributed-system/decima/1810.01963-learning-scheduling-algorithms-for-data-processing-clusters.md) (SIGCOMM 2019).
+
+## Kubernetes batch & AI scheduling
+
+- [Introducing Kueue](https://kubernetes.io/blog/2022/10/04/introducing-kueue/) — Kubernetes SIG Scheduling · Blog 2022 — job queueing that admits batch jobs as whole units under quotas and fair sharing, leaving placement to kube-scheduler · [code](https://github.com/kubernetes-sigs/kueue); why: the upstream answer to gang admission and quota for AI jobs on Kubernetes.
+- [Volcano: Cloud Native Batch System](https://volcano.sh/) — Huawei Cloud, CNCF · project site — batch scheduler adding gang scheduling, queues and fair share to Kubernetes · [code](https://github.com/volcano-sh/volcano) · [CNCF incubation post](https://www.cncf.io/blog/2022/04/07/cloud-native-batch-system-volcano-moves-to-the-cncf-incubator/); why: the most widely deployed alternative scheduler for AI/HPC on Kubernetes.
 
 ## Overviews
 
@@ -128,6 +159,7 @@ See also (filed under other topics): [Gandiva](../gpu-training/microsoft-gandiva
 
 ## * Blogs
 
+- [How Google Does It: Building the largest known Kubernetes cluster, with 130,000 nodes](https://cloud.google.com/blog/products/containers-kubernetes/how-we-built-a-130000-node-gke-cluster/) — Google Cloud · 2025 — experimental 130K-node GKE cluster with a Spanner-backed store and Kueue gang admission (65K is the supported limit).
 - [65,000 nodes and counting: Google Kubernetes Engine is ready for trillion-parameter AI models](https://cloud.google.com/blog/products/containers-kubernetes/gke-65k-nodes-and-counting) — Google Cloud · 2024 — how GKE raised cluster scale limits for AI training.
 
 ---
