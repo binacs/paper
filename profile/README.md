@@ -14,6 +14,6 @@ https://dl.acm.org/profile/99661043026
 
 bingacsbingli
 
-## Google Scholoar
+## Google Scholar
 
-https://scholar.google.com/citations?user%253DFR4uRZcAAAAJ
+https://scholar.google.com/citations?user=FR4uRZcAAAAJ
