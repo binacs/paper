@@ -10,21 +10,28 @@ Top-level topic directories, each containing a single `README.md` index:
 
 - `distributed-system/` — classic distributed systems papers (GFS, MapReduce, Bigtable, Spanner, F1, …)
 - `orchestration-scheduling/` — cluster scheduling / resource management (Borg, Omega, Mesos, YARN, Apollo, Twine, MAST, Gödel, …); contains placeholder subdirectories with `.gitkeep` files reserved for per-system deep-dive notes
-- `gpu-training/` — large-scale ML training systems (MegaScale, …)
+- `gpu-training/` — large-scale ML training and inference systems (MegaScale, Llama 3 infra, DistServe, Mooncake, RL training systems, …)
+- `agent-sandbox/` — sandboxes for untrusted code and agents (Firecracker, gVisor, SOCK, Kubernetes Agent Sandbox, …); not yet in paper-bot's `topics:` allowlist
 - `ai/` — AI/ML reading list (Ilya's "30u30" reference list)
 - `profile/` — repo owner's academic profile links (ORCID, ACM, Google Scholar)
 
 ## How to make changes
 
-The dominant operation in this repo is **adding a new paper to an existing topic README**. Match the established format inside that file:
+The dominant operation in this repo is **adding a new paper to an existing topic README**. Topic READMEs are split into category sections (`## <Category>`), each listing entries newest-first (classics first in `distributed-system`). Use the unified entry format:
 
 ```markdown
-## <Paper / System Name>
+### <System name>
 
-Paper link: [<Title>](<URL>)
+- **Paper:** [<Exact title>](<URL>) — <Institution(s)> · <VENUE YEAR>
+- **Why:** <one sentence on why it matters>
+- **Code:** [<org/repo>](<URL>) · **Blog:** [<title>](<URL>) · **Analysis:** [<file>](<path>)   (only the ones that exist)
 ```
 
-Some sections include extra links (Blog, GitHub, alternate HTML version) — follow the surrounding pattern of the file you are editing rather than imposing a new one. The orchestration-scheduling README uses `## *` to flag emphasized / featured entries (e.g. `## * ByteDance Gödel`); preserve that convention.
+Lighter sections (e.g. "Node & Cluster", sections that only point at bot analyses) use one bullet per paper: `- [<Title>](<URL or analysis path>) — <Institution> · <VENUE YEAR> — <one-line contribution>.`
+
+Rules: VENUE YEAR is the conference/journal edition, not the arXiv year (e.g. AWQ is MLSys 2024); prefer arXiv `abs`, USENIX presentation or ACM DOI pages over Semantic Scholar links; only public papers or official engineering blogs. Prefix `### *` flags emphasized / featured entries (e.g. `### * ByteDance Gödel`); preserve that convention. Keep hand-curated entries above the `---` / `## Auto-analyzed papers` block, which paper-bot manages.
+
+Deep-read notes (hand-written, `note_type: deep-read` in frontmatter) live next to bot analyses at `<topic>/<system-slug>/<short-id>-<slug>.md` and use the sections Problem → Core design → Key numbers (each with a section/table reference) → Limitations → Relation to other systems → Takeaways for practice → References. Link them from the topic README as **Deep read**. When a paper has no arXiv id, use the 7-char Semantic Scholar prefix, or a venue tag such as `nsdi20-` when that is unknown.
 
 When adding an entirely new topic, create a new top-level directory with a `README.md` whose first line is `# <Topic Title>`.
 
