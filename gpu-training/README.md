@@ -36,7 +36,7 @@ Entry format: **Paper** (title link — institution · venue year), **Why** (one
 - **Code:** [InternLM/AcmeTrace](https://github.com/InternLM/AcmeTrace)
 - **Deep read:** [deep-read note](acme/2403.07648-characterization-of-large-language-model-development-in-the.md)
 
-Also: [MegaScale-MoE: Large-Scale Communication-Efficient Training of Mixture-of-Experts Models in Production](https://arxiv.org/abs/2505.11432) — ByteDance Seed, Peking University · arXiv 2025 — MoE-specific parallelism, overlap and compression; why: MoE all-to-all, not dense compute, is now the scaling bottleneck in production training.
+Also: [MegaScale-MoE: Large-Scale Communication-Efficient Training of Mixture-of-Experts Models in Production](https://arxiv.org/abs/2505.11432) — ByteDance Seed, Peking University · EuroSys 2026 — MoE-specific parallelism, overlap and compression; why: MoE all-to-all, not dense compute, is now the scaling bottleneck in production training.
 
 ## Reliability, checkpointing & fault tolerance
 
