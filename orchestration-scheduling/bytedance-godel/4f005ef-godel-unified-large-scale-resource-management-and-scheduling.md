@@ -25,7 +25,7 @@ written_at: '2026-11-25'
 
 > **Why it matters:** It shows how to put online microservices, batch and ML training into one Kubernetes-compatible resource pool of tens of thousands of nodes. It does this by splitting the scheduler into a dispatcher, partitioned optimistic schedulers and a single conflict-checking binder, with gang semantics built in.
 
-*Provenance:* the ACM full text could not be fetched for this note. The design and numbers below come from the paper's abstract, ByteDance's own Chinese write-up of the paper (Volcano Engine developer blog, "SoCC 论文解读"), the CNCF open-sourcing post, the KubeCon NA 2024 talk slides, and the repo docs. Section references point to those sources, not to paper sections.
+*Provenance:* the ACM full text could not be fetched for this note. The design and numbers below come from the paper's abstract, ByteDance's own Chinese write-up of the paper (Volcano Engine developer blog, "SoCC 论文解读"), the CNCF open-sourcing post, the KubeCon NA 2024 talk slides, and the repo docs. Section references point to those sources, not to paper sections. On 2026-11-25 every number was re-checked against the write-up, the CNCF post, the KubeCon slides and the repo (two matching fetches each). The ACM abstract page could not be re-read then, so figures are now cited to the sources that could.
 
 ## Problem
 
@@ -35,12 +35,12 @@ ByteDance ran separate, per-business-group clusters on Kubernetes (online) and Y
 - YARN: high throughput and gang-style semantics at scale, but a poor fit for long-running microservices.
 - Volcano: gang and queue semantics on Kubernetes, but low throughput and no online support.
 
-The target: one Kubernetes-compatible pool with high utilization and elasticity, over 1,000 pods/s, and topology-aware placement.
+The target: one Kubernetes-compatible pool with high utilization and elasticity, over 1,000 pods/s, and topology-aware placement (Volcano Engine write-up, "Motivation").
 
 ## Core design
 
 ### Unified pool on Kubernetes
-Gödel is built on Kubernetes, with the scheduler and some components replaced or extended (abstract). It can replace kube-scheduler for pods that set `schedulerName: godel-scheduler` (repo docs). Node-side resource state, including micro-topology such as per-socket CPU and memory, comes from a separate CRD, CNR (Custom Node Resource), which ByteDance's node agent Katalyst keeps up to date. This lets the scheduler place topology-sensitive pods correctly instead of failing kubelet admission. Load-aware filtering and NUMA-level placement also depend on Katalyst (KubeCon slides). Online and offline capacity is shared, and resource reservation lets offline work borrow idle online capacity off-peak while online services keep fast scale-up.
+Gödel is built on Kubernetes, with the scheduler and some components replaced or extended (abstract). Node-side resource state, including micro-topology such as per-socket CPU and memory, comes from a separate CRD, CNR (Custom Node Resource), which ByteDance's node agent Katalyst keeps up to date. This lets the scheduler place topology-sensitive pods correctly instead of failing kubelet admission (Volcano Engine write-up). Load-aware filtering and NUMA-level placement also depend on Katalyst (KubeCon slides). Online and offline capacity is shared, and resource reservation lets offline work borrow idle online capacity off-peak while online services keep fast scale-up.
 
 ### Dispatcher / Scheduler / Binder split
 - **Dispatcher (single instance):** the entry point. It holds a sort policy manager (FIFO in production; DRF/FairShare implemented but not used in production per CNCF post; priority queuing planned) and a pluggable dispatching policy (default: load balancing across scheduler instances). Its Node Shuffler partitions nodes so that each node belongs to exactly one partition and each scheduler instance owns one. A Scheduler Maintainer tracks instance health, load and partition size, and a Reconciler periodically checks Pods, Nodes, Schedulers and SchedulingUnits for inconsistencies.
@@ -50,7 +50,7 @@ Gödel is built on Kubernetes, with the scheduler and some components replaced o
 ByteDance's write-up notes that partition-local decisions are only locally optimal and that conflicts grow with instance count, so instance count is a tuning knob.
 
 ### Unit (gang) semantics
-Gödel uses two levels. A **Scheduling Unit** is a deployment or job (a PodGroup or a ReplicaSet). A **Running Unit** is a pod. A unit is admitted only if at least `Min_Member` pods find feasible nodes; otherwise the whole unit is rejected. `Min_Member = 1` gives kube-scheduler-like behaviour for microservices. `Min_Member = N` gives all-or-nothing gangs for batch and training, and intermediate values are set from the workload type or template (Volcano Engine write-up, "Two-level scheduling"). In the open-source API this is a `PodGroup` CRD with `spec.minMember` and `spec.scheduleTimeoutSeconds`, and pods join it via a label and annotation (repo `docs/features/gang-scheduling.md`). Job-level affinity adds hard and soft constraints that keep a whole job inside one topology domain, e.g. a network segment for ML training (KubeCon slides).
+Gödel uses two levels. A **Scheduling Unit** is a deployment or job (a PodGroup or a ReplicaSet). A **Running Unit** is a pod. A unit is admitted only if at least `Min_Member` pods find feasible nodes; otherwise the whole unit is rejected. `Min_Member = 1` gives kube-scheduler-like behaviour for microservices. `Min_Member = N` gives all-or-nothing gangs for batch and training, and intermediate values are set from the workload type or template (Volcano Engine write-up, "Two-level scheduling"). In the open-source API this is a `PodGroup` CRD with `spec.minMember` and `spec.scheduleTimeoutSeconds`, and pods join it via a label and annotation (repo `docs/features/gang-scheduling.md`). Job-level affinity adds hard and soft constraints that keep a whole job inside one topology domain.
 
 ### Throughput techniques
 - **Candidate-node caching:** pods of one unit usually have identical requirements. Feasible nodes found for the first pod are reused, and the cache is invalidated on cluster change or when a pod's requirements differ.
@@ -65,19 +65,19 @@ According to the abstract, Gödel replaced the fragmented Kubernetes and YARN cl
 
 | What | Value | Setting | Source |
 |---|---|---|---|
-| Production cluster size | tens of thousands of machines | production | Abstract |
+| Production cluster size | tens of thousands of nodes | production | Volcano Engine write-up |
 | Largest production cluster | 20,000+ nodes, 1,000,000+ pods | production | CNCF blog |
-| Peak scheduling throughput | up to 5,000 pods/s | production / multi-instance | Abstract |
-| Overall resource utilization | over 60% | production | Abstract |
+| Peak scheduling throughput | about 5,000 pods/s (write-up); 5,000+ pods/s across multiple shards, 2,000+ in one shard (CNCF) | production / multi-instance | Volcano Engine write-up; CNCF blog |
+| Resource utilization at peak | >60% CPU, >95% GPU | production | Volcano Engine write-up |
 | Utilization by time of day | >60% evening peak, ~40% daytime trough (average) | production | Volcano Engine write-up, "Results" |
-| kube-scheduler baseline | <200 pods/s, ~5,000-node clusters | ByteDance's comparison | Volcano Engine write-up, "Motivation/Results" |
-| Single-instance throughput | ~2,600 pods/s at 5,000 nodes; ~2,000 pods/s at 20,000 nodes | microservice benchmark | Volcano Engine write-up, "Results" |
+| kube-scheduler baseline | <200 pods/s, clusters of at most 5,000 nodes | ByteDance's comparison | Volcano Engine write-up, "Motivation/Results" |
+| Single-instance throughput | ~2,600 pods/s at 5,000 nodes; ~2,000 pods/s at 20,000 nodes; over 10x kube-scheduler | microservice benchmark | Volcano Engine write-up, "Results" |
 | Multi-instance peak | ~4,600 pods/s; declines beyond 5 instances | 10,000 nodes, 1–6 scheduler instances | Volcano Engine write-up, "Results" |
-| Mixed online/offline | ~2,000 pods/s, roughly flat across offline share | single instance | Volcano Engine write-up, "Results" |
+| Mixed online/offline | ~2,000 pods/s, roughly flat across offline share | varying online/offline mix | Volcano Engine write-up, "Results" |
 | Gang throughput vs. YARN | nearly 2x | gang workloads | Volcano Engine write-up, "Results" |
 | Ablation | caching ~60% of gain, reduced scan ~30% | microbenchmark | Volcano Engine write-up, "Results" |
-| CPU utilization before/after | ~30% before; ~50% average, up to 60% in an ultra-large cluster | production | KubeCon NA 2024 slides, "Results" |
-| SLO targets | P99 scheduling latency < 1 min; ≤ 1,000 pods/s design load | design target | KubeCon NA 2024 slides, "Architecture" |
+| CPU utilization before/after | ~30% before; ~50% average, up to 60% in an ultra-large cluster | production | KubeCon NA 2024 slides, "Achievements" |
+| Scheduling requirements (slides) | P99 scheduling latency < 1 min; throughput ≤ 1,000 pods/s | as worded on the slide; the write-up states the requirement as > 1,000 pods/s | KubeCon NA 2024 slides, "Scheduling at Hyper-Scale Infrastructure" |
 
 ## Limitations
 
@@ -85,7 +85,7 @@ According to the abstract, Gödel replaced the fragmented Kubernetes and YARN cl
 - Partition-local search and the bounded scan give locally optimal placements. There is no global packing or rebalancing after placement; a separate Gödel Rescheduler is listed as future work.
 - Throughput under high deployment rates and heavy preemption is named as an open problem. The SoCC 2025 follow-up (below) targets exactly the latency spikes seen during surges.
 - Queueing is FIFO in production. Fair-share and priority queuing are not yet in use, so multi-tenant fairness relies on quota elsewhere.
-- Topology and load-aware features depend on Katalyst and CNR; the open-source scheduler alone does not reproduce the co-location story. The repo README pins Kubernetes 1.21–1.24.
+- Topology and load-aware features depend on Katalyst and CNR; the open-source scheduler alone does not reproduce the co-location story. The repo README states support for Kubernetes 1.21.4 up to 1.24.6.
 
 ## Relation to other systems
 
@@ -95,7 +95,7 @@ According to the abstract, Gödel replaced the fragmented Kubernetes and YARN cl
 - **Twine (OSDI 2020):** one control plane over large shared pools, with entitlements and host-level customization. Gödel's goal, retiring per-team pools, is similar. Gödel stays per-cluster and Kubernetes-native rather than region-wide.
 - **YARN (SoCC 2013):** a two-level RM plus per-application AM, strong for batch. Gödel folds gang and batch semantics into the scheduler itself (the unit framework), so no per-job AM negotiates containers, and it serves long-running services too.
 - **Volcano / Kueue:** Volcano is a batch scheduler on Kubernetes with PodGroups and queues; Gödel claims far higher gang throughput and also covers online pods. Kueue is admission-level job queueing in front of kube-scheduler and does not place pods. Gödel's unit framework does placement plus gang admission, but its queueing and quota are less developed in production.
-- **Follow-up, "From Bottleneck to Breakthrough" (SoCC 2025, DOI 10.1145/3772052.3772240):** only the abstract was read. It targets scheduling delays in Kubernetes clusters above 10,000 nodes under sudden surges. It reports up to two orders of magnitude lower delay from redesigned data structures, algorithms and runtime strategies, deployed in production.
+- **Follow-up, "From Bottleneck to Breakthrough" (SoCC 2025, DOI 10.1145/3772052.3772240):** only the abstract was read when the note was written, and the DOI page could not be re-read for the 2026-11-25 check, so this summary is unverified. It targets scheduling delays in Kubernetes clusters above 10,000 nodes under sudden surges. It reports up to two orders of magnitude lower delay from redesigned data structures, algorithms and runtime strategies, deployed in production.
 
 ## Takeaways for practice
 
